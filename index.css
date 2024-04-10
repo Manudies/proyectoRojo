@@ -1,0 +1,20 @@
+:root {
+  --main-backgroundHeader: ##f0f8ff;
+  
+}
+
+*{
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+.preferencesContainer_index{
+  background-color: var(--main-backgroundHeader);
+  border-radius: 5px;
+}
+
+.header_index{
+  background-color: #f0f8ff;
+}
+
