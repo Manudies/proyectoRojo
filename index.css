@@ -1,20 +1,111 @@
-:root {
-  --main-backgroundHeader: ##f0f8ff;
-  
+ :root {
+  --lightYellow: #fffdee;
+  --darkBlue: #0b0b77;
+  --blue: #1919c2;
+  --lightBlue: #4f4fff;
+  --yellow: #ffe100;
 }
+
 
 *{
   box-sizing: border-box;
   margin: 0;
   padding: 0;
+  font-family: raleway;
+}
+
+
+body{
+  width: 100vw;
+  height: 100vh;
+}
+
+
+.mainContainer_index{
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .preferencesContainer_index{
-  background-color: var(--main-backgroundHeader);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--lightYellow);
+  margin-left: 10vw;
+  margin-right: 10vw;
+  padding-top: 2.5vh;
+  padding-bottom: 2.5vh;
   border-radius: 5px;
 }
 
-.header_index{
-  background-color: #f0f8ff;
+
+.questionPreferences{
+  font-size: 1rem;
+  font-weight: 600;
+  color: #0b0b77;
+  margin-bottom: 1vh;
 }
+
+
+
+.radioButtonPreferencesContainer{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+}
+
+
+
+.radioButtonContainer{
+  position: relative;
+  width: 6rem;
+  height: 6rem;
+  margin: 3%;
+}
+
+.radioButtonContainer input{
+  cursor: pointer;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  z-index: 10;
+  opacity: 0;
+}
+
+
+.radioButtonContainer .radioTile{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  border-radius: 9px;
+  height: 100%;
+  outline: 2px solid var(--darkBlue);
+  transition: all 250ms ease;
+} 
+
+
+.radioButtonContainer ion-icon{
+  color: var(--darkBlue);
+  font-size: 2rem;
+}
+
+
+input:checked + .radioTile {
+  background-color: var(--blue);
+  box-shadow: 5px 5px 8px var(--lightBlue);
+}
+
+input:checked + .radioTile ion-icon{
+  color: var(--yellow);
+}
+
+.namePreferenceTxt{
+  font-size: 1rem;
+  color: var(--blue);
+} 
 

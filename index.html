@@ -4,39 +4,126 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Agenda Cultural Euskadi</title>
+  
+  <!-- CSS -->
   <link rel="stylesheet" href="index.css">
+
+  <!-- GOOGLE FONTS -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+
 </head>
+
 <body>
   
   <div class="mainContainer_index" id="mainContainer_index">
     
-    <div class="header_index" id="header_index">
+    <!-- <div class="header_index" id="header_index">
         <p class="pHeader_index" id="pHeader_index">La mejor agenda cultural de Bilbao y alrededores</p>
         <img src="" alt="">
-    </div>
+    </div> -->
+    
     <div class="preferencesContainer_index" id="preferencesContainer_index">
 
-        <h2 class="titlePreferences">Bienvenida</h2>
-        <p class="questionPreferences">De qué tienes ganas hoy?</p>
+        <!-- <h2 class="titlePreferences">Bienvenida</h2> -->
+    
+        <p class="questionPreferences">¿De qué tienes ganas hoy?</p>
         
-        <div class="buttonsPreferencesContainer" id="buttonsPreferencesContainer">
+        <div class="radioButtonPreferencesContainer" id="radioButtonPreferencesContainer">
+        
           
-          <label for="preference1">Fiesta</label>
-          <input type="radio" name="preferences" id="preference1">
-          <label for="preference2">Bailar</label>
-          <input type="radio" name="preferences" id="preference2">
-          <label for="preference3">Cultura</label>
-          <input type="radio" name="preferences" id="preference3">
-          <label for="preference3">Gastronomía</label>
-          <input type="radio" name="preferences" id="preference4">
-          <label for="preference3">Aire libre</label>
-          <input type="radio" name="preferences" id="preference5">
-          <label for="preference3">Familiar</label>
-          <input type="radio" name="preferences" id="preference6">
+          <!-- RADIO BUTTON PREFERENCE 1 (FIESTA) -->
+            <div class="radioButtonContainer" id="radioButtonContainer">
+                
+                <input type="radio" id="preference1" name="preferences" >
+                
+                <div class="radioTile" id="radioTile1">
+                  
+                  <ion-icon name="beer"></ion-icon>
+                  <label for="preference1"></label>
+                
+                </div>
+
+            </div>
+
+
+
+
+            <!-- RADIO BUTTON PREFERENCE 2 (BAILAR) -->
+            <div class="radioButtonContainer" id="radioButtonContainer">
+                
+              <input type="radio" id="preference2" name="preferences" >
+              
+              <div class="radioTile" id="radioTile2">
+                
+                <ion-icon name="rainy"></ion-icon>
+                <label for="preference2"></label>
+              
+              </div>
+
+            </div>
+
+            <!-- RADIO BUTTON PREFERENCE 3 (CULTURA) -->
+            <div class="radioButtonContainer" id="radioButtonContainer">
+                
+              <input type="radio" id="preference3" name="preferences" >
+              
+              <div class="radioTile" id="radioTile3">
+                
+                <ion-icon name="color-palette"></ion-icon>
+                <label for="preference3"></label>
+              
+              </div>
+
+            </div>
+            
+            <!-- RADIO BUTTON PREFERENCE 4 (GASTRONOMIA) -->
+            <div class="radioButtonContainer" id="radioButtonContainer">
+                
+              <input type="radio" id="preference4" name="preferences" >
+              
+              <div class="radioTile" id="radioTile4">
+                
+                <ion-icon name="pizza"></ion-icon>
+                <label for="preference4"></label>
+              
+              </div>
+
+            </div>
+
+            <!-- RADIO BUTTON PREFERENCE 5 (AIRE LIBRE) -->
+            <div class="radioButtonContainer" id="radioButtonContainer">
+                
+              <input type="radio" id="preference5" name="preferences" >
+              
+              <div class="radioTile" id="radioTile5">
+                
+                <ion-icon name="sunny"></ion-icon>
+                <label for="preference5"></label>
+              
+              </div>
+
+            </div>
+            
+            <!-- RADIO BUTTON PREFERENCE 6 (FAMILIA) -->
+            <div class="radioButtonContainer" id="radioButtonContainer">
+                
+              <input type="radio" id="preference6" name="preferences" >
+              
+              <div class="radioTile" id="radioTile6">
+                
+                <ion-icon name="people"></ion-icon>
+                <label for="preference5"></label>
+              
+              </div>
+
+            </div>
 
         </div>
         
-        <button class="savePreferencesButton" id="savePreferencesButton">BUSCAR</button>
+        <p class="namePreferenceTxt" id="namePreferenceTxt">ESCOGE UN TIPO DE ACTIVIDAD</p>
+        <!-- <button class="savePreferencesButton" id="savePreferencesButton">BUSCAR</button> -->
     </div>
       
 
@@ -45,6 +132,13 @@
 
   </div>
 
+  <!-- JS -->
   <script src="index.js"></script>
+
+  <!-- ION ICONS -->
+  <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+  <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+
 </body>
+
 </html>
