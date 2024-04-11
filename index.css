@@ -4,6 +4,16 @@
   --blue: #1919c2;
   --lightBlue: #4f4fff;
   --yellow: #ffe100;
+
+  --color0: #0c451c;
+  --color0-1: #125b27;
+  --color1: #2B9348;
+  --color2: #55A630;
+  --color3: #81B918;
+  --color4: #edcb7a;
+  --color5: #fbe09e;
+  --color6: #e9f1eb;
+
 }
 
 
@@ -18,38 +28,68 @@
 body{
   width: 100vw;
   height: 100vh;
+  background-color: var(--color6);
 }
 
 
 .mainContainer_index{
   height: 100%;
   display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.preferencesContainer_index{
-  display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  background-color: var(--lightYellow);
+  /* padding-top: 5rem; */
+}
+
+.containerNamePage_index{
+  /* display: inline-flex; */
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 2rem;
+}
+
+.namePage{
+  font-size: 2.7rem;
+  font-weight: 800;
+}
+
+.namePage_aburr{
+  color: var(--color0-1);
+  text-decoration: line-through;
+}
+
+.namePage ion-icon{
+  padding: .5rem;
+  font-size: 2rem;
+  background-color: #ffe100;
+  border-radius: 50%;
+  font-weight: 800;
+}
+
+.preferencesContainer_index{
+  display: none;
+  opacity: 0;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--color5);
+  /* outline: 3px solid var(--color3); */
   margin-left: 10vw;
   margin-right: 10vw;
   padding-top: 2.5vh;
   padding-bottom: 2.5vh;
-  border-radius: 5px;
+  border-radius: 4px;
+  transform: translateY(30%);
+  transition: all 300ms ease;
 }
-
 
 .questionPreferences{
   font-size: 1rem;
   font-weight: 600;
-  color: #0b0b77;
+  color: var(--color0);
   margin-bottom: 1vh;
+  
 }
-
-
 
 .radioButtonPreferencesContainer{
   display: flex;
@@ -58,12 +98,10 @@ body{
   align-items: center;
 }
 
-
-
 .radioButtonContainer{
   position: relative;
-  width: 6rem;
-  height: 6rem;
+  width: 5rem;
+  height: 5rem;
   margin: 3%;
 }
 
@@ -76,28 +114,27 @@ body{
   opacity: 0;
 }
 
-
 .radioButtonContainer .radioTile{
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  border-radius: 9px;
+  border-radius: 10px;
   height: 100%;
-  outline: 2px solid var(--darkBlue);
+  outline: 3px solid white;
+  background-color: rgba(255, 255, 255, 0.103);
   transition: all 250ms ease;
 } 
 
-
 .radioButtonContainer ion-icon{
-  color: var(--darkBlue);
-  font-size: 2rem;
+  color: white;
+  font-size: 2.5rem;
 }
 
-
 input:checked + .radioTile {
-  background-color: var(--blue);
-  box-shadow: 5px 5px 8px var(--lightBlue);
+  outline: 2px solid var(--color1);
+  background-color: var(--color1);
+  box-shadow: 2px 2px 8px var(--color2);
 }
 
 input:checked + .radioTile ion-icon{
@@ -105,7 +142,14 @@ input:checked + .radioTile ion-icon{
 }
 
 .namePreferenceTxt{
-  font-size: 1rem;
-  color: var(--blue);
+  font-size: 1.9rem;
+  font-weight: 800;
+  padding-bottom: .5rem;
+  color: var(--color0);
+  text-shadow: 1px 1px var(--color3);
 } 
+
+.divEvents{
+  display: none;
+}
 
