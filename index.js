@@ -113,4 +113,37 @@ function addEvents(events){
     
 }
 
+
+});
+
+
+
+async function getData(){
+    const url = new URL("https://api.euskadi.eus/culture/events/v1.0/events")
+    url.searchParams.append("_elements",200);
+    console.log(url.toString());
+    
+  
+    const response = await fetch(url.toString());
+    //console.log(response);
+    const data =  await response.json();
+    console.log(data);
+    addEvents(data.items)
+
+}
+
+function addEvents(events){
+    const divEvents = document.getElementById("eventos");
+    events.forEach((event,index) => {
+        const name = document.createElement("h1");
+        name.innerText=index + "- "+event.nameEs
+        const typeEs = document.createElement("h2");
+        typeEs.innerText=index + "- "+event.typeEs
+        
+        divEvents.appendChild(name);
+        divEvents.appendChild(typeEs);
+
+    });
+}
+
 getData();
