@@ -39,6 +39,7 @@ const preferencesContainer_index = document.getElementById("preferencesContainer
 preference1.addEventListener("click",  ()=>{
 
   namePreferenceTxt.innerText="¡MARCHA!";
+  
 
 });
 
@@ -82,10 +83,13 @@ async function getData(){
     url.searchParams.append("_elements",100);
 
     const response = await fetch(url.toString());
+    console.log(url.toString());
+
     
     const data =  await response.json();
 
     addEvents(data.items);
+    addMunicipio(data.items);
 
 }
 
@@ -101,23 +105,47 @@ function addEvents(events){
     }
 
     const ns = new Set(typeArray);
-    const uniqueTypeArray = [...ns];
-    console.log(uniqueTypeArray);
+    const uniqueTypeArrayEvents = [...ns];
+    console.log(uniqueTypeArrayEvents);
 
-    for(let j=0; j < uniqueTypeArray.length; j++){
+    for(let j=0; j < uniqueTypeArrayEvents.length; j++){
       const name = document.createElement("p");
-      name.innerText = uniqueTypeArray[j]; 
+      name.innerText = uniqueTypeArrayEvents[j]; 
       divEvents.appendChild(name);
       
     }
     
-}
+};
 
 
-});
+function addMunicipio (municipio){
+    
+  let typeArray = [];
+  // let name;
+
+  for(let i=0; i < municipio.length; i++){
+  
+      typeArray[i] =  municipio[i].municipalityEs;
+      
+  }
+
+  const ns = new Set(typeArray);
+  const uniqueTypeArrayMunicipality = [...ns];
+  console.log(uniqueTypeArrayMunicipality);
+
+  for(let j=0; j < uniqueTypeArrayMunicipality.length; j++){
+    const name = document.createElement("p");
+    name.innerText = uniqueTypeArrayMunicipality[j]; 
+    divMunicipalityEs.appendChild(name);
+    
+  }
+  
+};
 
 
 
+
+/*
 async function getData(){
     const url = new URL("https://api.euskadi.eus/culture/events/v1.0/events")
     url.searchParams.append("_elements",200);
@@ -145,5 +173,5 @@ function addEvents(events){
 
     });
 }
-
+*/
 getData();
