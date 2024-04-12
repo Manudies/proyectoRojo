@@ -153,10 +153,7 @@ function addEvents(events){
       
     }
     
-}
-
-
-});
+};
 
 
 
