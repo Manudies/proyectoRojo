@@ -1,7 +1,5 @@
-
-
+//Guardamos en variables los elementos preference, divEvents y preferencesContainer_index
 const namePreferenceTxt = document.getElementById("namePreferenceTxt");
-
 const preference1 = document.getElementById("preference1");
 const preference2 = document.getElementById("preference2");
 const preference3 = document.getElementById("preference3");
@@ -28,122 +26,86 @@ const preferencesContainer_index = document.getElementById("preferencesContainer
   }, "400");
 
 
-
-
-
-
-
-
-// *********
-
+// Agregamos los listener a los botones de las preferencias
 preference1.addEventListener("click",  ()=>{
-
   namePreferenceTxt.innerText="¡MARCHA!";
-
 });
 
 preference2.addEventListener("click",  ()=>{
-
   namePreferenceTxt.innerText="DE INTERIOR";
-
 });
 
 preference3.addEventListener("click",  ()=>{
-
   namePreferenceTxt.innerText="CULTURETA";
-
 });
 
 preference4.addEventListener("click",  ()=>{
-
   namePreferenceTxt.innerText="GASTROPINTXO";
-
 });
 
 preference5.addEventListener("click",  ()=>{
-
   namePreferenceTxt.innerText="AL SOLETE";
-
 });
 
 preference6.addEventListener("click",  ()=>{
-
   namePreferenceTxt.innerText="ARREJUNTAUS";
-
 });
 
-// *********
-
-
+// Creamos la funcion de consulta de la API de cultura y guardamos en JSON, llamamos a las funcion addEvents
 async function getData(){
-  
     const url = new URL("https://api.euskadi.eus/culture/events/v1.0/events")
-    
     url.searchParams.append("_elements",100);
-
     const response = await fetch(url.toString());
-    
     const data =  await response.json();
 
     addEvents(data.items);
-
 }
 
-function addEvents(events){
-    
+// Crea un array con tipos de eventos sin repetir
+function addEvents(events){  
     let typeArray = [];
     // let name;
 
     for(let i=0; i < events.length; i++){
-    
         typeArray[i] =  events[i].typeEs;
-        
     }
-
     const ns = new Set(typeArray);
     const uniqueTypeArray = [...ns];
     console.log(uniqueTypeArray);
-
+// esta parte lo manda al HTML
     for(let j=0; j < uniqueTypeArray.length; j++){
       const name = document.createElement("p");
       name.innerText = uniqueTypeArray[j]; 
       divEvents.appendChild(name);
-      
     }
-    
 }
 
-
-});
-
-
-
-async function getData(){
-    const url = new URL("https://api.euskadi.eus/culture/events/v1.0/events")
-    url.searchParams.append("_elements",200);
-    console.log(url.toString());
+// async function getData(){
+//     const url = new URL("https://api.euskadi.eus/culture/events/v1.0/events")
+//     url.searchParams.append("_elements",200);
+//     console.log(url.toString());
     
   
-    const response = await fetch(url.toString());
-    //console.log(response);
-    const data =  await response.json();
-    console.log(data);
-    addEvents(data.items)
+//     const response = await fetch(url.toString());
+//     //console.log(response);
+//     const data =  await response.json();
+//     console.log(data);
+//     addEvents(data.items)
 
-}
+// }
 
-function addEvents(events){
-    const divEvents = document.getElementById("eventos");
-    events.forEach((event,index) => {
-        const name = document.createElement("h1");
-        name.innerText=index + "- "+event.nameEs
-        const typeEs = document.createElement("h2");
-        typeEs.innerText=index + "- "+event.typeEs
+// function addEvents(events){
+//     const divEvents = document.getElementById("eventos");
+//     events.forEach((event,index) => {
+//         const name = document.createElement("h1");
+//         name.innerText=index + "- "+event.nameEs
+//         const typeEs = document.createElement("h2");
+//         typeEs.innerText=index + "- "+event.typeEs
         
-        divEvents.appendChild(name);
-        divEvents.appendChild(typeEs);
+//         divEvents.appendChild(name);
+//         divEvents.appendChild(typeEs);
 
-    });
-}
+//     });
+// }
 
 getData();
