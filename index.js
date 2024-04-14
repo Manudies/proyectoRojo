@@ -57,9 +57,31 @@ async function getData(){
     url.searchParams.append("_elements",500);
     const response = await fetch(url.toString());
     const data =  await response.json();
-    console.log(data)
+    // console.log(data)
 
     addEvents(data.items);
+}
+//Filtro por eventos
+async function evenType(){
+  const url = new URL("https://api.euskadi.eus/culture/events//v1.0/eventType")
+  // url.searchParams.append("_elements",500);
+  const response = await fetch(url.toString());
+  const event =  await response.json();
+
+  console.log (event)
+
+  // addEvents(data.items);
+}
+
+//Filtro por mes
+async function month(month){
+  const url = new URL("https://api.euskadi.eus/culture/events/v1.0/events/byMonth/2024/0"+month+"?_elements=20&_page=1")
+  // url.searchParams.append("_elements",500);
+  const response = await fetch(url.toString());
+  const eventmonth =  await response.json();
+  console.log(eventmonth)
+
+   // addEvents(data.items);
 }
 
 // Crea un array con tipos de eventos sin repetir
@@ -72,7 +94,7 @@ function addEvents(events){
     }
     const ns = new Set(typeArray);
     const uniqueTypeArray = [...ns];
-    console.log(uniqueTypeArray);
+    // console.log(uniqueTypeArray);
 // esta parte lo manda al HTML
     for(let j=0; j < uniqueTypeArray.length; j++){
       const name = document.createElement("p");
@@ -110,3 +132,5 @@ function addEvents(events){
 // }
 
 getData();
+evenType();
+month(5);
