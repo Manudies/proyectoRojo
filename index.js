@@ -61,16 +61,29 @@ async function getData(){
 
     addEvents(data.items);
 }
-//Filtro por eventos
-async function evenType(){
+//Filtro de los tipos de eventos existentes en la API
+async function evenTypes(){
   const url = new URL("https://api.euskadi.eus/culture/events//v1.0/eventType")
+  // url.searchParams.append("_elements",500);
+  const response = await fetch(url.toString());
+  const eventTypes =  await response.json();
+
+  console.log (eventTypes)
+
+  // addEvents(data.items);
+}
+
+//Filtro por eventos
+async function evenType(type){
+  const url = new URL("https://api.euskadi.eus/culture/events/v1.0/events/byType/"+type+"?_elements=20&_page=1")
   // url.searchParams.append("_elements",500);
   const response = await fetch(url.toString());
   const event =  await response.json();
 
-  console.log (event)
+  console.log (event.items)
+  // console.log (event.items[0].nameEs);
 
-  // addEvents(data.items);
+  addEvents(event.items);
 }
 
 //Filtro por mes
@@ -79,29 +92,29 @@ async function month(month){
   // url.searchParams.append("_elements",500);
   const response = await fetch(url.toString());
   const eventmonth =  await response.json();
-  console.log(eventmonth)
+  // console.log(eventmonth)
 
    // addEvents(data.items);
 }
 
 // Crea un array con tipos de eventos sin repetir
-function addEvents(events){  
-    let typeArray = [];
-    // let name;
+// function addEvents(events){  
+//     let typeArray = [];
+//     // let name;
 
-    for(let i=0; i < events.length; i++){
-        typeArray[i] =  events[i].typeEs;
-    }
-    const ns = new Set(typeArray);
-    const uniqueTypeArray = [...ns];
-    // console.log(uniqueTypeArray);
-// esta parte lo manda al HTML
-    for(let j=0; j < uniqueTypeArray.length; j++){
-      const name = document.createElement("p");
-      name.innerText = uniqueTypeArray[j]; 
-      divEvents.appendChild(name);
-    }
-}
+//     for(let i=0; i < events.length; i++){
+//         typeArray[i] =  events[i].typeEs;
+//     }
+//     const ns = new Set(typeArray);
+//     const uniqueTypeArray = [...ns];
+//     // console.log(uniqueTypeArray);
+// // esta parte lo manda al HTML
+//     for(let j=0; j < uniqueTypeArray.length; j++){
+//       const name = document.createElement("p");
+//       name.innerText = uniqueTypeArray[j]; 
+//       divEvents.appendChild(name);
+//     }
+// }
 
 // async function getData(){
 //     const url = new URL("https://api.euskadi.eus/culture/events/v1.0/events")
@@ -117,20 +130,30 @@ function addEvents(events){
 
 // }
 
-// function addEvents(events){
-//     const divEvents = document.getElementById("eventos");
-//     events.forEach((event,index) => {
-//         const name = document.createElement("h1");
-//         name.innerText=index + "- "+event.nameEs
-//         const typeEs = document.createElement("h2");
-//         typeEs.innerText=index + "- "+event.typeEs
+function addEvents(events){
+    console.log(events)
+    const divEvents = document.getElementById("divEvents");
+    events.forEach((event,index) => {
+        const contenedorEvento = document.createElement("div")
+        contenedorEvento.setAttribute("class","contenedorEvento")
+        const name = document.createElement("h1");
+        name.innerText = event.nameEs;
+        const typeEs = document.createElement("h2");
+        typeEs.innerText = event.typeEs
+        const description = document.createElement("p");
+        description.innerText = event.establishmentEs 
+        const fecha = document.createElement("p");
+        fecha.innerText = (event.startDate[8]+event.startDate[9]+event.startDate[7]+event.startDate[5]+event.startDate[6]+event.startDate[4]+event.startDate[0]+event.startDate[1]+event.startDate[2]+event.startDate[3])
         
-//         divEvents.appendChild(name);
-//         divEvents.appendChild(typeEs);
+        divEvents.appendChild(contenedorEvento)
+        contenedorEvento.appendChild(typeEs);
+        contenedorEvento.appendChild(name);
+        contenedorEvento.appendChild(description)
+        contenedorEvento.appendChild(fecha)
+    });
+}
 
-//     });
-// }
-
-getData();
-evenType();
-month(5);
+// getData();
+// evenTypes();
+// month(5);
+evenType(1)
