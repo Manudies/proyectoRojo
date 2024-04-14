@@ -28,28 +28,28 @@ const preferencesContainer_index = document.getElementById("preferencesContainer
 
 // Agregamos los listener a los botones de las preferencias
 preference1.addEventListener("click",  ()=>{
-  namePreferenceTxt.innerText="¡MARCHA!";
+  namePreferenceTxt.innerText="¡MÚSICA!";
 });
 
 preference2.addEventListener("click",  ()=>{
-  namePreferenceTxt.innerText="DE INTERIOR";
+  namePreferenceTxt.innerText="TEATRO";
 });
 
 preference3.addEventListener("click",  ()=>{
-  namePreferenceTxt.innerText="CULTURETA";
+  namePreferenceTxt.innerText="CINE";
 });
 
 preference4.addEventListener("click",  ()=>{
-  namePreferenceTxt.innerText="GASTROPINTXO";
+  namePreferenceTxt.innerText="FORMACIÓN";
 });
 
 preference5.addEventListener("click",  ()=>{
-  namePreferenceTxt.innerText="AL SOLETE";
+  namePreferenceTxt.innerText="OTROS";
 });
 
-preference6.addEventListener("click",  ()=>{
-  namePreferenceTxt.innerText="ARREJUNTAUS";
-});
+// preference6.addEventListener("click",  ()=>{
+//   namePreferenceTxt.innerText="ARREJUNTAUS";
+// });
 
 // Creamos la funcion de consulta de la API de cultura y guardamos en JSON, llamamos a las funcion addEvents
 async function getData(){
