@@ -149,6 +149,40 @@ input:checked + .radioTile ion-icon{
   text-shadow: 1px 1px var(--color3);
 } 
 
+.savePreferencesButton{
+  margin: 15px 0 10px;
+}
+
+.savePreferencesButton:hover{
+  border-radius: 10px;
+  box-shadow: 2px 2px var(--color0) ;
+}
+
+.savePreferencesButton:active{
+  box-shadow: 1px 1px var(--color0);
+}
+
+.saveButton{
+  font-size: 1.2rem;
+  cursor: pointer;
+  font-weight: 800;
+  color: var(--color0);
+  border: 1px;
+  border-radius: 10px;
+  border-color: var(--color5);
+  outline: 3px solid var(--lightYellow);
+  padding: 7px;
+  background-color: var(--color5);
+  text-shadow: 1px 1px var(--color3);;
+
+}
+
+.saveButton:hover{
+  background-color: var(--color1);
+  outline: var(--color1);
+  color: var(--yellow);
+}
+
 .divEvents{
   display: none;
 }

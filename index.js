@@ -54,9 +54,10 @@ preference6.addEventListener("click",  ()=>{
 // Creamos la funcion de consulta de la API de cultura y guardamos en JSON, llamamos a las funcion addEvents
 async function getData(){
     const url = new URL("https://api.euskadi.eus/culture/events/v1.0/events")
-    url.searchParams.append("_elements",100);
+    url.searchParams.append("_elements",500);
     const response = await fetch(url.toString());
     const data =  await response.json();
+    console.log(data)
 
     addEvents(data.items);
 }
