@@ -64,10 +64,7 @@ const preferenceRadioBtn1 = document.getElementById("preferenceRadioBtn1");
 const preferenceRadioBtn2 = document.getElementById("preferenceRadioBtn2");
 const preferenceRadioBtn3 = document.getElementById("preferenceRadioBtn3");
 const preferenceRadioBtn4 = document.getElementById("preferenceRadioBtn4");
-// const preferenceRadioBtn5 = document.getElementById("preferenceRadioBtn5");
-// const preferenceRadioBtn6 = document.getElementById("preferenceRadioBtn6");
-// const preferenceRadioBtn7 = document.getElementById("preferenceRadioBtn7");
-// const preferenceRadioBtn8 = document.getElementById("preferenceRadioBtn8");
+
 
 // PREFERENCE BTNS ONCLICK EVENTS
 preferenceRadioBtn0.addEventListener("click", ()=>{
@@ -102,28 +99,5 @@ preferenceRadioBtn4.addEventListener("click", ()=>{
 });
 
 
-// preferenceRadioBtn5.addEventListener("click", ()=>{
-//   containerPreferenceBtnDescription_index.style.display="flex";
-//   preferenceBtnDescriptionTxt.innerText="DEPORTE";
-//   vamosBtn_index.style.display="block";
-// });
-
-// preferenceRadioBtn6.addEventListener("click", ()=>{
-//   containerPreferenceBtnDescription_index.style.display="flex";
-//   preferenceBtnDescriptionTxt.innerText="ALTERNATIVO";
-//   vamosBtn_index.style.display="block";
-// });
-
-// preferenceRadioBtn7.addEventListener("click", ()=>{
-//   containerPreferenceBtnDescription_index.style.display="flex";
-//   preferenceBtnDescriptionTxt.innerText="¡FIESTA!";
-//   vamosBtn_index.style.display="block";
-// });
-
-// preferenceRadioBtn8.addEventListener("click", ()=>{
-//   containerPreferenceBtnDescription_index.style.display="flex";
-//   preferenceBtnDescriptionTxt.innerText="AL AIRE LIBRE";
-//   vamosBtn_index.style.display="block";
-// });
 
 // ***
