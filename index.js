@@ -8,6 +8,7 @@ const preferenceBtnDescriptionTxt = document.getElementById("preferenceBtnDescri
 
 const vamosBtn_index = document.getElementById("vamosBtn_index");
 
+const strFormacion = " - Formaciones - Formaciones - ";
 // ***
 
 preferencesToggle.addEventListener("mouseover", ()=>{
@@ -69,7 +70,16 @@ const preferenceRadioBtn4 = document.getElementById("preferenceRadioBtn4");
 // PREFERENCE BTNS ONCLICK EVENTS
 preferenceRadioBtn0.addEventListener("click", ()=>{
   containerPreferenceBtnDescription_index.style.display="flex";
-  preferenceBtnDescriptionTxt.innerText="FORMACIÓN";
+  // preferenceBtnDescriptionTxt.innerText="FORMACIÓN";
+  for(let i=0; i < strFormacion.length; i++){
+    let span = document.createElement("span");
+    span.innerHTML=strFormacion[i];
+    span.setAttribute("class", "spanLetter");
+    preferenceBtnDescriptionTxt.appendChild(span);
+    
+    span.style.transform=`rotate(${11 * i}deg)`;
+  }
+
   vamosBtn_index.style.display="block";
 });
 
