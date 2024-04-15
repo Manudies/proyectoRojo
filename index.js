@@ -1,5 +1,3 @@
-
-
 const namePreferenceTxt = document.getElementById("namePreferenceTxt");
 
 const preference1 = document.getElementById("preference1");
@@ -27,55 +25,33 @@ const preferencesContainer_index = document.getElementById("preferencesContainer
     preferencesContainer_index.style.opacity="1";
   }, "400");
 
-
-
-
-
-
-
-
 // *********
 
 preference1.addEventListener("click",  ()=>{
-
   namePreferenceTxt.innerText="¡MARCHA!";
-  
-
 });
 
 preference2.addEventListener("click",  ()=>{
-
   namePreferenceTxt.innerText="DE INTERIOR";
-
 });
 
 preference3.addEventListener("click",  ()=>{
-
   namePreferenceTxt.innerText="CULTURETA";
-
 });
 
 preference4.addEventListener("click",  ()=>{
-
   namePreferenceTxt.innerText="GASTROPINTXO";
-
 });
 
 preference5.addEventListener("click",  ()=>{
-
   namePreferenceTxt.innerText="AL SOLETE";
-
 });
 
 preference6.addEventListener("click",  ()=>{
-
   namePreferenceTxt.innerText="ARREJUNTAUS";
-
 });
 
 // *********
-
-
 async function getData(){
   
     const url = new URL("https://api.euskadi.eus/culture/events/v1.0/events")
@@ -90,6 +66,7 @@ async function getData(){
 
     addEvents(data.items);
     addMunicipio(data.items);
+    addName(data.items);
 
 }
 
@@ -111,8 +88,7 @@ function addEvents(events){
     for(let j=0; j < uniqueTypeArrayEvents.length; j++){
       const name = document.createElement("p");
       name.innerText = uniqueTypeArrayEvents[j]; 
-      divEvents.appendChild(name);
-      
+      divEvents.appendChild(name);  
     }
     
 };
@@ -143,35 +119,31 @@ function addMunicipio (municipio){
 };
 
 
-
-
-/*
-async function getData(){
-    const url = new URL("https://api.euskadi.eus/culture/events/v1.0/events")
-    url.searchParams.append("_elements",200);
-    console.log(url.toString());
+function addName (name){
     
+  let typeArray = [];
+  // let name;
+
+  for(let i=0; i < name.length; i++){
   
-    const response = await fetch(url.toString());
-    //console.log(response);
-    const data =  await response.json();
-    console.log(data);
-    addEvents(data.items)
+      typeArray[i] =  name[i].nameEs;
+      
+  }
 
-}
+  const ns = new Set(typeArray);
+  const uniqueTypeArrayName = [...ns];
+  console.log(uniqueTypeArrayName);
 
-function addEvents(events){
-    const divEvents = document.getElementById("eventos");
-    events.forEach((event,index) => {
-        const name = document.createElement("h1");
-        name.innerText=index + "- "+event.nameEs
-        const typeEs = document.createElement("h2");
-        typeEs.innerText=index + "- "+event.typeEs
-        
-        divEvents.appendChild(name);
-        divEvents.appendChild(typeEs);
+  for(let j=0; j < uniqueTypeArrayName.length; j++){
+    const name = document.createElement("p");
+    name.innerText = uniqueTypeArrayName[j]; 
+    divNameEs.appendChild(name);
+    
+  }
+  
+};
 
-    });
-}
-*/
+
+
+
 getData();
