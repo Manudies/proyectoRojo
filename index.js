@@ -94,11 +94,13 @@ preferenceRadioBtn3.addEventListener("click", ()=>{
   vamosBtn_index.style.display="block";
 });
 
+
 preferenceRadioBtn4.addEventListener("click", ()=>{
   containerPreferenceBtnDescription_index.style.display="flex";
   preferenceBtnDescriptionTxt.innerText="OTROS";
   vamosBtn_index.style.display="block";
 });
+
 
 // preferenceRadioBtn5.addEventListener("click", ()=>{
 //   containerPreferenceBtnDescription_index.style.display="flex";
