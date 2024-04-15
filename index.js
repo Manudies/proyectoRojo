@@ -116,16 +116,26 @@ function addEvents(events){
         name.innerText = event.nameEs;
         const typeEs = document.createElement("h2");
         typeEs.innerText = event.typeEs
-        const description = document.createElement("p");
-        description.innerText = event.establishmentEs 
+        const place = document.createElement("p");
+        //  COMPROBAMOS SI PLACEES ESTÁ VACIO
+        if (event.placeEs === undefined){
+          place.innerText=""
+        }
+        else{
+          place.innerText = event.placeEs
+        } 
+        
         const fecha = document.createElement("p");
         fecha.innerText = (event.startDate[8]+event.startDate[9]+event.startDate[7]+event.startDate[5]+event.startDate[6]+event.startDate[4]+event.startDate[0]+event.startDate[1]+event.startDate[2]+event.startDate[3])
+        const masInformacion = document.createElement("div")
+        masInformacion.innerText=("+")
         
         divEvents.appendChild(contenedorEvento)
         contenedorEvento.appendChild(typeEs);
         contenedorEvento.appendChild(name);
-        contenedorEvento.appendChild(description)
+        contenedorEvento.appendChild(place)
         contenedorEvento.appendChild(fecha)
+        contenedorEvento.appendChild(masInformacion)
     });
 }
 
