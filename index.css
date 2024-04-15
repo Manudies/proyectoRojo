@@ -149,10 +149,80 @@ input:checked + .radioTile ion-icon{
   text-shadow: 1px 1px var(--color3);
 } 
 
-.divEvents{
-  display: ;
+.savePreferencesButton{
+  margin: 15px 0 10px;
 }
 
-.divMunicipalityEs{
-  display: ;
+.savePreferencesButton:hover{
+  border-radius: 10px;
+  box-shadow: 2px 2px var(--color0) ;
+}
+
+.savePreferencesButton:active{
+  box-shadow: 1px 1px var(--color0);
+}
+
+.saveButton{
+  font-size: 1.2rem;
+  cursor: pointer;
+  font-weight: 800;
+  color: var(--color0);
+  border: 1px;
+  border-radius: 10px;
+  border-color: var(--color5);
+  outline: 3px solid var(--lightYellow);
+  padding: 7px;
+  background-color: var(--color5);
+  text-shadow: 1px 1px var(--color3);;
+
+}
+
+.saveButton:hover{
+  background-color: var(--color1);
+  outline: var(--color1);
+  color: var(--yellow);
+}
+
+.divEvents{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin-top: 15px;
+  width: 70%;
+  height: 00px;
+
+}
+
+.contenedorEvento{
+  background-color:var(--color5);
+  margin: 10px 10px;
+  display: flex;
+  flex-wrap: wrap;
+  border:#0b0b77;
+  border-color: black;
+  border-radius: 8px;
+  width: 200px;
+  height: 200px;
+}
+
+.contenedorEvento h1{
+  width: 100%;
+  text-align: center;
+  
+  font-size: 1.2rem;
+}
+
+.contenedorEvento h2{
+  padding: 5px;
+  width: 100%;
+  text-align: center;
+  font-size: 1rem;
+
+}
+
+.contenedorEvento p{
+    width: 100%;
+  text-align: center;
+  font-size: 0.8rem;
+
 }

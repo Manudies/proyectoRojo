@@ -1,5 +1,5 @@
+//Guardamos en variables los elementos preference, divEvents y preferencesContainer_index
 const namePreferenceTxt = document.getElementById("namePreferenceTxt");
-
 const preference1 = document.getElementById("preference1");
 const preference2 = document.getElementById("preference2");
 const preference3 = document.getElementById("preference3");
@@ -25,125 +25,135 @@ const preferencesContainer_index = document.getElementById("preferencesContainer
     preferencesContainer_index.style.opacity="1";
   }, "400");
 
-// *********
 
+// Agregamos los listener a los botones de las preferencias
 preference1.addEventListener("click",  ()=>{
-  namePreferenceTxt.innerText="¡MARCHA!";
+  namePreferenceTxt.innerText="¡MÚSICA!";
 });
 
 preference2.addEventListener("click",  ()=>{
-  namePreferenceTxt.innerText="DE INTERIOR";
+  namePreferenceTxt.innerText="TEATRO";
 });
 
 preference3.addEventListener("click",  ()=>{
-  namePreferenceTxt.innerText="CULTURETA";
+  namePreferenceTxt.innerText="CINE";
 });
 
 preference4.addEventListener("click",  ()=>{
-  namePreferenceTxt.innerText="GASTROPINTXO";
+  namePreferenceTxt.innerText="FORMACIÓN";
 });
 
 preference5.addEventListener("click",  ()=>{
-  namePreferenceTxt.innerText="AL SOLETE";
+  namePreferenceTxt.innerText="OTROS";
 });
 
-preference6.addEventListener("click",  ()=>{
-  namePreferenceTxt.innerText="ARREJUNTAUS";
-});
+// preference6.addEventListener("click",  ()=>{
+//   namePreferenceTxt.innerText="ARREJUNTAUS";
+// });
 
-// *********
+// Creamos la funcion de consulta de la API de cultura y guardamos en JSON, llamamos a las funcion addEvents
 async function getData(){
-  
     const url = new URL("https://api.euskadi.eus/culture/events/v1.0/events")
-    
-    url.searchParams.append("_elements",100);
-
+    url.searchParams.append("_elements",500);
     const response = await fetch(url.toString());
-    console.log(url.toString());
-
-    
     const data =  await response.json();
+    // console.log(data)
 
     addEvents(data.items);
-    addMunicipio(data.items);
-    addName(data.items);
+}
+//Filtro de los tipos de eventos existentes en la API
+async function evenTypes(){
+  const url = new URL("https://api.euskadi.eus/culture/events//v1.0/eventType")
+  // url.searchParams.append("_elements",500);
+  const response = await fetch(url.toString());
+  const eventTypes =  await response.json();
 
+  console.log (eventTypes)
+
+  // addEvents(data.items);
 }
 
+//Filtro por eventos
+async function evenType(type){
+  const url = new URL("https://api.euskadi.eus/culture/events/v1.0/events/byType/"+type+"?_elements=20&_page=1")
+  // url.searchParams.append("_elements",500);
+  const response = await fetch(url.toString());
+  const event =  await response.json();
+
+  console.log (event.items)
+  // console.log (event.items[0].nameEs);
+
+  addEvents(event.items);
+}
+
+//Filtro por mes
+async function month(month){
+  const url = new URL("https://api.euskadi.eus/culture/events/v1.0/events/byMonth/2024/0"+month+"?_elements=20&_page=1")
+  // url.searchParams.append("_elements",500);
+  const response = await fetch(url.toString());
+  const eventmonth =  await response.json();
+  // console.log(eventmonth)
+
+   // addEvents(data.items);
+}
+
+// Crea un array con tipos de eventos sin repetir
+// function addEvents(events){  
+//     let typeArray = [];
+//     // let name;
+
+//     for(let i=0; i < events.length; i++){
+//         typeArray[i] =  events[i].typeEs;
+//     }
+//     const ns = new Set(typeArray);
+//     const uniqueTypeArray = [...ns];
+//     // console.log(uniqueTypeArray);
+// // esta parte lo manda al HTML
+//     for(let j=0; j < uniqueTypeArray.length; j++){
+//       const name = document.createElement("p");
+//       name.innerText = uniqueTypeArray[j]; 
+//       divEvents.appendChild(name);
+//     }
+// }
+
+// async function getData(){
+//     const url = new URL("https://api.euskadi.eus/culture/events/v1.0/events")
+//     url.searchParams.append("_elements",200);
+//     console.log(url.toString());
+    
+  
+//     const response = await fetch(url.toString());
+//     //console.log(response);
+//     const data =  await response.json();
+//     console.log(data);
+//     addEvents(data.items)
+
+// }
+
 function addEvents(events){
-    
-    let typeArray = [];
-    // let name;
-
-    for(let i=0; i < events.length; i++){
-    
-        typeArray[i] =  events[i].typeEs;
+    console.log(events)
+    const divEvents = document.getElementById("divEvents");
+    events.forEach((event,index) => {
+        const contenedorEvento = document.createElement("div")
+        contenedorEvento.setAttribute("class","contenedorEvento")
+        const name = document.createElement("h1");
+        name.innerText = event.nameEs;
+        const typeEs = document.createElement("h2");
+        typeEs.innerText = event.typeEs
+        const description = document.createElement("p");
+        description.innerText = event.establishmentEs 
+        const fecha = document.createElement("p");
+        fecha.innerText = (event.startDate[8]+event.startDate[9]+event.startDate[7]+event.startDate[5]+event.startDate[6]+event.startDate[4]+event.startDate[0]+event.startDate[1]+event.startDate[2]+event.startDate[3])
         
-    }
+        divEvents.appendChild(contenedorEvento)
+        contenedorEvento.appendChild(typeEs);
+        contenedorEvento.appendChild(name);
+        contenedorEvento.appendChild(description)
+        contenedorEvento.appendChild(fecha)
+    });
+}
 
-    const ns = new Set(typeArray);
-    const uniqueTypeArrayEvents = [...ns];
-    console.log(uniqueTypeArrayEvents);
-
-    for(let j=0; j < uniqueTypeArrayEvents.length; j++){
-      const name = document.createElement("p");
-      name.innerText = uniqueTypeArrayEvents[j]; 
-      divEvents.appendChild(name);  
-    }
-    
-};
-
-
-function addMunicipio (municipio){
-    
-  let typeArray = [];
-  // let name;
-
-  for(let i=0; i < municipio.length; i++){
-  
-      typeArray[i] =  municipio[i].municipalityEs;
-      
-  }
-
-  const ns = new Set(typeArray);
-  const uniqueTypeArrayMunicipality = [...ns];
-  console.log(uniqueTypeArrayMunicipality);
-
-  for(let j=0; j < uniqueTypeArrayMunicipality.length; j++){
-    const name = document.createElement("p");
-    name.innerText = uniqueTypeArrayMunicipality[j]; 
-    divMunicipalityEs.appendChild(name);
-    
-  }
-  
-};
-
-
-function addName (name){
-    
-  let typeArray = [];
-  // let name;
-
-  for(let i=0; i < name.length; i++){
-  
-      typeArray[i] =  name[i].nameEs;
-      
-  }
-
-  const ns = new Set(typeArray);
-  const uniqueTypeArrayName = [...ns];
-  console.log(uniqueTypeArrayName);
-
-  for(let j=0; j < uniqueTypeArrayName.length; j++){
-    const name = document.createElement("p");
-    name.innerText = uniqueTypeArrayName[j]; 
-    divNameEs.appendChild(name);
-    
-  }
-  
-};
-
-
-
-
-getData();
+// getData();
+// evenTypes();
+// month(5);
+evenType(1)
