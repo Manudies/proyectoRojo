@@ -1,111 +1,167 @@
- :root {
-  --lightYellow: #fffdee;
-  --darkBlue: #0b0b77;
-  --blue: #1919c2;
-  --lightBlue: #4f4fff;
-  --yellow: #ffe100;
-
-  --color0: #0c451c;
-  --color0-1: #125b27;
-  --color1: #2B9348;
-  --color2: #55A630;
-  --color3: #81B918;
-  --color4: #edcb7a;
-  --color5: #fbe09e;
-  --color6: #e9f1eb;
-
+:root{
+  --desaturatedGreen: #3D8159;
+  --green: #1ED66A;
+  --redEuskadi: #CE2A1D;
+  --greenEuskadi: #009646;
+  --desaturatedRed: #96413B;
+  --orange: #fb8500;
+  --darkRed: #170301;
+  --yellowOrange: #ffd875;
+  --background: #8ecae6;
+  --darkBlue: #023047;
+  /* PREFERENCE BTNS PALETTE*/
+  --clr1:#ff2972;
+  --clr1-2: #ff29706c;
+  --clr2:#f51e0f;
+  --clr2-2:#f51e0f62;
+  --clr3:#fee800;
+  --clr3-2:#fee90062;
+  --clr4:#0ffc43;
+  --clr4-2:#0ffc4253;
+  --clr5:#000dff;
+  --clr5-2:#000dff5f;
+  --clr6:#fe00f1;
+  --clr6-2:#fe00f15d;
+  --clr7:#fea600;
+  --clr7-2:#fea50058;
+  --clr8:#a529ff;
+  --clr8-2:#a629ff64;
+  --clr9:#0ed700;
+  --clr9-2:#0ed70055;
 }
-
 
 *{
   box-sizing: border-box;
   margin: 0;
   padding: 0;
+  list-style: none;
+}
+
+body{
+  background-color: white;
   font-family: raleway;
 }
 
-
-body{
-  width: 100vw;
-  height: 100vh;
-  background-color: var(--color6);
-}
-
-
 .mainContainer_index{
-  height: 100%;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  /* padding-top: 5rem; */
+  background-color: rgba(0, 128, 0, 0);
+  padding-top: 2.5rem;
 }
 
-.containerNamePage_index{
-  /* display: inline-flex; */
+.pageTitleContainer_index{
+  display: flex;
   align-items: center;
   justify-content: center;
+  background-color: var(--clr3-2);
   margin-bottom: 2rem;
 }
 
-.namePage{
-  font-size: 2.7rem;
-  font-weight: 800;
-}
-
-.namePage_aburr{
-  color: var(--color0-1);
-  text-decoration: line-through;
-}
-
-.namePage ion-icon{
-  padding: .5rem;
-  font-size: 2rem;
-  background-color: #ffe100;
-  border-radius: 50%;
-  font-weight: 800;
-}
-
-.preferencesContainer_index{
-  display: none;
-  opacity: 0;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  background-color: var(--color5);
-  /* outline: 3px solid var(--color3); */
-  margin-left: 10vw;
-  margin-right: 10vw;
-  padding-top: 2.5vh;
-  padding-bottom: 2.5vh;
-  border-radius: 4px;
-  transform: translateY(30%);
-  transition: all 300ms ease;
-}
-
-.questionPreferences{
-  font-size: 1rem;
-  font-weight: 600;
-  color: var(--color0);
-  margin-bottom: 1vh;
+.pageTitle_txt{
+  /* padding-top: 1rem; */
+  font-weight: 900;
+  color: var(--darkRed);
+  letter-spacing: .1rem;
+  font-size: 3.5rem;
+  /* text-shadow: 2px 2px 0px var(--redEuskadi); */
+  /* -webkit-text-stroke: 1.5px var(--darkRed); */
   
 }
 
-.radioButtonPreferencesContainer{
+.pageTitleG_txt{
+  font-weight: 800;
+  padding-right: .3rem;
+  font-size: 3rem;
+  color: var(--orange);
+  text-shadow: 2px 2px 0px var(--darkRed);
+  /* -webkit-text-stroke: .8px var(--clr3); */
+}
+
+.titleIonIcon{
+  margin-left: .3rem;
+  margin-right: .2rem;
+  font-size: 2.1rem;
+  padding: .08rem;
+  color: var(--orange);
+  
+  outline: 3px solid black;
+  border-radius: 50%;
+  background-color: black;
+}
+
+/* *** */
+
+.containerPreferenceBtnDescription_index{
   display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
   align-items: center;
+  justify-content: center;
+  margin-bottom: 2rem;
+  transition: all 300ms ease;
 }
 
-.radioButtonContainer{
+.preferenceBtnDescriptionTxt{
+  color: var(--orange);
+  font-weight: 800;
+  font-size: 3rem;
+  letter-spacing: .1rem;
+  text-shadow: 1px 1px 0px black;
+}
+
+/* *** */
+.containerPreferencesMenu_index{
+  padding: 1rem;
+  border-radius: 50%;
+  /* box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.275); */
+  /* outline: 2px solid white; */
+  background-color: var(--clr3-2);
+}
+
+.preferencesMenu_index{
   position: relative;
-  width: 5rem;
-  height: 5rem;
-  margin: 3%;
+  width: 230px;
+  height: 230px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 400ms ease;
 }
 
-.radioButtonContainer input{
+.preferencesToggle{
+  cursor: pointer;
+  position: absolute;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--orange);
+  width: 82px;
+  height: 82px;
+  outline: 3px solid black;
+  border-radius: 50%;
+  z-index: 1000;
+  box-shadow: 0px 0px 15px 3px #fb8600b6;
+  transition: all 500ms ease-out;
+}
+
+.preferencesToggle ion-icon{
+  font-size: 2.7rem;
+  color: var(--darkRed) ;
+  transition: all 300ms ease;
+}
+
+.preferencesMenu_index li{
+  position: absolute;
+  left: 0;
+  width: 3.3rem;
+  height: 3.3rem;
+  transform-origin: 115px;
+  transition-delay: calc(0.1s * var(--i));
+  transform: rotate(0deg) translateX(75px);
+  transition: all 300ms ease;
+}
+
+.preferencesMenu_li input{
   cursor: pointer;
   position: absolute;
   width: 100%;
@@ -114,42 +170,91 @@ body{
   opacity: 0;
 }
 
-.radioButtonContainer .radioTile{
+.radioTile{
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  border-radius: 10px;
+  border-radius: 50%;
+  width: 100%;
   height: 100%;
-  outline: 3px solid white;
-  background-color: rgba(255, 255, 255, 0.103);
   transition: all 250ms ease;
-} 
+}
 
-.radioButtonContainer ion-icon{
-  color: white;
+.radioTile_ionIcon{
+  color: var(--orange);
   font-size: 2.5rem;
 }
 
-input:checked + .radioTile {
-  outline: 2px solid var(--color1);
-  background-color: var(--color1);
-  box-shadow: 2px 2px 8px var(--color2);
+/* **** */
+
+#preferenceRadioBtn0:checked + .radioTile {
+  outline: 2px solid var(--orange);
+  background-color: rgba(255, 255, 255, 0.743);
 }
+
+
+#preferenceRadioBtn1:checked + .radioTile {
+  outline: 2px solid var(---orange);
+  background-color: rgba(255, 255, 255, 0.743);
+}
+
+#preferenceRadioBtn2:checked + .radioTile {
+  outline: 2px solid var(--orange);
+  background-color: rgba(255, 255, 255, 0.743);
+}
+
+#preferenceRadioBtn3:checked + .radioTile {
+  outline: 2px solid var(--orange);
+  background-color: rgba(255, 255, 255, 0.743);
+}
+
+#preferenceRadioBtn4:checked + .radioTile {
+  outline: 2px solid var(--orange);
+  background-color: rgba(255, 255, 255, 0.743);
+}
+
+#preferenceRadioBtn5:checked + .radioTile {
+  outline: 2px solid var(--orange);
+  background-color: rgba(255, 255, 255, 0.743);
+}
+
+/* ***** */
 
 input:checked + .radioTile ion-icon{
   color: var(--yellow);
 }
 
-.namePreferenceTxt{
-  font-size: 1.9rem;
-  font-weight: 800;
-  padding-bottom: .5rem;
-  color: var(--color0);
-  text-shadow: 1px 1px var(--color3);
-} 
+/* **** */
 
-.divEvents{
+
+.preferencesMenu_index.active li{
+ transform: rotate(calc(360deg/5*var(--i)))
+ translateX(0px);
+}
+
+/* **** */
+
+.vamosBtn_index{
+  cursor: pointer;
   display: none;
+  appearance: none;
+  border: none;
+  background-color: var(--orange);
+  transform: translateY(2rem);
+  color: white;
+  font-size: 1.1rem;
+  font-weight: 800;
+  letter-spacing: .1rem;
+  padding: .6rem 1rem;
+  border-radius: 10px;
+}
+
+.vamosBtn_index:hover{
+  color: var(--orange);
+  outline: 2px solid var(--orange);
+  background-color: black;
+  transition: all 300ms ease;
+  box-shadow: 0px 0px 2px 7px #fb860056;
 }
 
