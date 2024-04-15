@@ -60,68 +60,54 @@ const preferenceRadioBtn4 = document.getElementById("preferenceRadioBtn4");
 
 
 // PREFERENCE BTNS ONCLICK EVENTS
+// Agregamos los listener a los botones de las preferencias
+let p0 = false;
+
 preferenceRadioBtn0.addEventListener("click", ()=>{
   containerPreferenceBtnDescription_index.style.display="flex";
-  preferenceBtnDescriptionTxt.innerText="FORMACIÓN";
+  preferenceBtnDescriptionTxt.innerText="MÚSICA";
   vamosBtn_index.style.display="block";
+  p0 = true;
+
 });
 
+let p1 = false;
 
 preferenceRadioBtn1.addEventListener("click", ()=>{
   containerPreferenceBtnDescription_index.style.display="flex";
   preferenceBtnDescriptionTxt.innerText="TEATRO";
   vamosBtn_index.style.display="block";
+  p1 = true;
 });
+
+let p2 = false;
 
 preferenceRadioBtn2.addEventListener("click", ()=>{
   containerPreferenceBtnDescription_index.style.display="flex";
-  preferenceBtnDescriptionTxt.innerText="MÚSICA";
+  preferenceBtnDescriptionTxt.innerText="CINE";
   vamosBtn_index.style.display="block";
+  p2 = true;
 });
+
+let p3 = false;
 
 preferenceRadioBtn3.addEventListener("click", ()=>{
   containerPreferenceBtnDescription_index.style.display="flex";
-  preferenceBtnDescriptionTxt.innerText="CINE";
+  preferenceBtnDescriptionTxt.innerText="FORMACIÓN";
   vamosBtn_index.style.display="block";
+  p3 = true;
+
 });
 
+let p4 = false
 
 preferenceRadioBtn4.addEventListener("click", ()=>{
   containerPreferenceBtnDescription_index.style.display="flex";
   preferenceBtnDescriptionTxt.innerText="OTROS";
   vamosBtn_index.style.display="block";
-});
-
-// Agregamos los listener a los botones de las preferencias
-let p0=false;
-preferenceRadioBtn0.addEventListener("click",  ()=>{
-  namePreferenceTxt.innerText="¡MÚSICA!";
-  p0 = true;
-});
-
-let p1 = false;
-preferenceRadioBtn1.addEventListener("click",  ()=>{
-  namePreferenceTxt.innerText="TEATRO";
-  p1 = true;
-});
-
-let p2 = false;
-preferenceRadioBtn2.addEventListener("click",  ()=>{
-  namePreferenceTxt.innerText="CINE";
-  preferenceRadioBtn2 = true;
-});
-
-let p3 = false;
-preferenceRadioBtn3.addEventListener("click",  ()=>{
-  namePreferenceTxt.innerText="FORMACIÓN";
-  p3 = true;
-});
-
-let p4 = false
-preferenceRadioBtn4.addEventListener("click",  ()=>{
-  namePreferenceTxt.innerText="OTROS";
   p4 = true;
-})
+
+});
 
 
 // Creamos la funcion de consulta de la API de cultura y guardamos en JSON, llamamos a las funcion addEvents
@@ -170,7 +156,7 @@ async function month(month){
 
 function addEvents(events){
     console.log(events)
-    const divEvents = document.getElementById("divEvents");
+    const preferencesMenu_index = document.getElementById("preferencesMenu_index");
     events.forEach((event,index) => {
         const contenedorEvento = document.createElement("div")
         contenedorEvento.setAttribute("class","contenedorEvento")
@@ -192,21 +178,21 @@ function addEvents(events){
         const masInformacion = document.createElement("div")
         masInformacion.innerText=("+")
         
-        divEvents.appendChild(contenedorEvento)
-        contenedorEvento.appendChild(typeEs);
+        preferencesMenu_index.appendChild(contenedorEvento)
+        /*contenedorEvento.appendChild(typeEs);
         contenedorEvento.appendChild(name);
         contenedorEvento.appendChild(place)
         contenedorEvento.appendChild(fecha)
-        contenedorEvento.appendChild(masInformacion)
+        contenedorEvento.appendChild(masInformacion)*/
     });
 }
 
 // Boton buscar
-const savePreferencesButton = document.getElementById("savePreferencesButton");
+//const vamosBtn_index = document.getElementById("vamosBtn_index");
 
-savePreferencesButton.addEventListener("click",  ()=>{
-  const divEvents = document.getElementById("divEvents");
-  divEvents.innerHTML=""
+vamosBtn_index.addEventListener("click",  ()=>{
+  const preferencesMenu_index = document.getElementById("preferencesMenu_index");
+  preferencesMenu_index.innerHTML=""
   if (p0===true){
      evenType(1)
      evenType(7)
