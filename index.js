@@ -85,61 +85,26 @@ async function evenTypes(){
 }
 
 //Filtro por eventos
-async function evenType(type){
-  const url = new URL("https://api.euskadi.eus/culture/events/v1.0/events/byType/"+type+"?_elements=20&_page=1")
-  // url.searchParams.append("_elements",500);
+
+async function evenType(type, month=4){
+  // const url = new URL("https://api.euskadi.eus/culture/events/v1.0/events/byType/"+type+"?_elements=20&_page=1")
+  const url = new URL("https://api.euskadi.eus/culture/events/v1.0/events/byType/"+type+"/byMonth/2024/"+month+"?_elements=20&_page=1")
   const response = await fetch(url.toString());
   const event =  await response.json();
 
-  console.log (event.items)
-  // console.log (event.items[0].nameEs);
-
   addEvents(event.items);
+  // return event.items
 }
 
 //Filtro por mes
 async function month(month){
   const url = new URL("https://api.euskadi.eus/culture/events/v1.0/events/byMonth/2024/0"+month+"?_elements=20&_page=1")
-  // url.searchParams.append("_elements",500);
   const response = await fetch(url.toString());
   const eventmonth =  await response.json();
   // console.log(eventmonth)
 
    // addEvents(data.items);
 }
-
-// Crea un array con tipos de eventos sin repetir
-// function addEvents(events){  
-//     let typeArray = [];
-//     // let name;
-
-//     for(let i=0; i < events.length; i++){
-//         typeArray[i] =  events[i].typeEs;
-//     }
-//     const ns = new Set(typeArray);
-//     const uniqueTypeArray = [...ns];
-//     // console.log(uniqueTypeArray);
-// // esta parte lo manda al HTML
-//     for(let j=0; j < uniqueTypeArray.length; j++){
-//       const name = document.createElement("p");
-//       name.innerText = uniqueTypeArray[j]; 
-//       divEvents.appendChild(name);
-//     }
-// }
-
-// async function getData(){
-//     const url = new URL("https://api.euskadi.eus/culture/events/v1.0/events")
-//     url.searchParams.append("_elements",200);
-//     console.log(url.toString());
-    
-  
-//     const response = await fetch(url.toString());
-//     //console.log(response);
-//     const data =  await response.json();
-//     console.log(data);
-//     addEvents(data.items)
-
-// }
 
 function addEvents(events){
     console.log(events)
@@ -164,34 +129,48 @@ function addEvents(events){
     });
 }
 
-// boton buscar
+// Boton buscar
 const savePreferencesButton = document.getElementById("savePreferencesButton");
 
 savePreferencesButton.addEventListener("click",  ()=>{
+  const divEvents = document.getElementById("divEvents");
+  divEvents.innerHTML=""
   if (p1===true){
      evenType(1)
      evenType(7)
      evenType(13)
+     p1=false
   }
   if (p2===true){
     evenType(2)
     evenType(4)
     evenType(3)
+    p2=false
   }
   if (p3===true){
     evenType(9)
+    p3=false
   }
   if (p4===true){
     evenType(6)
     evenType(10)
     evenType(11)
+    p4=false
   }
   if (p5===true){
     evenType(8)
     evenType(12)
     evenType(14)
     evenType(15)
+    p5=false
   }
+
+  // if(divEvents==""){
+  //   const mensajeError = document.createElement("p");
+  //       mensajeError.innerText = ("NO HAY EVENTOS DE ESE TIPO")
+  //       divEvents.appendChild(mensajeError)
+        
+  // }
   })
 
 
