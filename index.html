@@ -1,106 +1,100 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Agenda Cultural Euskadi</title>
-  
-  <!-- CSS -->
+  <title>EuskalGo!</title>
   <link rel="stylesheet" href="index.css">
-
-  <!-- GOOGLE FONTS -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
-
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
 </head>
-
 <body>
-  
+    <!-- TITULO DE PÁGINA -->
+    <div class="pageTitleContainer_index" id="pageTitleContainer_index">
+      <p class="pageTitle_txt" id="pageTitlet_txt">Euskal</p><p class="pageTitleG_txt" id="pageTitleG_txt">G<ion-icon class="titleIonIcon" name="rocket"></ion-icon>!</p>
+  </div>
   <div class="mainContainer_index" id="mainContainer_index">
-    <div class="containerNamePage_index" id="containerNamePage_index">
-      <p class="namePage" id="namePage"><span class="namePage_aburr" id="namePage_aburr">ABURR</span>IRSE <ion-icon name="rocket"></ion-ico></p>
-    </div>
+      
+
+        <div class="containerPreferenceBtnDescription_index" id="containerPreferenceBtnDescription_index">
+            <p class="preferenceBtnDescriptionTxt" id="preferenceBtnDescriptionTxt"></p>
+        </div>
+
+        <!-- MENU RADIAL DE PREFERENCIAS -->
+        <div class="containerPreferencesMenu_index" id="containerPreferencesMenu_index">
+        <ul class="preferencesMenu_index" id="preferencesMenu_index">
+            
+            <!-- BOTÓN PRINCIPAL TOGGLE -->
+            <div class="preferencesToggle" id="preferencesToggle"><ion-icon class="preferencesToggleIonIcon" id="preferencesToggleIonIcon" name="rocket"></ion-icon></div>
+            
+            <!-- **** -->
+            <li class="preferencesMenu_li" style="--i:0;"> 
+            
+                <input  type="radio" id="preferenceRadioBtn0" name="preferences" >
+                
+                <div class="radioTile" id="radioTile0">
+                  <ion-icon class="radioTile_ionIcon" id="ionIconSchool" name="school-outline"></ion-icon> 
+                </div>
         
-    <div class="preferencesContainer_index" id="preferencesContainer_index">
-      <p class="namePreferenceTxt" id="namePreferenceTxt"></p>  
-      <p class="questionPreferences">¿Te sugerimos una actividad?</p>
-      <div class="radioButtonPreferencesContainer" id="radioButtonPreferencesContainer">
+            </li>
+            <!-- **** -->
 
-        <!-- RADIO BUTTON PREFERENCE 1 (MÚSICA) -->
-        <div class="radioButtonContainer" id="radioButtonContainer">
-          <input type="radio" id="preference1" name="preferences" >
-          <div class="radioTile" id="radioTile1"> 
-            <ion-icon name="musical-notes-sharp"></ion-icon>
-            <label for="preference1"></label> 
-          </div>
-        </div>
+            <li class="preferencesMenu_li" style="--i:1;">  
+            
+              <input  type="radio" id="preferenceRadioBtn1" name="preferences" >
+                
+              <div class="radioTile" id="radioTile1">
+                <ion-icon class="radioTile_ionIcon" id="ionIconSad" name="sad-outline"></ion-icon>
+                  
+              </div>
+            
+            </li>
+            
+            
+            <li class="preferencesMenu_li" style="--i:2;"> 
+            
+              <input type="radio" id="preferenceRadioBtn2" name="preferences" >
+                
+              <div class="radioTile" id="radioTile2">
+                  <ion-icon  class="radioTile_ionIcon" id="ionIconMusicalNotes" name="musical-notes"></ion-icon>        
+              </div>
+            
+            </li>
+                        
+            <li class="preferencesMenu_li" style="--i:3;">  
+            
+              <input type="radio" id="preferenceRadioBtn3" name="preferences" >
+                
+              <div class="radioTile" id="radioTile3">
+                <ion-icon class="radioTile_ionIcon" id="ionIconVideo" name="videocam-outline"></ion-icon>
+              </div>
 
-        <!-- RADIO BUTTON PREFERENCE 2 (TEATRO) -->
-        <div class="radioButtonContainer" id="radioButtonContainer">
-          <input type="radio" id="preference2" name="preferences" >
-          <div class="radioTile" id="radioTile2">
-            <ion-icon name="sad"></ion-icon>
-            <label for="preference2"></label>
-          </div>
-        </div>
+            </li>
+            
+            
+            <li class="preferencesMenu_li" style="--i:4;">  
+            
+              <input type="radio" id="preferenceRadioBtn4" name="preferences">
+                
+              <div class="radioTile" id="radioTile4">
+                <ion-icon class="radioTile_ionIcon" id="ionIconOthers" name="accessibility-outline"></ion-icon>
+              </div>
 
-        <!-- RADIO BUTTON PREFERENCE 3 (CINE) -->
-        <div class="radioButtonContainer" id="radioButtonContainer">
-          <input type="radio" id="preference3" name="preferences" >
-          <div class="radioTile" id="radioTile3">
-            <ion-icon name="videocam"></ion-icon>
-            <label for="preference3"></label>
-          </div>
-        </div>
-          
-        <!-- RADIO BUTTON PREFERENCE 4 (FORMACIÓN) -->
-        <div class="radioButtonContainer" id="radioButtonContainer">
-          <input type="radio" id="preference4" name="preferences" >
-          <div class="radioTile" id="radioTile4">
-            <ion-icon name="school"></ion-icon>
-            <label for="preference4"></label>
-          </div>
-        </div>
-
-        <!-- RADIO BUTTON PREFERENCE 5 (OTROS) -->
-        <div class="radioButtonContainer" id="radioButtonContainer">
-          <input type="radio" id="preference5" name="preferences" >
-          <div class="radioTile" id="radioTile5">
-            <ion-icon name="body"></ion-icon>
-            <label for="preference5"></label>
-          </div>
-        </div>
-          
-        <!-- RADIO BUTTON PREFERENCE 6 (FAMILIA) -->
-        <!-- <div class="radioButtonContainer" id="radioButtonContainer">
-          <input type="radio" id="preference6" name="preferences" >
-          <div class="radioTile" id="radioTile6">
-            <ion-icon name="people"></ion-icon>
-            <label for="preference5"></label>
-          </div>
-        </div> -->
+            </li>
+            
+        <ul/>
       </div> 
 
-        <div class="savePreferencesButton" id="savePreferencesButton">
-          <button class="saveButton">BUSCAR</button>
-        </div>
+        <button class="vamosBtn_index" id="vamosBtn_index">¡VAMOS!</button>
 
-    </div>
+        
+    </div>     
 
-    <div 
-      class="divEvents" id="divEvents">
-    </div>
-      
-  </div>
-
-  <!-- JS -->
   <script src="index.js"></script>
 
   <!-- ION ICONS -->
   <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
   <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
-
 </body>
-
 </html>
