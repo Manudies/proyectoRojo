@@ -27,25 +27,36 @@ const preferencesContainer_index = document.getElementById("preferencesContainer
 
 
 // Agregamos los listener a los botones de las preferencias
+let p1=false;
 preference1.addEventListener("click",  ()=>{
   namePreferenceTxt.innerText="¡MÚSICA!";
+  p1 = true;
 });
 
+let p2 = false;
 preference2.addEventListener("click",  ()=>{
   namePreferenceTxt.innerText="TEATRO";
+  p2 = true;
 });
 
+let p3 = false;
 preference3.addEventListener("click",  ()=>{
   namePreferenceTxt.innerText="CINE";
+  p3 = true;
 });
 
+let p4 = false;
 preference4.addEventListener("click",  ()=>{
   namePreferenceTxt.innerText="FORMACIÓN";
+  p4 = true;
 });
 
+let p5 = false
 preference5.addEventListener("click",  ()=>{
   namePreferenceTxt.innerText="OTROS";
+  p5 = true;
 });
+
 
 // preference6.addEventListener("click",  ()=>{
 //   namePreferenceTxt.innerText="ARREJUNTAUS";
@@ -61,7 +72,7 @@ async function getData(){
 
     addEvents(data.items);
 }
-//Filtro de los tipos de eventos existentes en la API
+//Filtro de los tipos de evconstentos existentes en la API
 async function evenTypes(){
   const url = new URL("https://api.euskadi.eus/culture/events//v1.0/eventType")
   // url.searchParams.append("_elements",500);
@@ -153,7 +164,41 @@ function addEvents(events){
     });
 }
 
+// boton buscar
+const savePreferencesButton = document.getElementById("savePreferencesButton");
+
+savePreferencesButton.addEventListener("click",  ()=>{
+  if (p1===true){
+     evenType(1)
+     evenType(7)
+     evenType(13)
+  }
+  if (p2===true){
+    evenType(2)
+    evenType(4)
+    evenType(3)
+  }
+  if (p3===true){
+    evenType(9)
+  }
+  if (p4===true){
+    evenType(6)
+    evenType(10)
+    evenType(11)
+  }
+  if (p5===true){
+    evenType(8)
+    evenType(12)
+    evenType(14)
+    evenType(15)
+  }
+  })
+
+
+
 // getData();
 // evenTypes();
 // month(5);
-evenType(1)
+//evenType(1)
+
+
