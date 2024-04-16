@@ -292,17 +292,20 @@ function addEvents(events){
       title_card.innerText = event.nameEs;
 
 
-     /* const container_description_card = document.createElement("div");
-      container_description_card.setAttribute("class","container_description_card");
-      container_description_card.setAttribute("id", "container_description_card");
+      const place_card = document.createElement("div");
+      place_card.setAttribute("class","place_card");
+      place_card.setAttribute("id", "place_card");
 
-      const description_card = document.createElement("p");
-      description_card .setAttribute("class","description_card ");
-      description_card .setAttribute("id", "description_card ");
-      console.log(event.descriptionEs)
-      const newDescri = event.descriptionEs.replace("<p>", "") 
-      description_card.innerText = newDescri
-*/
+      const p_place_card = document.createElement("p");
+      p_place_card .setAttribute("class","p_place_card ");
+      p_place_card .setAttribute("id", "p_place_card "); 
+        // COMPROBAMOS SI PLACEES ESTÁ VACIO
+      if (event.placeEs === undefined){
+        p_place_card.innerText= event.municipalityEs
+      }
+      else{
+        p_place_card.innerText = event.placeEs
+      } 
 
       const container_fecha_button_card = document.createElement("div");
       container_fecha_button_card .setAttribute("class","container_fecha_button_card ");
@@ -317,29 +320,21 @@ function addEvents(events){
       button_card .setAttribute("class","button_card ");
       button_card .setAttribute("id", "button_card "); 
 
+      const fav_card = document.createElement("button");
+      fav_card .setAttribute("class","fav_card ");
+      fav_card .setAttribute("id", "fav_card "); 
 
-      /*//  COMPROBAMOS SI PLACEES ESTÁ VACIO
-      if (event.placeEs === undefined){
-        place.innerText=""
-      }
-      else{
-        place.innerText = event.placeEs
-      } 
       
-      const fecha = document.createElement("p");
-      fecha.innerText = (event.startDate[8]+event.startDate[9]+event.startDate[7]+event.startDate[5]+event.startDate[6]+event.startDate[4]+event.startDate[0]+event.startDate[1]+event.startDate[2]+event.startDate[3])
-      const masInformacion = document.createElement("div")
-      masInformacion.innerText=("+")
-      */
 
      principal_card.appendChild(mainContainer_card);
      mainContainer_card.appendChild(container_title_card);
      container_title_card.appendChild(title_card);
-    //  mainContainer_card.appendChild(container_description_card);
-     //container_description_card.appendChild(description_card)
+     mainContainer_card.appendChild(place_card);
+     place_card.appendChild(p_place_card)
      mainContainer_card.appendChild(container_fecha_button_card);
      container_fecha_button_card.appendChild(fecha_card);
      container_fecha_button_card.appendChild(button_card);
+     container_fecha_button_card.appendChild(fav_card);
   });
 }
 
