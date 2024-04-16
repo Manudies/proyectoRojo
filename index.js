@@ -1,3 +1,5 @@
+const containerPreferencesMenu_index = document.getElementById("containerPreferencesMenu_index");
+
 const preferencesMenu_index = document.getElementById("preferencesMenu_index");
 
 const preferencesToggle = document.getElementById("preferencesToggle");
@@ -9,6 +11,17 @@ const preferenceBtnDescriptionTxt = document.getElementById("preferenceBtnDescri
 const vamosBtn_index = document.getElementById("vamosBtn_index");
 
 const strFormacion = " - Formaciones - Formaciones - ";
+
+const strTeatro = " - Teatro - Teatro - Teatro ";
+
+const strMusica = " - Música - Música - Música ";
+
+const strCine = " - Cine - Cine - Cine -";
+
+const strOtros = " - Otros - Otros - Otros -";
+
+const strRandom = " - Random - Random - Random - "
+
 // ***
 
 preferencesToggle.addEventListener("mouseover", ()=>{
@@ -34,6 +47,7 @@ const ionIconOthers = document.getElementById("ionIconOthers");
 // ****
 
 preferencesToggle.addEventListener("click", ()=>{
+  containerPreferencesMenu_index.style.backgroundColor="#8ecae67b";
   preferencesMenu_index.classList.toggle("active");
   ionIconSad.style.transform="rotate(-80deg)";
   ionIconMusicalNotes.style.transform="rotate(-100deg)";
@@ -69,8 +83,12 @@ const preferenceRadioBtn4 = document.getElementById("preferenceRadioBtn4");
 
 // PREFERENCE BTNS ONCLICK EVENTS
 preferenceRadioBtn0.addEventListener("click", ()=>{
+  
   containerPreferenceBtnDescription_index.style.display="flex";
-  // preferenceBtnDescriptionTxt.innerText="FORMACIÓN";
+  
+  
+  preferenceBtnDescriptionTxt.innerText="";
+  
   for(let i=0; i < strFormacion.length; i++){
     let span = document.createElement("span");
     span.innerHTML=strFormacion[i];
@@ -81,30 +99,91 @@ preferenceRadioBtn0.addEventListener("click", ()=>{
   }
 
   vamosBtn_index.style.display="block";
+
 });
+
+// ***
 
 preferenceRadioBtn1.addEventListener("click", ()=>{
   containerPreferenceBtnDescription_index.style.display="flex";
-  preferenceBtnDescriptionTxt.innerText="TEATRO";
+  
+  preferenceBtnDescriptionTxt.innerText="";
+  for(let i = 0; i < strTeatro.length; i++){
+    let span = document.createElement("span");
+    span.innerHTML=strTeatro[i];
+    span.setAttribute("class", "spanLetter");
+    preferenceBtnDescriptionTxt.appendChild(span); 
+    span.style.transform=`rotate(${11 * i}deg)`;
+  }
+
   vamosBtn_index.style.display="block";
 });
+
+// ***
 
 preferenceRadioBtn2.addEventListener("click", ()=>{
   containerPreferenceBtnDescription_index.style.display="flex";
-  preferenceBtnDescriptionTxt.innerText="MÚSICA";
+
+  preferenceBtnDescriptionTxt.innerText="";
+  for(let i=0; i < strMusica.length; i++){
+    let span = document.createElement("span");
+    span.innerHTML=strMusica[i];
+    span.setAttribute("class", "spanLetter");
+    preferenceBtnDescriptionTxt.appendChild(span);
+    
+    span.style.transform=`rotate(${11 * i}deg)`;
+  }
+
   vamosBtn_index.style.display="block";
 });
+
+// ***
 
 preferenceRadioBtn3.addEventListener("click", ()=>{
   containerPreferenceBtnDescription_index.style.display="flex";
-  preferenceBtnDescriptionTxt.innerText="CINE";
+
+  preferenceBtnDescriptionTxt.innerText="";
+  for(let i=0; i < strCine.length; i++){
+    let span = document.createElement("span");
+    span.innerHTML=strCine[i];
+    span.setAttribute("class", "spanLetter");
+    preferenceBtnDescriptionTxt.appendChild(span);
+    
+    span.style.transform=`rotate(${11 * i}deg)`;
+  }
+
   vamosBtn_index.style.display="block";
 });
 
+// ***
 
 preferenceRadioBtn4.addEventListener("click", ()=>{
   containerPreferenceBtnDescription_index.style.display="flex";
-  preferenceBtnDescriptionTxt.innerText="OTROS";
+
+  preferenceBtnDescriptionTxt.innerText="";
+  for(let i = 0; i < strOtros.length; i++){
+    let span = document.createElement("span");
+    span.innerHTML=strOtros[i];
+    span.setAttribute("class", "spanLetter");
+    preferenceBtnDescriptionTxt.appendChild(span); 
+    span.style.transform=`rotate(${11 * i}deg)`;
+  }
+
+  vamosBtn_index.style.display="block";
+});
+
+preferenceRadioBtn5.addEventListener("click", ()=>{
+  containerPreferenceBtnDescription_index.style.display="flex";
+
+  preferenceBtnDescriptionTxt.innerText="";
+  for(let i = 0; i < strRandom.length; i++){
+    let span = document.createElement("span");
+    span.innerHTML=strRandom[i];
+    span.setAttribute("class", "spanLetter");
+    preferenceBtnDescriptionTxt.appendChild(span); 
+    span.style.transform=`rotate(${11 * i}deg)`;
+  }
+
   vamosBtn_index.style.display="block";
 });
 
