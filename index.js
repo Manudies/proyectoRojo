@@ -27,7 +27,12 @@ const systemDate = new Date();
 
 
 // *** PREFERENCES TOGGLE BTN
-let togglePressed = false;
+
+let preference0Pressed = false;
+let preference1Pressed = false;
+let preference2Pressed = false;
+let preference3Pressed = false;
+let preference4Pressed = false;
 
 preferencesToggle.addEventListener("mouseover", ()=>{
   preferencesToggle.style.transform = "rotate(1turn)";
@@ -49,17 +54,67 @@ const ionIconVideo = document.getElementById("ionIconVideo");
 const ionIconOthers = document.getElementById("ionIconOthers");
 
 // ****
+const preferencesToggleIonIconSearch = document.getElementById("preferencesToggleIonIconSearch");
+
+let togglePressed = false;
 
 preferencesToggle.addEventListener("click", ()=>{
-  if(togglePressed == false){
-    preferenceBtnDescriptionTxt.style.display="flex";
-    containerPreferencesMenu_index.style.backgroundColor="#8ecae67b";
-    togglePressed=true;
+  if(preference0Pressed == true || preference1Pressed == true || preference2Pressed == true || preference3Pressed == true || preference4Pressed == true){
+
+    if(togglePressed == false){
+      preferenceBtnDescriptionTxt.style.display="flex";
+      containerPreferencesMenu_index.style.backgroundColor="#8ecae67b";
+      togglePressed=true;
+    }else{
+      // preferencesToggleIonIconSearch.style.display="block";
+      // preferencesToggleIonIcon.style.display="none"
+      preferenceBtnDescriptionTxt.style.display="none";
+      containerPreferencesMenu_index.style.backgroundColor="#D48013";
+      togglePressed=false;
+    }
+
   }else{
-    preferenceBtnDescriptionTxt.style.display="none";
-    containerPreferencesMenu_index.style.backgroundColor="#000";
-    togglePressed=false;
+
+    mainContainer_index.style.display="none";
+
+    clearInterval(intervalToggle);
+    const preferencesMenu_index = document.getElementById("preferencesMenu_index");
+  
+    if (p0===true){
+      evenType(1)
+      evenType(7)
+      evenType(13)
+      p0=false
+    }
+    if (p1===true){
+      evenType(2)
+      evenType(4)
+      evenType(3)
+      p1=false
+    }
+    if (p2===true){
+      evenType(9)
+      p2=false
+    }
+    if (p3===true){
+      evenType(6)
+      evenType(10)
+      evenType(11)
+      p3=false
+    }
+    if (p4===true){
+      evenType(8)
+      evenType(12)
+      evenType(14)
+      evenType(15)
+      p4=false
+    }
+    if (p5===true){
+      evenType()
+      p5=false
+    }
   }
+  
 
   preferencesMenu_index.classList.toggle("active");
   ionIconSad.style.transform="rotate(-80deg)";
@@ -103,7 +158,15 @@ const strRandom = " - Random - Random - Random - "
 // Agregamos los listener a los botones de las preferencias
 
 let p0 = false;
+
 preferenceRadioBtn0.addEventListener("click", ()=>{
+
+  preference0Pressed = true;
+  preference1Pressed = false;
+  preference2Pressed = false;
+  preference3Pressed = false;
+  preference4Pressed = false;
+  
   containerPreferenceBtnDescription_index.style.display="flex";
   
   preferenceBtnDescriptionTxt.innerText="";
@@ -114,7 +177,7 @@ preferenceRadioBtn0.addEventListener("click", ()=>{
     preferenceBtnDescriptionTxt.appendChild(span);
     span.style.transform=`rotate(${11 * i}deg)`;
   }
-  vamosBtn_index.style.display="block";
+  // vamosBtn_index.style.display="block";
 
   p0 = true;
 });
@@ -122,7 +185,15 @@ preferenceRadioBtn0.addEventListener("click", ()=>{
 // ***
 
 let p1 = false;
+
 preferenceRadioBtn1.addEventListener("click", ()=>{
+
+  preference0Pressed = false;
+  preference1Pressed = true;
+  preference2Pressed = false;
+  preference3Pressed = false;
+  preference4Pressed = false;
+
   containerPreferenceBtnDescription_index.style.display="flex";
   
   preferenceBtnDescriptionTxt.innerText="";
@@ -134,7 +205,7 @@ preferenceRadioBtn1.addEventListener("click", ()=>{
     span.style.transform=`rotate(${11 * i}deg)`;
   }
 
-  vamosBtn_index.style.display="block";
+  // vamosBtn_index.style.display="block";
   p1 = true;
 });
 
@@ -143,6 +214,13 @@ preferenceRadioBtn1.addEventListener("click", ()=>{
 let p2 = false;
 
 preferenceRadioBtn2.addEventListener("click", ()=>{
+
+  preference0Pressed = false;
+  preference1Pressed = false;
+  preference2Pressed = true;
+  preference3Pressed = false;
+  preference4Pressed = false;
+
   containerPreferenceBtnDescription_index.style.display="flex";
 
   preferenceBtnDescriptionTxt.innerText="";
@@ -155,7 +233,7 @@ preferenceRadioBtn2.addEventListener("click", ()=>{
     span.style.transform=`rotate(${11 * i}deg)`;
   }
 
-  vamosBtn_index.style.display="block";
+  // vamosBtn_index.style.display="block";
   p2 = true;
 });
 
@@ -163,6 +241,13 @@ preferenceRadioBtn2.addEventListener("click", ()=>{
 
 let p3 = false;
 preferenceRadioBtn3.addEventListener("click", ()=>{
+
+  preference0Pressed = false;
+  preference1Pressed = false;
+  preference2Pressed = false;
+  preference3Pressed = true;
+  preference4Pressed = false;
+
   containerPreferenceBtnDescription_index.style.display="flex";
 
   preferenceBtnDescriptionTxt.innerText="";
@@ -175,7 +260,7 @@ preferenceRadioBtn3.addEventListener("click", ()=>{
     span.style.transform=`rotate(${11 * i}deg)`;
   }
 
-  vamosBtn_index.style.display="block";
+  // vamosBtn_index.style.display="block";
   p3 = true;
 });
 
@@ -183,6 +268,13 @@ preferenceRadioBtn3.addEventListener("click", ()=>{
 let p4 = false;
 
 preferenceRadioBtn4.addEventListener("click", ()=>{
+
+  preference0Pressed = false;
+  preference1Pressed = false;
+  preference2Pressed = false;
+  preference3Pressed = false;
+  preference4Pressed = true;
+
   containerPreferenceBtnDescription_index.style.display="flex";
 
   preferenceBtnDescriptionTxt.innerText="";
@@ -194,11 +286,12 @@ preferenceRadioBtn4.addEventListener("click", ()=>{
     span.style.transform=`rotate(${11 * i}deg)`;
   }
 
-  vamosBtn_index.style.display="block";
+  // vamosBtn_index.style.display="block";
   p4 = true;
 });
 
 let p5 = false;
+
 preferenceRadioBtn5.addEventListener("click", ()=>{
   containerPreferenceBtnDescription_index.style.display="flex";
 
@@ -211,14 +304,13 @@ preferenceRadioBtn5.addEventListener("click", ()=>{
     span.style.transform=`rotate(${11 * i}deg)`;
   }
 
-  vamosBtn_index.style.display="block";
+  // vamosBtn_index.style.display="block";
   p5 = true;
 });
 
 
 // *** BOTON BUSCAR (vamosbTN)
 let vamosBtnWasPressed = false;
-
 
 // Creamos la funcion de consulta de la API de cultura y guardamos en JSON, llamamos a las funcion addEvents
 async function getData(){
@@ -347,48 +439,48 @@ function addEvents(events){
 // Boton buscar
 // la tiene declarada arriba: const vamosBtn_index = document.getElementById("vamosBtn_index");
 
-vamosBtn_index.addEventListener("click",  ()=>{
-  mainContainer_index.style.display="none";
+// vamosBtn_index.addEventListener("click",  ()=>{
+//   mainContainer_index.style.display="none";
 
-  clearInterval(intervalToggle);
-  const preferencesMenu_index = document.getElementById("preferencesMenu_index");
-  // preferencesMenu_index.innerHTML=""
-  if (p0===true){
-    evenType(1)
-    evenType(7)
-    evenType(13)
-    p0=false
-  }
-  if (p1===true){
-    evenType(2)
-    evenType(4)
-    evenType(3)
-    p1=false
-  }
-  if (p2===true){
-    evenType(9)
-    p2=false
-  }
-  if (p3===true){
-    evenType(6)
-    evenType(10)
-    evenType(11)
-    p3=false
-  }
-  if (p4===true){
-    evenType(8)
-    evenType(12)
-    evenType(14)
-    evenType(15)
-    p4=false
-  }
-  if (p5===true){
-    evenType()
+//   clearInterval(intervalToggle);
+//   const preferencesMenu_index = document.getElementById("preferencesMenu_index");
+//   // preferencesMenu_index.innerHTML=""
+//   if (p0===true){
+//     evenType(1)
+//     evenType(7)
+//     evenType(13)
+//     p0=false
+//   }
+//   if (p1===true){
+//     evenType(2)
+//     evenType(4)
+//     evenType(3)
+//     p1=false
+//   }
+//   if (p2===true){
+//     evenType(9)
+//     p2=false
+//   }
+//   if (p3===true){
+//     evenType(6)
+//     evenType(10)
+//     evenType(11)
+//     p3=false
+//   }
+//   if (p4===true){
+//     evenType(8)
+//     evenType(12)
+//     evenType(14)
+//     evenType(15)
+//     p4=false
+//   }
+//   if (p5===true){
+//     evenType()
 
-    p5=false
-  }
+//     p5=false
+//   }
 
-})
+// })
 
 
 
