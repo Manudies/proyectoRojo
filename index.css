@@ -11,7 +11,7 @@
   --background: #8ecae6;
   --darkBlue: #023047;
   --radialBackground:#8ecae67b; 
-  /* PREFERENCE BTNS PALETTE*/
+
   --clr1:#ff2972;
   --clr1-2: #ff29706c;
   --clr2:#f51e0f;
@@ -40,8 +40,10 @@
 }
 
 body{
-  background-color: #1a1207;
+  background-color: #2a1d0b;
   font-family: raleway;
+  width: 100vw;
+  height: 100vh;
 }
 
 .mainContainer_index{
@@ -88,7 +90,7 @@ body{
   background-color: var(--orange);
 }
 
-/* *** */
+
 
 .containerPreferenceBtnDescription_index{
   position: absolute;
@@ -96,7 +98,7 @@ body{
   display: flex;
   align-items: center;
   justify-content: center;
-  /* margin-bottom: 2rem; */
+
   transition: all 600ms ease;
 }
 
@@ -106,6 +108,7 @@ body{
   font-weight: 800;
   width: 300px;
   height: 300px;
+
   animation: txtRotation 30s linear infinite;
 }
 
@@ -124,7 +127,7 @@ body{
   }  
 }
 
-/* *** */
+
 .containerPreferencesMenu_index{
   padding: 1rem;
   border-radius: 50%;
@@ -202,7 +205,7 @@ body{
   font-size: 2.5rem;
 }
 
-/* **** */
+
 
 #preferenceRadioBtn0:checked + .radioTile {
   outline: 2px solid white;
@@ -235,13 +238,11 @@ body{
   background-color: #65C3EB;
 }
 
-/* ***** */
-
 input:checked + .radioTile ion-icon{
   color: var(--yellow);
 }
 
-/* **** */
+
 
 
 .preferencesMenu_index.active li{
@@ -249,7 +250,6 @@ input:checked + .radioTile ion-icon{
  translateX(0px);
 }
 
-/* **** */
 
 .vamosBtn_index{
   cursor: pointer;
@@ -261,7 +261,6 @@ input:checked + .radioTile ion-icon{
   color: black;
   font-size: 2rem;
   font-weight: 800;
-  /* letter-spacing: .1rem; */
   padding: .5rem 1rem;
   border-radius: 50%;
 }
@@ -274,3 +273,19 @@ input:checked + .radioTile ion-icon{
   box-shadow: 0px 0px 20px 7px #fb860056;
 }
 
+.btnAnimation{
+  animation-name: animationUp;
+  animation-duration: 300ms;
+  animation-iteration-count: 1;
+}
+
+@keyframes animationUP{
+  0%{
+    opacity: 0;
+    transform: translateY(0rem);
+  }
+  100%{
+    opacity: 1;
+    transform: translateY(4rem);
+  }
+}
