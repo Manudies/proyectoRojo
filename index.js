@@ -266,21 +266,29 @@ async function month(month){
 
 function addEvents(events){
   const principal_card = document.getElementById("principal_card");
+  principal_card.style.border="5px solid #FB8500"; 
 
     events.forEach((event,index) => {
       const mainContainer_card = document.createElement("div");
       mainContainer_card.setAttribute("class","mainContainer_card");
       mainContainer_card.setAttribute("id", "mainContainer_card");
-
+      mainContainer_card.style.border="2px solid #BC5DDE"
+      mainContainer_card.style.display="flex";
+      mainContainer_card.style.alignContent="center";
+      mainContainer_card.style.justifyContent="center";
+      mainContainer_card.style.flexDirection="column";
       
       const container_title_card = document.createElement("div");
       container_title_card.setAttribute("class","container_title_card");
       container_title_card.setAttribute("id", "container_title_card");
-    
+      container_title_card.style.border="2px solid red";
       const title_card = document.createElement("p");
+      title_card.style.textAlign="center";
+      title_card.style.padding=".3rem .5rem";
+      title_card.style.fontWeight="700";
       title_card.setAttribute("class","title_card");
       title_card.setAttribute("id", "title_card");
-      console.log(event.nameEs)
+      console.log(event.nameEs);
       title_card.innerText = event.nameEs;
 
 
@@ -289,9 +297,11 @@ function addEvents(events){
       place_card.setAttribute("id", "place_card");
 
       const p_place_card = document.createElement("p");
-      p_place_card .setAttribute("class","p_place_card ");
-      p_place_card .setAttribute("id", "p_place_card "); 
-        // COMPROBAMOS SI PLACEES ESTÁ VACIO
+      p_place_card.setAttribute("class","p_place_card ");
+      p_place_card.setAttribute("id", "p_place_card "); 
+      p_place_card.style.textAlign="center";
+      
+      // COMPROBAMOS SI PLACEES ESTÁ VACIO
       if (event.placeEs === undefined){
         p_place_card.innerText= event.municipalityEs
       }
@@ -300,23 +310,27 @@ function addEvents(events){
       } 
 
       const container_fecha_button_card = document.createElement("div");
-      container_fecha_button_card .setAttribute("class","container_fecha_button_card ");
-      container_fecha_button_card .setAttribute("id", "container_fecha_button_card "); 
+      container_fecha_button_card.setAttribute("class","container_fecha_button_card ");
+      container_fecha_button_card.setAttribute("id", "container_fecha_button_card "); 
+      container_fecha_button_card.style.display="inline-flex";
+      container_fecha_button_card.style.gap="1rem";
+      container_fecha_button_card.style.border="2px solid #28E08C"
+      container_fecha_button_card.style.justifyContent="space-between";
 
       const fecha_card = document.createElement("p");
-      fecha_card .setAttribute("class","fecha_card ");
-      fecha_card .setAttribute("id", "fecha_card "); 
+      fecha_card.setAttribute("class","fecha_card ");
+      fecha_card.setAttribute("id", "fecha_card "); 
       fecha_card.innerText = (event.startDate[8]+event.startDate[9]+event.startDate[7]+event.startDate[5]+event.startDate[6]+event.startDate[4]+event.startDate[0]+event.startDate[1]+event.startDate[2]+event.startDate[3])
 
       const button_card = document.createElement("button");
-      button_card .setAttribute("class","button_card ");
-      button_card .setAttribute("id", "button_card "); 
+      button_card.setAttribute("class","button_card ");
+      button_card.setAttribute("id", "button_card "); 
+      button_card.innerText="fecha";
 
       const fav_card = document.createElement("button");
       fav_card .setAttribute("class","fav_card ");
       fav_card .setAttribute("id", "fav_card "); 
-
-      
+      fav_card.innerText="favoritos";
 
      principal_card.appendChild(mainContainer_card);
      mainContainer_card.appendChild(container_title_card);
@@ -334,7 +348,8 @@ function addEvents(events){
 // la tiene declarada arriba: const vamosBtn_index = document.getElementById("vamosBtn_index");
 
 vamosBtn_index.addEventListener("click",  ()=>{
-  
+  mainContainer_index.style.display="none";
+
   clearInterval(intervalToggle);
   const preferencesMenu_index = document.getElementById("preferencesMenu_index");
   // preferencesMenu_index.innerHTML=""
