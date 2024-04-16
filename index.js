@@ -253,10 +253,10 @@ console.log (eventTypes)
 //Filtro por eventos
 
 async function evenType(type, month=4){
-// const url = new URL("https://api.euskadi.eus/culture/events/v1.0/events/byType/"+type+"?_elements=20&_page=1")
-const url = new URL("https://api.euskadi.eus/culture/events/v1.0/events/byType/"+type+"/byMonth/2024/"+month+"?_elements=20&_page=1")
-const response = await fetch(url.toString());
-const event =  await response.json();
+  // const url = new URL("https://api.euskadi.eus/culture/events/v1.0/events/byType/"+type+"?_elements=20&_page=1")
+  const url = new URL("https://api.euskadi.eus/culture/events/v1.0/events/byType/"+type+"/byMonth/2024/"+month+"?_elements=20&_page=1")
+  const response = await fetch(url.toString());
+  const event =  await response.json();
 
 addEvents(event.items);
 // return event.items
@@ -264,26 +264,53 @@ addEvents(event.items);
 
 //Filtro por mes
 async function month(month){
-const url = new URL("https://api.euskadi.eus/culture/events/v1.0/events/byMonth/2024/0"+month+"?_elements=20&_page=1")
-const response = await fetch(url.toString());
-const eventmonth =  await response.json();
+  const url = new URL("https://api.euskadi.eus/culture/events/v1.0/events/byMonth/2024/0"+month+"?_elements=20&_page=1")
+  const response = await fetch(url.toString());
+  const eventmonth =  await response.json();
 // console.log(eventmonth)
 
  // addEvents(data.items);
 }
 
 function addEvents(events){
-  console.log(events)
-  const preferencesMenu_index = document.getElementById("preferencesMenu_index");
-  events.forEach((event,index) => {
-      const contenedorEvento = document.createElement("div")
-      contenedorEvento.setAttribute("class","contenedorEvento")
-      const name = document.createElement("h1");
-      name.innerText = event.nameEs;
-      const typeEs = document.createElement("h2");
-      typeEs.innerText = event.typeEs
-      const place = document.createElement("p");
-      //  COMPROBAMOS SI PLACEES ESTÁ VACIO
+  const mainContainer_card = document.getElementById("mainContainer_card");
+
+    events.forEach((event,index) => {
+      const container_title_card = document.createElement("div");
+      container_title_card.setAttribute("class","container_title_card");
+      container_title_card.setAttribute("id", "container_title_card");
+    
+      const title_card = document.createElement("p");
+      title_card.setAttribute("class","title_card");
+      title_card.setAttribute("id", "title_card");
+      title_card.innerText = event.nameEs;
+
+
+      const container_description_card = document.createElement("div");
+      container_description_card.setAttribute("class","container_description_card");
+      container_description_card.setAttribute("id", "container_description_card");
+
+      const description_card = document.createElement("p");
+      description_card .setAttribute("class","description_card ");
+      description_card .setAttribute("id", "description_card "); 
+      description_card.innerText = event.descriptionEs
+
+
+      const container_fecha_button_card = document.createElement("div");
+      container_fecha_button_card .setAttribute("class","container_fecha_button_card ");
+      container_fecha_button_card .setAttribute("id", "container_fecha_button_card "); 
+
+      const fecha_card = document.createElement("p");
+      fecha_card .setAttribute("class","fecha_card ");
+      fecha_card .setAttribute("id", "fecha_card "); 
+      fecha_card.innerText = (event.startDate[8]+event.startDate[9]+event.startDate[7]+event.startDate[5]+event.startDate[6]+event.startDate[4]+event.startDate[0]+event.startDate[1]+event.startDate[2]+event.startDate[3])
+
+      const button_card = document.createElement("button");
+      button_card .setAttribute("class","button_card ");
+      button_card .setAttribute("id", "button_card "); 
+
+
+      /*//  COMPROBAMOS SI PLACEES ESTÁ VACIO
       if (event.placeEs === undefined){
         place.innerText=""
       }
@@ -295,13 +322,14 @@ function addEvents(events){
       fecha.innerText = (event.startDate[8]+event.startDate[9]+event.startDate[7]+event.startDate[5]+event.startDate[6]+event.startDate[4]+event.startDate[0]+event.startDate[1]+event.startDate[2]+event.startDate[3])
       const masInformacion = document.createElement("div")
       masInformacion.innerText=("+")
-      
-      preferencesMenu_index.appendChild(contenedorEvento)
-      contenedorEvento.appendChild(typeEs);
-      contenedorEvento.appendChild(name);
-      contenedorEvento.appendChild(place)
-      contenedorEvento.appendChild(fecha)
-      contenedorEvento.appendChild(masInformacion)
+      */
+     mainContainer_card.appendChild(container_title_card);
+     container_title_card.appendChild(title_card);
+     mainContainer_card.appendChild(container_description_card);
+     container_description_card.appendChild(description_card)
+     mainContainer_card.appendChild(container_fecha_button_card);
+     container_fecha_button_card.appendChild(fecha_card);
+     container_fecha_button_card.appendChild(button_card);
   });
 }
 
