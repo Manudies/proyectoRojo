@@ -273,9 +273,14 @@ async function month(month){
 }
 
 function addEvents(events){
-  const mainContainer_card = document.getElementById("mainContainer_card");
+  const principal_card = document.getElementById("principal_card");
 
     events.forEach((event,index) => {
+      const mainContainer_card = document.createElement("div");
+      mainContainer_card.setAttribute("class","mainContainer_card");
+      mainContainer_card.setAttribute("id", "mainContainer_card");
+
+      
       const container_title_card = document.createElement("div");
       container_title_card.setAttribute("class","container_title_card");
       container_title_card.setAttribute("id", "container_title_card");
@@ -283,18 +288,21 @@ function addEvents(events){
       const title_card = document.createElement("p");
       title_card.setAttribute("class","title_card");
       title_card.setAttribute("id", "title_card");
+      console.log(event.nameEs)
       title_card.innerText = event.nameEs;
 
 
-      const container_description_card = document.createElement("div");
+     /* const container_description_card = document.createElement("div");
       container_description_card.setAttribute("class","container_description_card");
       container_description_card.setAttribute("id", "container_description_card");
 
       const description_card = document.createElement("p");
       description_card .setAttribute("class","description_card ");
-      description_card .setAttribute("id", "description_card "); 
-      description_card.innerText = event.descriptionEs
-
+      description_card .setAttribute("id", "description_card ");
+      console.log(event.descriptionEs)
+      const newDescri = event.descriptionEs.replace("<p>", "") 
+      description_card.innerText = newDescri
+*/
 
       const container_fecha_button_card = document.createElement("div");
       container_fecha_button_card .setAttribute("class","container_fecha_button_card ");
@@ -323,10 +331,12 @@ function addEvents(events){
       const masInformacion = document.createElement("div")
       masInformacion.innerText=("+")
       */
+
+     principal_card.appendChild(mainContainer_card);
      mainContainer_card.appendChild(container_title_card);
      container_title_card.appendChild(title_card);
-     mainContainer_card.appendChild(container_description_card);
-     container_description_card.appendChild(description_card)
+    //  mainContainer_card.appendChild(container_description_card);
+     //container_description_card.appendChild(description_card)
      mainContainer_card.appendChild(container_fecha_button_card);
      container_fecha_button_card.appendChild(fecha_card);
      container_fecha_button_card.appendChild(button_card);
