@@ -114,7 +114,6 @@ preferenceRadioBtn0.addEventListener("click", ()=>{
     preferenceBtnDescriptionTxt.appendChild(span);
     span.style.transform=`rotate(${11 * i}deg)`;
   }
-  //vamosBtn_index.classList.toggle("btnAnimation");
   vamosBtn_index.style.display="block";
 
   p0 = true;
@@ -219,13 +218,6 @@ preferenceRadioBtn5.addEventListener("click", ()=>{
 
 // *** BOTON BUSCAR (vamosbTN)
 let vamosBtnWasPressed = false;
-
-vamosBtn_index-addEventListener("click", ()=>{
-
-  // CLEAR INTERVAL TOGGLE BTN ON CLICK OF VAMOSBTN 
-  clearInterval(intervalToggle);
-
-});
 
 
 // Creamos la funcion de consulta de la API de cultura y guardamos en JSON, llamamos a las funcion addEvents
@@ -347,56 +339,46 @@ function addEvents(events){
 // la tiene declarada arriba: const vamosBtn_index = document.getElementById("vamosBtn_index");
 
 vamosBtn_index.addEventListener("click",  ()=>{
-const preferencesMenu_index = document.getElementById("preferencesMenu_index");
-preferencesMenu_index.innerHTML=""
-if (p0===true){
-   evenType(1)
-   evenType(7)
-   evenType(13)
-   p0=false
-}
-if (p1===true){
-  evenType(2)
-  evenType(4)
-  evenType(3)
-  p1=false
-}
-if (p2===true){
-  evenType(9)
-  p2=false
-}
-if (p3===true){
-  evenType(6)
-  evenType(10)
-  evenType(11)
-  p3=false
-}
-if (p4===true){
-  evenType(8)
-  evenType(12)
-  evenType(14)
-  evenType(15)
-  p4=false
-}
-if (p5===true){
-  evenType()
+  
+  clearInterval(intervalToggle);
+  const preferencesMenu_index = document.getElementById("preferencesMenu_index");
+  // preferencesMenu_index.innerHTML=""
+  if (p0===true){
+    evenType(1)
+    evenType(7)
+    evenType(13)
+    p0=false
+  }
+  if (p1===true){
+    evenType(2)
+    evenType(4)
+    evenType(3)
+    p1=false
+  }
+  if (p2===true){
+    evenType(9)
+    p2=false
+  }
+  if (p3===true){
+    evenType(6)
+    evenType(10)
+    evenType(11)
+    p3=false
+  }
+  if (p4===true){
+    evenType(8)
+    evenType(12)
+    evenType(14)
+    evenType(15)
+    p4=false
+  }
+  if (p5===true){
+    evenType()
 
-  p5=false
-}
+    p5=false
+  }
 
-// if(divEvents==""){
-//   const mensajeError = document.createElement("p");
-//       mensajeError.innerText = ("NO HAY EVENTOS DE ESE TIPO")
-//       divEvents.appendChild(mensajeError)
-      
-// }
 })
 
-
-
-// getData();
-// evenTypes();
-// month(5);
-//evenType(1)
 
 
