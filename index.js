@@ -1,11 +1,7 @@
 const preferencesMenu_index = document.getElementById("preferencesMenu_index");
-
 const preferencesToggle = document.getElementById("preferencesToggle");
-
 const containerPreferenceBtnDescription_index = document.getElementById("containerPreferenceBtnDescription_index");
-
 const preferenceBtnDescriptionTxt = document.getElementById("preferenceBtnDescriptionTxt");
-
 const vamosBtn_index = document.getElementById("vamosBtn_index");
 
 // ***
@@ -21,13 +17,9 @@ preferencesToggle.addEventListener("mouseleave", ()=>{
 // ***
 
 const ionIconSchool = document.getElementById("ionIconSchool");
-
 const ionIconSad = document.getElementById("ionIconSad");
-
 const ionIconMusicalNotes = document.getElementById("ionIconMusicalNotes");
-
 const ionIconVideo = document.getElementById("ionIconVideo");
-
 const ionIconOthers = document.getElementById("ionIconOthers");
 
 // ****
@@ -49,37 +41,11 @@ preferencesToggle.addEventListener("click", ()=>{
   preferencesToggleIonIcon.style.fontSize="2.7rem";
 
   setTimeout(() => {
-    preferencesContainer_index.style.opacity="1";
-  }, "400");
-
-
-// Agregamos los listener a los botones de las preferencias
-let p1=false;
-preference1.addEventListener("click",  ()=>{
-  namePreferenceTxt.innerText="¡MÚSICA!";
-  p1 = true;
-});
-
-let p2 = false;
-preference2.addEventListener("click",  ()=>{
-  namePreferenceTxt.innerText="TEATRO";
-  p2 = true;
-});
-
-let p3 = false;
-preference3.addEventListener("click",  ()=>{
-  namePreferenceTxt.innerText="CINE";
-  p3 = true;
-});
-
-let p4 = false;
-preference4.addEventListener("click",  ()=>{
-  namePreferenceTxt.innerText="FORMACIÓN";
-  p4 = true;
     preferencesToggleIonIcon.style.fontSize="3.5rem";
   }, "600");
 
 }, 700);
+
 
 // CLEAR INTERVAL ON CLICK 
 // clearInterval(nIntervId);
@@ -91,78 +57,58 @@ const preferenceRadioBtn1 = document.getElementById("preferenceRadioBtn1");
 const preferenceRadioBtn2 = document.getElementById("preferenceRadioBtn2");
 const preferenceRadioBtn3 = document.getElementById("preferenceRadioBtn3");
 const preferenceRadioBtn4 = document.getElementById("preferenceRadioBtn4");
-// const preferenceRadioBtn5 = document.getElementById("preferenceRadioBtn5");
-// const preferenceRadioBtn6 = document.getElementById("preferenceRadioBtn6");
-// const preferenceRadioBtn7 = document.getElementById("preferenceRadioBtn7");
-// const preferenceRadioBtn8 = document.getElementById("preferenceRadioBtn8");
+
 
 // PREFERENCE BTNS ONCLICK EVENTS
+// Agregamos los listener a los botones de las preferencias
+let p0 = false;
+
 preferenceRadioBtn0.addEventListener("click", ()=>{
   containerPreferenceBtnDescription_index.style.display="flex";
-  preferenceBtnDescriptionTxt.innerText="FORMACIÓN";
+  preferenceBtnDescriptionTxt.innerText="MÚSICA";
   vamosBtn_index.style.display="block";
+  p0 = true;
+
 });
 
-let p5 = false
-preference5.addEventListener("click",  ()=>{
-  namePreferenceTxt.innerText="OTROS";
-  p5 = true;
+let p1 = false;
+
 preferenceRadioBtn1.addEventListener("click", ()=>{
   containerPreferenceBtnDescription_index.style.display="flex";
   preferenceBtnDescriptionTxt.innerText="TEATRO";
   vamosBtn_index.style.display="block";
+  p1 = true;
 });
+
+let p2 = false;
 
 preferenceRadioBtn2.addEventListener("click", ()=>{
   containerPreferenceBtnDescription_index.style.display="flex";
-  preferenceBtnDescriptionTxt.innerText="MÚSICA";
+  preferenceBtnDescriptionTxt.innerText="CINE";
   vamosBtn_index.style.display="block";
+  p2 = true;
 });
+
+let p3 = false;
 
 preferenceRadioBtn3.addEventListener("click", ()=>{
   containerPreferenceBtnDescription_index.style.display="flex";
-  preferenceBtnDescriptionTxt.innerText="CINE";
+  preferenceBtnDescriptionTxt.innerText="FORMACIÓN";
   vamosBtn_index.style.display="block";
+  p3 = true;
+
 });
 
+let p4 = false
 
 preferenceRadioBtn4.addEventListener("click", ()=>{
   containerPreferenceBtnDescription_index.style.display="flex";
   preferenceBtnDescriptionTxt.innerText="OTROS";
   vamosBtn_index.style.display="block";
+  p4 = true;
+
 });
 
-
-// preferenceRadioBtn5.addEventListener("click", ()=>{
-//   containerPreferenceBtnDescription_index.style.display="flex";
-//   preferenceBtnDescriptionTxt.innerText="DEPORTE";
-//   vamosBtn_index.style.display="block";
-// });
-
-// preferenceRadioBtn6.addEventListener("click", ()=>{
-//   containerPreferenceBtnDescription_index.style.display="flex";
-//   preferenceBtnDescriptionTxt.innerText="ALTERNATIVO";
-//   vamosBtn_index.style.display="block";
-// });
-
-// preferenceRadioBtn7.addEventListener("click", ()=>{
-//   containerPreferenceBtnDescription_index.style.display="flex";
-//   preferenceBtnDescriptionTxt.innerText="¡FIESTA!";
-//   vamosBtn_index.style.display="block";
-// });
-
-// preferenceRadioBtn8.addEventListener("click", ()=>{
-//   containerPreferenceBtnDescription_index.style.display="flex";
-//   preferenceBtnDescriptionTxt.innerText="AL AIRE LIBRE";
-//   vamosBtn_index.style.display="block";
-// });
-
-// ***
-
-
-// preference6.addEventListener("click",  ()=>{
-//   namePreferenceTxt.innerText="ARREJUNTAUS";
-// });
 
 // Creamos la funcion de consulta de la API de cultura y guardamos en JSON, llamamos a las funcion addEvents
 async function getData(){
@@ -210,7 +156,7 @@ async function month(month){
 
 function addEvents(events){
     console.log(events)
-    const divEvents = document.getElementById("divEvents");
+    const preferencesMenu_index = document.getElementById("preferencesMenu_index");
     events.forEach((event,index) => {
         const contenedorEvento = document.createElement("div")
         contenedorEvento.setAttribute("class","contenedorEvento")
@@ -232,49 +178,49 @@ function addEvents(events){
         const masInformacion = document.createElement("div")
         masInformacion.innerText=("+")
         
-        divEvents.appendChild(contenedorEvento)
-        contenedorEvento.appendChild(typeEs);
+        preferencesMenu_index.appendChild(contenedorEvento)
+        /*contenedorEvento.appendChild(typeEs);
         contenedorEvento.appendChild(name);
         contenedorEvento.appendChild(place)
         contenedorEvento.appendChild(fecha)
-        contenedorEvento.appendChild(masInformacion)
+        contenedorEvento.appendChild(masInformacion)*/
     });
 }
 
 // Boton buscar
-const savePreferencesButton = document.getElementById("savePreferencesButton");
+//const vamosBtn_index = document.getElementById("vamosBtn_index");
 
-savePreferencesButton.addEventListener("click",  ()=>{
-  const divEvents = document.getElementById("divEvents");
-  divEvents.innerHTML=""
-  if (p1===true){
+vamosBtn_index.addEventListener("click",  ()=>{
+  const preferencesMenu_index = document.getElementById("preferencesMenu_index");
+  preferencesMenu_index.innerHTML=""
+  if (p0===true){
      evenType(1)
      evenType(7)
      evenType(13)
-     p1=false
+     p0=false
   }
-  if (p2===true){
+  if (p1===true){
     evenType(2)
     evenType(4)
     evenType(3)
+    p1=false
+  }
+  if (p2===true){
+    evenType(9)
     p2=false
   }
   if (p3===true){
-    evenType(9)
-    p3=false
-  }
-  if (p4===true){
     evenType(6)
     evenType(10)
     evenType(11)
-    p4=false
+    p3=false
   }
-  if (p5===true){
+  if (p4===true){
     evenType(8)
     evenType(12)
     evenType(14)
     evenType(15)
-    p5=false
+    p4=false
   }
 
   // if(divEvents==""){
