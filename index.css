@@ -1,0 +1,370 @@
+:root{
+  --desaturatedGreen: #3D8159;
+  --green: #1ED66A;
+  --redEuskadi: #CE2A1D;
+  --greenEuskadi: #009646;
+  --desaturatedRed: #96413B;
+  --orange: #fb8500;
+  --lightOrange: #ff8800;
+  --darkRed: #170301;
+  --yellowOrange: #ffd875;
+  --background: #8ecae6;
+  --darkBlue: #023047;
+  --radialBackground:#8ecae67b;
+  --containerTitleCard: #749BAB;  
+
+  --clr1:#ff2972;
+  --clr1-2: #ff29706c;
+  --clr2:#f51e0f;
+  --clr2-2:#f51e0f62;
+  --clr3:#fee800;
+  --clr3-2:#fee90062;
+  --clr4:#0ffc43;
+  --clr4-2:#0ffc4253;
+  --clr5:#000dff;
+  --clr5-2:#000dff5f;
+  --clr6:#fe00f1;
+  --clr6-2:#fe00f15d;
+  --clr7:#fea600;
+  --clr7-2:#fea50058;
+  --clr8:#a529ff;
+  --clr8-2:#a629ff64;
+  --clr9:#0ed700;
+  --clr9-2:#0ed70055;
+}
+
+*{
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+body{
+  background-color: #d6a360;
+  font-family: raleway;
+  overflow-x: hidden;
+  width: 100vw;
+  height: 100vh;
+}
+
+.mainContainer_index{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background-color: rgba(0, 128, 0, 0);
+  padding-top: 2.5rem;
+}
+
+.pageTitleContainer_index{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #749BAB;
+  margin-bottom: 2rem;
+}
+
+.pageTitle_txt{
+  font-weight: 900;
+  color: var(--darkRed);
+  text-shadow: 1px 1px 0px white;
+  letter-spacing: .1rem;
+  font-size: 3.5rem;
+}
+
+.pageTitleG_txt{
+  font-weight: 800;
+  padding-right: .3rem;
+  font-size: 3rem;
+  color: var(--orange);
+  text-shadow: 2px 2px 0px var(--darkRed);
+}
+
+.titleIonIcon{
+  margin-left: .3rem;
+  margin-right: .2rem;
+  font-size: 2.1rem;
+  padding: .08rem;
+  color: black;
+  outline: 3px solid black;
+  border-radius: 50%;
+  background-color: var(--orange);
+}
+
+.containerPreferenceBtnDescription_index{
+  position: absolute;
+  /* transform: translateY(-1rem); */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  transition: all 600ms ease;
+}
+
+.preferenceBtnDescriptionTxt{
+  position: relative;
+  color: white;
+  text-shadow:2px 2px 0px #000;
+  font-weight: 800;
+  width: 300px;
+  height: 300px;
+
+  animation: txtRotation 30s linear infinite;
+}
+
+.spanLetter{
+  position: absolute;
+  transform-origin: 0 150px;
+  left: 50%;
+}
+
+@keyframes txtRotation {
+  0%{
+      transform: rotate(0deg);
+  }
+  100%{
+    transform: rotate(360deg);
+  }  
+}
+
+.containerPreferencesMenu_index{
+  padding: 1rem;
+  border-radius: 50%;
+  transition: all 500ms ease;
+  background-color: #957142;
+}
+
+.preferencesMenu_index{
+  position: relative;
+  width: 220px;
+  height: 220px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 400ms ease;
+}
+
+.preferencesToggle{
+  cursor: pointer;
+  position: absolute;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #65C3EB;
+  width: 82px;
+  height: 82px;
+  outline: 3px solid rgb(12, 76, 113);
+  border-radius: 50%;
+  z-index: 1000;
+  box-shadow: 0px 0px 15px 5px #004b9c6e;
+  transition: all 500ms ease-out;
+}
+
+.preferencesToggle:hover{
+  outline: 3px solid rgb(141, 90, 13);
+  background-color: var(--orange);
+  box-shadow: 0px 0px 15px 3px var(--orange);
+}
+
+.preferencesToggle ion-icon{
+  font-size: 2.7rem;
+  color: var(--darkRed) ;
+  transition: all 300ms ease;
+}
+
+#preferencesToggleIonIconSearch{
+  display:none;
+}
+
+.preferencesMenu_index li{
+  position: absolute;
+  left: 0;
+  width: 3.3rem;
+  height: 3.3rem;
+  transform-origin: 110px;
+  transition-delay: calc(0.1s * var(--i));
+  transform: rotate(0deg) translateX(75px);
+  transition: all 300ms ease;
+}
+
+.preferencesMenu_li input{
+  cursor: pointer;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  z-index: 10;
+  opacity: 0;
+}
+
+.radioTile{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  width: 100%;
+  height: 100%;
+  transition: all 250ms ease;
+}
+
+.radioTile_ionIcon{
+  padding: .4rem;
+  border-radius: 50%;
+
+  font-size: 2.5rem;
+}
+
+#preferenceRadioBtn0:checked + .radioTile {
+  outline: 2px solid white;
+  background-color: #65C3EB;
+}
+
+#preferenceRadioBtn1:checked + .radioTile {
+  outline: 2px solid white;
+  background-color: #65C3EB;
+}
+
+#preferenceRadioBtn2:checked + .radioTile {
+  outline: 2px solid white;
+  background-color: #65C3EB;
+}
+
+#preferenceRadioBtn3:checked + .radioTile {
+  outline: 2px solid white;
+  background-color: #65C3EB;
+}
+
+#preferenceRadioBtn4:checked + .radioTile {
+  outline: 2px solid white;
+  background-color: #65C3EB;
+}
+
+#preferenceRadioBtn5:checked + .radioTile {
+  outline: 2px solid white;
+  background-color: #65C3EB;
+}
+
+input:checked + .radioTile ion-icon{
+  color: var(--yellow);
+}
+
+.preferencesMenu_index.active li{
+ transform: rotate(calc(360deg/6*var(--i)))
+ translateX(0px);
+}
+
+
+.vamosBtn_index{
+  cursor: pointer;
+  display: none;
+  appearance: none;
+  border: none;
+  background-color: var(--orange);
+  transform: translateY(3.5rem);
+  color: black;
+  font-size: 2rem;
+  font-weight: 800;
+  padding: .5rem 1rem;
+  border-radius: 50%;
+}
+
+.vamosBtn_index:hover{
+  color: white;
+  outline: 2px solid var(--orange);
+  background-color: black;
+  transition: all 300ms ease;
+  box-shadow: 0px 0px 20px 7px #fb860056;
+}
+
+.btnAnimation{
+  animation-name: animationUp;
+  animation-duration: 300ms;
+  animation-iteration-count: 1;
+}
+
+@keyframes animationUP{
+  0%{
+    opacity: 0;
+    transform: translateY(0rem);
+  }
+  100%{
+    opacity: 1;
+    transform: translateY(4rem);
+  }
+}
+/* TARJETAS */
+
+.principal_card{
+  display: flex;
+  align-items:start;
+  justify-content:center;
+  gap: 1rem;
+  width:100%;
+  flex-wrap: wrap;
+}
+
+.mainContainer_card{
+  width: 18.75rem;
+  /* height: 10rem; */
+  padding: .2rem;
+  background-color: var(--containerTitleCard);
+  border-radius: 10px;
+  box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.55);
+}
+
+.container_title_card{
+  box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.55);
+  font-size: 1.1rem;
+  width: 100%;
+  /* border: 2px solid black; */
+  border-radius: 10px;
+  background-color: rgba(255, 255, 255, 0.517);
+}
+
+.place_card{
+  font-size: .8rem;
+  padding: .5rem;
+  font-family: merriweather, sans;
+}
+
+.fecha_card{
+  font-weight: 600;
+  font-size: .8rem;
+}
+
+.button_card{
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.5rem;
+  font-weight: 900;
+  border-radius: 10px;
+}
+
+.fav_card{
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.2rem;
+  font-weight: 900;
+  border-radius: 10px;
+  color: red;
+  padding: .3rem;
+  }
+
+
+
+  /* ********MEDIA QUERIES****** */
+
+  
+  @media all and (min-width:320px){
+
+
+    .principal_card{
+      flex-direction: row;
+    }
+
+  }
