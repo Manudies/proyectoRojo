@@ -295,7 +295,18 @@ input:checked + .radioTile ion-icon{
 }
 /* TARJETAS */
 
+.principal_card{
+  display: flex;
+  align-items:start;
+  justify-content:center;
+  gap: 1rem;
+  width:100%;
+  flex-wrap: wrap;
+}
+
 .mainContainer_card{
+  width: 18.75rem;
+  /* height: 10rem; */
   padding: .2rem;
   background-color: var(--containerTitleCard);
   border-radius: 10px;
@@ -323,6 +334,7 @@ input:checked + .radioTile ion-icon{
 }
 
 .button_card{
+  cursor: pointer;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -342,10 +354,17 @@ input:checked + .radioTile ion-icon{
   color: red;
   padding: .3rem;
   }
-/* 
-  .fav_card ion-icon{
-    font-size: 1.5rem;
-  } */
 
+
+
+  /* ********MEDIA QUERIES****** */
 
   
+  @media all and (min-width:320px){
+
+
+    .principal_card{
+      flex-direction: row;
+    }
+
+  }

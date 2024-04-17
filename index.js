@@ -1,3 +1,5 @@
+// ****
+
 const containerPreferencesMenu_index = document.getElementById("containerPreferencesMenu_index");
 
 const preferencesMenu_index = document.getElementById("preferencesMenu_index");
@@ -13,17 +15,7 @@ const vamosBtn_index = document.getElementById("vamosBtn_index");
 
 // ***
 // CARGAR TARJETAS DE MUESTRA ALEATORIAS EN LA PÁGINA INICIAL
-const systemDate = new Date();
-
-console.log("systemDate" + systemDate);
-console.log("Día: " + systemDate.getDate());
-console.log("Año: " + systemDate.getFullYear());
-console.log("Mes: " + systemDate.getMonth() + 1);
-
-
-// window.addEventListener("load", (event) => {
-
-// });
+// const systemDate = new Date();
 
 
 // *** PREFERENCES TOGGLE BTN
@@ -383,6 +375,7 @@ async function month(month) {
 function addEvents(events) {
   const principal_card = document.getElementById("principal_card");
   principal_card.style.paddingLeft = "1rem";
+  principal_card.style.width = "100%";
   principal_card.style.paddingRight = "1rem";
   // principal_card.style.border="5px solid #FB8500"; 
 
@@ -397,6 +390,7 @@ function addEvents(events) {
     mainContainer_card.style.alignContent = "center";
     mainContainer_card.style.justifyContent = "center";
     mainContainer_card.style.flexDirection = "column";
+
 
     const container_title_card = document.createElement("div");
     container_title_card.setAttribute("class", "container_title_card");
@@ -426,7 +420,7 @@ function addEvents(events) {
       p_place_card.innerText = event.municipalityEs
     }
     else {
-      p_place_card.innerText = event.placeEs
+      p_place_card.innerText = event.placeEs;
     }
 
     const container_fecha_button_card = document.createElement("div");
@@ -473,13 +467,9 @@ function addEvents(events) {
           fav_card.style.cursor = "pointer";
           fav_card_click = false;
         }
-
     })
   });
 }
-
-
-
 
 
 
