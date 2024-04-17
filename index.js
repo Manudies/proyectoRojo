@@ -25,6 +25,8 @@ let preference1Pressed = false;
 let preference2Pressed = false;
 let preference3Pressed = false;
 let preference4Pressed = false;
+let preference5Pressed = false;
+
 
 preferencesToggle.addEventListener("mouseover", () => {
   preferencesToggle.style.transform = "rotate(1turn)";
@@ -74,7 +76,7 @@ preferencesToggle.addEventListener("click", () => {
   }
 
   //VERIFICAMOS SI EL BOTON TOGGLE HA SIDO PRESIONADO
-  if (preference0Pressed == true || preference1Pressed == true || preference2Pressed == true || preference3Pressed == true || preference4Pressed == true) {
+  if (preference0Pressed == true || preference1Pressed == true || preference2Pressed == true || preference3Pressed == true || preference4Pressed == true || preference5Pressed == true) {
 
     clearInterval(intervalToggle);
 
@@ -115,15 +117,21 @@ preferencesToggle.addEventListener("click", () => {
       p4 = false
     }
     if (p5 === true) {
-      evenType()
+      evenType(getRandomIntInclusive(1,15))
+      console.log("paso por aqui")
       p5 = false
     }
 
   }
 
-
-
 });
+
+function getRandomIntInclusive(min, max) {
+  const minCeiled = Math.ceil(min);
+  const maxFloored = Math.floor(max);
+  return Math.floor(Math.random() * (maxFloored - minCeiled + 1) + minCeiled);
+}
+
 
 // ***
 
@@ -169,6 +177,7 @@ preferenceRadioBtn0.addEventListener("click", () => {
   preference2Pressed = false;
   preference3Pressed = false;
   preference4Pressed = false;
+  preference5Pressed = false;
 
   containerPreferenceBtnDescription_index.style.display = "flex";
   preferencesToggleIonIconSearch.style.display = "block";
@@ -198,6 +207,7 @@ preferenceRadioBtn1.addEventListener("click", () => {
   preference2Pressed = false;
   preference3Pressed = false;
   preference4Pressed = false;
+  preference5Pressed = false;
 
   containerPreferenceBtnDescription_index.style.display = "flex";
   preferencesToggleIonIconSearch.style.display = "block";
@@ -227,6 +237,7 @@ preferenceRadioBtn2.addEventListener("click", () => {
   preference2Pressed = true;
   preference3Pressed = false;
   preference4Pressed = false;
+  preference5Pressed = false;
 
   containerPreferenceBtnDescription_index.style.display = "flex";
   preferencesToggleIonIconSearch.style.display = "block";
@@ -256,6 +267,8 @@ preferenceRadioBtn3.addEventListener("click", () => {
   preference2Pressed = false;
   preference3Pressed = true;
   preference4Pressed = false;
+  preference5Pressed = false;
+
 
   containerPreferenceBtnDescription_index.style.display = "flex";
   preferencesToggleIonIconSearch.style.display = "block";
@@ -285,6 +298,8 @@ preferenceRadioBtn4.addEventListener("click", () => {
   preference2Pressed = false;
   preference3Pressed = false;
   preference4Pressed = true;
+  preference5Pressed = false;
+
 
   containerPreferenceBtnDescription_index.style.display = "flex";
   preferencesToggleIonIconSearch.style.display = "block";
@@ -306,6 +321,12 @@ preferenceRadioBtn4.addEventListener("click", () => {
 let p5 = false;
 
 preferenceRadioBtn5.addEventListener("click", () => {
+  preference0Pressed = false;
+  preference1Pressed = false;
+  preference2Pressed = false;
+  preference3Pressed = false;
+  preference4Pressed = false;
+  preference5Pressed = true;
 
   containerPreferenceBtnDescription_index.style.display = "flex";
   preferencesToggleIonIconSearch.style.display = "block";
