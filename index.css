@@ -9,6 +9,7 @@
   --darkRed: #170301;
   --yellowOrange: #ffd875;
   --background: #8ecae6;
+  --backgroundSaturated: #72badb; 
   --darkBlue: #023047;
   --radialBackground:#8ecae67b;
   --containerTitleCard: #749BAB;  
@@ -41,7 +42,7 @@
 }
 
 body{
-  background-color: #d6a360;
+  background-color: #252b2e;
   font-family: raleway;
   overflow-x: hidden;
   width: 100vw;
@@ -61,14 +62,15 @@ body{
   display: flex;
   align-items: center;
   justify-content: center;
-  background-color: #749BAB;
+  /* background: linear-gradient( #6c9aad, #00000000 ); */
+  /* background-color: #6c9aad; */
   margin-bottom: 2rem;
 }
 
 .pageTitle_txt{
   font-weight: 900;
-  color: var(--darkRed);
-  text-shadow: 1px 1px 0px white;
+  color: var(--backgroundSaturated);
+  text-shadow: 1px 1px 0px black;
   letter-spacing: .1rem;
   font-size: 3.5rem;
 }
@@ -104,7 +106,7 @@ body{
 
 .preferenceBtnDescriptionTxt{
   position: relative;
-  color: white;
+  color: var(--orange);
   text-shadow:2px 2px 0px #000;
   font-weight: 800;
   width: 300px;
@@ -132,8 +134,10 @@ body{
   padding: 1rem;
   border-radius: 50%;
   transition: all 500ms ease;
-  background-color: #957142;
+  background-color: #00000023;
 }
+
+/* *** */
 
 .preferencesMenu_index{
   position: relative;
@@ -216,32 +220,32 @@ body{
 }
 
 #preferenceRadioBtn0:checked + .radioTile {
-  outline: 2px solid white;
+  outline: 2px solid var(--orange);
   background-color: #65C3EB;
 }
 
 #preferenceRadioBtn1:checked + .radioTile {
-  outline: 2px solid white;
+  outline: 2px solid var(--orange);
   background-color: #65C3EB;
 }
 
 #preferenceRadioBtn2:checked + .radioTile {
-  outline: 2px solid white;
+  outline: 2px solid var(--orange);
   background-color: #65C3EB;
 }
 
 #preferenceRadioBtn3:checked + .radioTile {
-  outline: 2px solid white;
+  outline: 2px solid var(--orange);
   background-color: #65C3EB;
 }
 
 #preferenceRadioBtn4:checked + .radioTile {
-  outline: 2px solid white;
+  outline: 2px solid var(--orange);
   background-color: #65C3EB;
 }
 
 #preferenceRadioBtn5:checked + .radioTile {
-  outline: 2px solid white;
+  outline: 2px solid var(--orange);
   background-color: #65C3EB;
 }
 
@@ -375,11 +379,78 @@ input:checked + .radioTile ion-icon{
   /* ********MEDIA QUERIES****** */
 
   
-  @media all and (min-width:320px){
+  @media all and (min-width:450px){
 
+    .pageTitleContainer_index{
+      padding-top: 2.5rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      /* background: linear-gradient( #6c9aad, #00000000 ); */
+      /* background-color: #6c9aad; */
+      margin-bottom: 1rem;
+    }
 
-    .principal_card{
-      flex-direction: row;
+    .mainContainer_index{
+      padding-top: 1rem;
+    }
+
+    .pageTitle_txt{
+      text-shadow: 2px 2px 0px black;
+      letter-spacing: .2rem;
+      font-size: 5rem;
+    }
+    
+    .pageTitleG_txt{
+      font-size: 5rem;
+      text-shadow: 2px 2px 0px black;
+    }
+    
+    .titleIonIcon{
+      margin-left: .3rem;
+      margin-right: .2rem;
+      font-size: 2.15rem;
+      padding: .8rem;
+    }
+
+    .pageTitleContainer_index{
+      margin-bottom: 4rem;
+    }
+
+    .preferenceBtnDescriptionTxt{
+      width: 400px;
+      height:400px;
+    }
+    
+    .spanLetter{
+      position: absolute;
+      transform-origin: 0 200px;
+    }
+
+    .preferencesMenu_index{
+      width: 300px;
+      height: 300px;
+    }
+
+    .preferencesToggle{
+      width: 130px;
+      height: 130px;
+    }
+
+    .preferencesToggle ion-icon{
+      font-size: 3rem;
+    }
+
+    .preferencesMenu_index li{
+      width: 4rem;
+      height: 4rem;
+      transform-origin: 150px;
+      transition-delay: calc(0.1s * var(--i));
+    }
+
+    .radioTile_ionIcon{
+      padding: .4rem;
+      font-size: 3rem;
     }
 
   }

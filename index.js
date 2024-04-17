@@ -70,7 +70,7 @@ preferencesToggle.addEventListener("click", () => {
       togglePressed = true;
     } else {
       preferenceBtnDescriptionTxt.style.display = "none";
-      containerPreferencesMenu_index.style.backgroundColor = "#D48013";
+      containerPreferencesMenu_index.style.backgroundColor = "#00000023";
       togglePressed = false;
     }
   }
