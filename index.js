@@ -87,39 +87,33 @@ preferencesToggle.addEventListener("click", () => {
     }, "100");
 
     // SOLICITUDES A LA API
-    if (p0 === true) {
+    if (preference0Pressed === true) {
       evenType(1)
       evenType(7)
       evenType(13)
-      p0 = false
     }
-    if (p1 === true) {
+    if (preference1Pressed === true) {
       evenType(2)
       evenType(4)
       evenType(3)
-      p1 = false
+
     }
-    if (p2 === true) {
+    if (preference2Pressed === true) {
       evenType(9)
-      p2 = false
     }
-    if (p3 === true) {
+    if (preference3Pressed === true) {
       evenType(6)
       evenType(10)
       evenType(11)
-      p3 = false
     }
-    if (p4 === true) {
+    if (preference4Pressed === true) {
       evenType(8)
       evenType(12)
       evenType(14)
       evenType(15)
-      p4 = false
     }
-    if (p5 === true) {
+    if (preference5Pressed === true) {
       evenType(getRandomIntInclusive(1,15))
-      console.log("paso por aqui")
-      p5 = false
     }
 
   }
