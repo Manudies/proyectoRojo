@@ -426,6 +426,30 @@ function addEvents(events) {
       title_card.appendChild(activityIcon_card);
     }
 
+    if(preference1Pressed == true){
+      activityIcon_card.innerHTML='<ion-icon name="sad-outline"></ion-icon>';
+      title_card.appendChild(activityIcon_card);
+    }
+    
+    if(preference2Pressed == true){
+      activityIcon_card.innerHTML='<ion-icon name="musical-notes"></ion-icon>';
+      title_card.appendChild(activityIcon_card);
+    }
+
+    if(preference3Pressed == true){
+      activityIcon_card.innerHTML='<ion-icon name="ticket-outline"></ion-icon>';
+      title_card.appendChild(activityIcon_card);
+    }
+
+    if(preference4Pressed == true){
+      activityIcon_card.innerHTML='<ion-icon name="accessibility-outline"></ion-icon>';
+      title_card.appendChild(activityIcon_card);
+    }
+
+    if(preference5Pressed == true){
+      activityIcon_card.innerHTML='<ion-icon  name="flash-outline"></ion-icon>';
+      title_card.appendChild(activityIcon_card);
+    }
     const place_card = document.createElement("div");
     place_card.setAttribute("class", "place_card");
     place_card.setAttribute("id", "place_card");
