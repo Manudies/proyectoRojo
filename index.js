@@ -345,7 +345,7 @@ async function evenTypes() {
   const response = await fetch(url.toString());
   const eventTypes = await response.json();
 
-  console.log(eventTypes)
+  // console.log(eventTypes)
 
   // addEvents(data.items);
 }
@@ -377,7 +377,7 @@ function addEvents(events) {
   principal_card.style.paddingLeft = "1rem";
   principal_card.style.width = "100%";
   principal_card.style.paddingRight = "1rem";
-  // principal_card.style.border="5px solid #FB8500"; 
+  // principal_card.style.border="5px solid #FB8500";
 
 
   events.forEach((event, index) => {
@@ -391,20 +391,25 @@ function addEvents(events) {
     mainContainer_card.style.justifyContent = "center";
     mainContainer_card.style.flexDirection = "column";
 
+    //ICONO DE TARJETA
+    const activityIcon_card = document.createElement("span");
+    activityIcon_card.setAttribute("class", "activityIcon_card");
+    activityIcon_card.setAttribute("id", "activityIcon_card");
+
+    // ***
 
     const container_title_card = document.createElement("div");
     container_title_card.setAttribute("class", "container_title_card");
     container_title_card.setAttribute("id", "container_title_card");
-    // container_title_card.style.border="2px solid red";
     const title_card = document.createElement("p");
-    title_card.style.textAlign = "center";
-    title_card.style.padding = ".3rem .5rem";
-    title_card.style.fontWeight = "700";
     title_card.setAttribute("class", "title_card");
     title_card.setAttribute("id", "title_card");
-    console.log(event.nameEs);
     title_card.innerText = event.nameEs;
 
+    if(preference0Pressed == true){
+      activityIcon_card.innerHTML='<ion-icon name="school-outline"></ion-icon>';
+      title_card.appendChild(activityIcon_card);
+    }
 
     const place_card = document.createElement("div");
     place_card.setAttribute("class", "place_card");
