@@ -59,6 +59,7 @@ body{
 }
 
 .pageTitleContainer_index{
+  padding-top: 2rem;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -72,13 +73,13 @@ body{
   color: var(--backgroundSaturated);
   text-shadow: 1px 1px 0px black;
   letter-spacing: .1rem;
-  font-size: 3.5rem;
+  font-size: 3.7rem;
 }
 
 .pageTitleG_txt{
   font-weight: 800;
   padding-right: .3rem;
-  font-size: 3rem;
+  font-size: 3.4rem;
   color: var(--orange);
   text-shadow: 2px 2px 0px var(--darkRed);
 }
@@ -86,8 +87,8 @@ body{
 .titleIonIcon{
   margin-left: .3rem;
   margin-right: .2rem;
-  font-size: 2.1rem;
-  padding: .08rem;
+  font-size: 1.4rem;
+  padding: .6rem;
   color: black;
   outline: 3px solid black;
   border-radius: 50%;
@@ -105,19 +106,20 @@ body{
 }
 
 .preferenceBtnDescriptionTxt{
+  font-size: 1.1rem;
   position: relative;
   color: var(--orange);
   text-shadow:2px 2px 0px #000;
   font-weight: 800;
-  width: 300px;
-  height: 300px;
+  width: 310px;
+  height: 310px;
 
   animation: txtRotation 30s linear infinite;
 }
 
 .spanLetter{
   position: absolute;
-  transform-origin: 0 150px;
+  transform-origin: 0 155px;
   left: 50%;
 }
 
@@ -418,13 +420,14 @@ input:checked + .radioTile ion-icon{
     }
 
     .preferenceBtnDescriptionTxt{
-      width: 400px;
-      height:400px;
+      font-size: 2rem;
+      width: 450px;
+      height:450px;
     }
     
     .spanLetter{
       position: absolute;
-      transform-origin: 0 200px;
+      transform-origin: 0 225px;
     }
 
     .preferencesMenu_index{
