@@ -79,7 +79,6 @@ preferencesToggle.addEventListener("click", ()=>{
             containerPreferencesMenu_index.style.backgroundColor="#D48013";
             togglePressed=false;
           }
-
       }
 
       //VERIFICAMOS SI EL BOTON TOGGLE HA SIDO PRESIONADO
@@ -383,14 +382,18 @@ async function month(month){
 
 function addEvents(events){
   const principal_card = document.getElementById("principal_card");
-  principal_card.style.border="5px solid #FB8500"; 
+  principal_card.style.paddingLeft="1rem";
+  principal_card.style.paddingRight="1rem"; 
+  // principal_card.style.border="5px solid #FB8500"; 
+  
 
     events.forEach((event,index) => {
       const mainContainer_card = document.createElement("div");
       mainContainer_card.setAttribute("class","mainContainer_card");
       mainContainer_card.setAttribute("id", "mainContainer_card");
-      mainContainer_card.style.border="2px solid #BC5DDE"
+      // mainContainer_card.style.border="2px solid #BC5DDE"
       mainContainer_card.style.display="flex";
+      mainContainer_card.style.marginBottom="1rem";
       mainContainer_card.style.alignContent="center";
       mainContainer_card.style.justifyContent="center";
       mainContainer_card.style.flexDirection="column";
@@ -398,7 +401,7 @@ function addEvents(events){
       const container_title_card = document.createElement("div");
       container_title_card.setAttribute("class","container_title_card");
       container_title_card.setAttribute("id", "container_title_card");
-      container_title_card.style.border="2px solid red";
+      // container_title_card.style.border="2px solid red";
       const title_card = document.createElement("p");
       title_card.style.textAlign="center";
       title_card.style.padding=".3rem .5rem";
@@ -431,7 +434,7 @@ function addEvents(events){
       container_fecha_button_card.setAttribute("id", "container_fecha_button_card "); 
       container_fecha_button_card.style.display="inline-flex";
       container_fecha_button_card.style.gap="1rem";
-      container_fecha_button_card.style.border="2px solid #28E08C"
+      // container_fecha_button_card.style.border="2px solid #28E08C";
       container_fecha_button_card.style.justifyContent="space-between";
 
       const fecha_card = document.createElement("p");
@@ -439,25 +442,26 @@ function addEvents(events){
       fecha_card.setAttribute("id", "fecha_card "); 
       fecha_card.innerText = (event.startDate[8]+event.startDate[9]+event.startDate[7]+event.startDate[5]+event.startDate[6]+event.startDate[4]+event.startDate[0]+event.startDate[1]+event.startDate[2]+event.startDate[3])
 
+      
       const button_card = document.createElement("button");
       button_card.setAttribute("class","button_card ");
       button_card.setAttribute("id", "button_card "); 
-      button_card.innerText="fecha";
+      button_card.innerHTML='<ion-icon name="add"></ion-icon>';
 
       const fav_card = document.createElement("button");
       fav_card .setAttribute("class","fav_card ");
       fav_card .setAttribute("id", "fav_card "); 
-      fav_card.innerText="favoritos";
+      fav_card.innerHTML='<ion-icon name="heart-outline"></ion-icon>';
 
-     principal_card.appendChild(mainContainer_card);
-     mainContainer_card.appendChild(container_title_card);
-     container_title_card.appendChild(title_card);
-     mainContainer_card.appendChild(place_card);
-     place_card.appendChild(p_place_card)
-     mainContainer_card.appendChild(container_fecha_button_card);
-     container_fecha_button_card.appendChild(fecha_card);
-     container_fecha_button_card.appendChild(button_card);
-     container_fecha_button_card.appendChild(fav_card);
+       principal_card.appendChild(mainContainer_card);
+       mainContainer_card.appendChild(container_title_card);
+       container_title_card.appendChild(title_card);
+      mainContainer_card.appendChild(place_card);
+      place_card.appendChild(p_place_card)
+      mainContainer_card.appendChild(container_fecha_button_card);
+      container_fecha_button_card.appendChild(fecha_card);
+      container_fecha_button_card.appendChild(button_card);
+      container_fecha_button_card.appendChild(fav_card);
   });
 }
 

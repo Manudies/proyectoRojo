@@ -10,7 +10,8 @@
   --yellowOrange: #ffd875;
   --background: #8ecae6;
   --darkBlue: #023047;
-  --radialBackground:#8ecae67b; 
+  --radialBackground:#8ecae67b;
+  --containerTitleCard: #749BAB;  
 
   --clr1:#ff2972;
   --clr1-2: #ff29706c;
@@ -42,6 +43,7 @@
 body{
   background-color: #d6a360;
   font-family: raleway;
+  overflow-x: hidden;
   width: 100vw;
   height: 100vh;
 }
@@ -290,4 +292,50 @@ input:checked + .radioTile ion-icon{
     opacity: 1;
     transform: translateY(4rem);
   }
+}
+/* TARJETAS */
+
+.mainContainer_card{
+  padding: .2rem;
+  background-color: var(--containerTitleCard);
+  border-radius: 10px;
+  box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.55);
+}
+
+.container_title_card{
+  box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.55);
+  font-size: 1.1rem;
+  width: 100%;
+  /* border: 2px solid black; */
+  border-radius: 10px;
+  background-color: rgba(255, 255, 255, 0.517);
+}
+
+.place_card{
+  font-size: .8rem;
+  padding: .5rem;
+  font-family: merriweather, sans;
+}
+
+.fecha_card{
+  font-weight: 600;
+  font-size: .8rem;
+}
+
+.button_card{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.5rem;
+  font-weight: 900;
+  border-radius: 10px;
+}
+
+.fav_card{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.5rem;
+  font-weight: 900;
+  border-radius: 10px;
 }
