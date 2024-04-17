@@ -59,74 +59,86 @@ const preferencesToggleIonIconSearch = document.getElementById("preferencesToggl
 let togglePressed = false;
 
 preferencesToggle.addEventListener("click", ()=>{
-  if(preference0Pressed == true || preference1Pressed == true || preference2Pressed == true || preference3Pressed == true || preference4Pressed == true){
-
-    if(togglePressed == false){
-      preferenceBtnDescriptionTxt.style.display="flex";
-      containerPreferencesMenu_index.style.backgroundColor="#8ecae67b";
-      togglePressed=true;
-    }else{
-      // preferencesToggleIonIconSearch.style.display="block";
-      // preferencesToggleIonIcon.style.display="none"
-      preferenceBtnDescriptionTxt.style.display="none";
-      containerPreferencesMenu_index.style.backgroundColor="#D48013";
-      togglePressed=false;
-    }
-
-  }else{
-
-    mainContainer_index.style.display="none";
-
-    clearInterval(intervalToggle);
-    const preferencesMenu_index = document.getElementById("preferencesMenu_index");
-  
-    if (p0===true){
-      evenType(1)
-      evenType(7)
-      evenType(13)
-      p0=false
-    }
-    if (p1===true){
-      evenType(2)
-      evenType(4)
-      evenType(3)
-      p1=false
-    }
-    if (p2===true){
-      evenType(9)
-      p2=false
-    }
-    if (p3===true){
-      evenType(6)
-      evenType(10)
-      evenType(11)
-      p3=false
-    }
-    if (p4===true){
-      evenType(8)
-      evenType(12)
-      evenType(14)
-      evenType(15)
-      p4=false
-    }
-    if (p5===true){
-      evenType()
-      p5=false
-    }
-  }
-  
 
   preferencesMenu_index.classList.toggle("active");
   ionIconSad.style.transform="rotate(-80deg)";
   ionIconMusicalNotes.style.transform="rotate(-100deg)";
   ionIconVideo.style.transform="rotate(90deg)";
   ionIconOthers.style.transform="rotate(80deg)";
+
+      // PRIMERO VERIFICAMOS SI HAY ALGÚN TIPO DE ACTIVIDAD SELECCIONADO
+      if(preference0Pressed == false || preference1Pressed == false || preference2Pressed == false || preference3Pressed == false || preference4Pressed == false){
+          
+        //VERIFICAMOS SI EL BOTON TOGGLE NO HA SIDO PRESIONADO
+          if(togglePressed == false){
+            preferenceBtnDescriptionTxt.style.display="flex";
+            containerPreferencesMenu_index.style.backgroundColor="#8ecae67b";
+            togglePressed = true;
+          }else{
+            preferenceBtnDescriptionTxt.style.display="none";
+            containerPreferencesMenu_index.style.backgroundColor="#D48013";
+            togglePressed=false;
+          }
+
+      }
+
+      //VERIFICAMOS SI EL BOTON TOGGLE HA SIDO PRESIONADO
+      if(preference0Pressed == true || preference1Pressed == true || preference2Pressed == true || preference3Pressed == true || preference4Pressed == true){
+          
+          clearInterval(intervalToggle);
+          
+          const preferencesMenu_index = document.getElementById("preferencesMenu_index");
+        
+          setTimeout(() => {
+            mainContainer_index.style.display="none";
+          }, "100");
+
+          // SOLICITUDES A LA API
+            if (p0===true){
+              evenType(1)
+              evenType(7)
+              evenType(13)
+              p0=false
+            }
+            if (p1===true){
+              evenType(2)
+              evenType(4)
+              evenType(3)
+              p1=false
+            }
+            if (p2===true){
+              evenType(9)
+              p2=false
+            }
+            if (p3===true){
+              evenType(6)
+              evenType(10)
+              evenType(11)
+              p3=false
+            }
+            if (p4===true){
+              evenType(8)
+              evenType(12)
+              evenType(14)
+              evenType(15)
+              p4=false
+            }
+            if (p5===true){
+              evenType()
+              p5=false
+            }   
+          
+      }
+
+
+  
 });
 
   // ***
 
   // ANIMATION TOGGLE BTN
 const preferencesToggleIonIcon = document.getElementById("preferencesToggleIonIcon");
+
 const intervalToggle = setInterval(()=>{
 
   preferencesToggleIonIcon.style.fontSize="2.7rem";
@@ -168,6 +180,8 @@ preferenceRadioBtn0.addEventListener("click", ()=>{
   preference4Pressed = false;
   
   containerPreferenceBtnDescription_index.style.display="flex";
+  preferencesToggleIonIconSearch.style.display="block";
+  preferencesToggleIonIcon.style.display="none";
   
   preferenceBtnDescriptionTxt.innerText="";
   for(let i=0; i < strFormacion.length; i++){
@@ -195,6 +209,8 @@ preferenceRadioBtn1.addEventListener("click", ()=>{
   preference4Pressed = false;
 
   containerPreferenceBtnDescription_index.style.display="flex";
+  preferencesToggleIonIconSearch.style.display="block";
+  preferencesToggleIonIcon.style.display="none";
   
   preferenceBtnDescriptionTxt.innerText="";
   for(let i = 0; i < strTeatro.length; i++){
@@ -222,6 +238,8 @@ preferenceRadioBtn2.addEventListener("click", ()=>{
   preference4Pressed = false;
 
   containerPreferenceBtnDescription_index.style.display="flex";
+  preferencesToggleIonIconSearch.style.display="block";
+  preferencesToggleIonIcon.style.display="none";
 
   preferenceBtnDescriptionTxt.innerText="";
   for(let i=0; i < strMusica.length; i++){
@@ -249,6 +267,8 @@ preferenceRadioBtn3.addEventListener("click", ()=>{
   preference4Pressed = false;
 
   containerPreferenceBtnDescription_index.style.display="flex";
+  preferencesToggleIonIconSearch.style.display="block";
+  preferencesToggleIonIcon.style.display="none";
 
   preferenceBtnDescriptionTxt.innerText="";
   for(let i=0; i < strCine.length; i++){
@@ -276,6 +296,8 @@ preferenceRadioBtn4.addEventListener("click", ()=>{
   preference4Pressed = true;
 
   containerPreferenceBtnDescription_index.style.display="flex";
+  preferencesToggleIonIconSearch.style.display="block";
+  preferencesToggleIonIcon.style.display="none";
 
   preferenceBtnDescriptionTxt.innerText="";
   for(let i = 0; i < strOtros.length; i++){
@@ -293,7 +315,10 @@ preferenceRadioBtn4.addEventListener("click", ()=>{
 let p5 = false;
 
 preferenceRadioBtn5.addEventListener("click", ()=>{
+
   containerPreferenceBtnDescription_index.style.display="flex";
+  preferencesToggleIonIconSearch.style.display="block";
+  preferencesToggleIonIcon.style.display="none";
 
   preferenceBtnDescriptionTxt.innerText="";
   for(let i = 0; i < strRandom.length; i++){
