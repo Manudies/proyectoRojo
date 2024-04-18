@@ -136,7 +136,6 @@ body{
 
 .containerPreferenceBtnDescription_index{
   position: absolute;
-  /* transform: translateY(-1rem); */
   display: flex;
   align-items: center;
   justify-content: center;
@@ -415,17 +414,12 @@ input:checked + .radioTile ion-icon{
   padding: .3rem;
   }
 
-
-
   /* ********MEDIA QUERIES****** */
-
   
   @media all and (min-width:400px){
 
-    .backBtn_index{
-     
-      transform: translateX(-2rem);
-     
+    .backBtn_index{   
+      transform: translateX(-2rem); 
     }
 
     .pageTitleContainer_index{
@@ -433,8 +427,6 @@ input:checked + .radioTile ion-icon{
       display: flex;
       align-items: center;
       justify-content: center;
-      /* background: linear-gradient( #6c9aad, #00000000 ); */
-      /* background-color: #6c9aad; */
       margin-bottom: 1rem;
     }
 
@@ -500,16 +492,12 @@ input:checked + .radioTile ion-icon{
       padding: .4rem;
       font-size: 3rem;
     }
-
   }
 
   @media all and (min-width:500px){
 
     .backBtn_index{
-     
       transform: translateX(-2rem);
-     
     }
-
   }
 

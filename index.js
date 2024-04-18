@@ -4,20 +4,11 @@ import {tipos, random} from "./tipos.js"
 let searchFavouritesBtn_index = document.getElementById("searchFavouritesBtn_index");
 
 const containerPreferencesMenu_index = document.getElementById("containerPreferencesMenu_index");
-
 const preferencesMenu_index = document.getElementById("preferencesMenu_index");
-
 const preferencesToggle = document.getElementById("preferencesToggle");
-
 const containerPreferenceBtnDescription_index = document.getElementById("containerPreferenceBtnDescription_index");
-
 const preferenceBtnDescriptionTxt = document.getElementById("preferenceBtnDescriptionTxt");
-
-const vamosBtn_index = document.getElementById("vamosBtn_index");
-
 const backBtn_index = document.getElementById("backBtn_index");
-
-const preferencesMenu_li = document.getElementById("preferencesMenu_li");
 
 const preferenceRadioBtn0 = document.getElementById("preferenceRadioBtn0");
 const preferenceRadioBtn1 = document.getElementById("preferenceRadioBtn1");
@@ -33,7 +24,6 @@ const strCine = " - Cine - Cine - Cine -";
 const strOtros = " - Otros - Otros - Otros -";
 const strRandom = " - Random - Random - Random - "
 
-const ionIconSchool = document.getElementById("ionIconSchool");
 const ionIconSad = document.getElementById("ionIconSad");
 const ionIconMusicalNotes = document.getElementById("ionIconMusicalNotes");
 const ionIconVideo = document.getElementById("ionIconVideo");
@@ -46,27 +36,20 @@ let preference3Pressed = false;
 let preference4Pressed = false;
 let preference5Pressed = false;
 
-const radioTile1 = document.getElementById("radioTile1");
-
 const preferencesToggleIonIconSearch = document.getElementById("preferencesToggleIonIconSearch");
 
 let togglePressed = false;
-
 let preferencesMenuIsOnScreen = true;
 
 const principal_card = document.getElementById("principal_card");
 
 // ANIMATION TOGGLE BTN
 const preferencesToggleIonIcon = document.getElementById("preferencesToggleIonIcon");
-
 const intervalToggle = setInterval(() => {
-
   preferencesToggleIonIcon.style.fontSize = "2.7rem";
-
   setTimeout(() => {
     preferencesToggleIonIcon.style.fontSize = "3.5rem";
   }, "600");
-
 }, 700);
 
 // ***
@@ -76,12 +59,10 @@ backBtn_index.addEventListener("click", ()=>{
     containerPreferencesMenu_index.style.display="none";
     principal_card.style.display="flex";
   }
-
   if(preferencesMenuIsOnScreen == false){
     containerPreferencesMenu_index.style.display="flex";
     principal_card.style.display="none";    
   }
-
   backBtn_index.style.display="none";
   searchFavouritesBtn_index.style.display="none";
 
@@ -95,28 +76,18 @@ backBtn_index.addEventListener("click", ()=>{
   preferencesMenuIsOnScreen = true;
   preferencesToggleIonIconSearch.style.display = "none";
   preferencesToggleIonIcon.style.display = "block";
-  // radioTile1.style.border="none";
-  // radioTile1.style.backgroundColor="none";
-
 })
-
 
 // *** PREFERENCES TOGGLE BTN
 
 preferencesToggle.addEventListener("mouseover", () => {
   preferencesToggle.style.transform = "rotate(1turn)";
 });
-
 // ***
-
 preferencesToggle.addEventListener("mouseleave", () => {
   preferencesToggle.style.transform = "rotate(-1turn)";
 });
-
-
 // ***
-
-
 preferencesToggle.addEventListener("click", () => {
   preferencesMenu_index.classList.toggle("active");
   ionIconSad.style.transform = "rotate(-80deg)";
@@ -124,10 +95,10 @@ preferencesToggle.addEventListener("click", () => {
   ionIconVideo.style.transform = "rotate(90deg)";
   ionIconOthers.style.transform = "rotate(80deg)";
 
-  // PRIMERO VERIFICAMOS SI HAY ALGÚN TIPO DE ACTIVIDAD SELECCIONADO
+// PRIMERO VERIFICAMOS SI HAY ALGÚN TIPO DE ACTIVIDAD SELECCIONADO
   if (preference0Pressed == false || preference1Pressed == false || preference2Pressed == false || preference3Pressed == false || preference4Pressed == false) {
 
-    //VERIFICAMOS SI EL BOTON TOGGLE NO HA SIDO PRESIONADO
+//VERIFICAMOS SI EL BOTON TOGGLE NO HA SIDO PRESIONADO
     if (togglePressed == false) {
       preferenceBtnDescriptionTxt.style.display = "flex";
       containerPreferencesMenu_index.style.backgroundColor = "#8ecae67b";
@@ -138,14 +109,12 @@ preferencesToggle.addEventListener("click", () => {
       togglePressed = false;
     }
     preferencesMenuIsOnScreen = true;
-
   }
 
-  //VERIFICAMOS SI EL BOTON TOGGLE HA SIDO PRESIONADO
+//VERIFICAMOS SI EL BOTON TOGGLE HA SIDO PRESIONADO
   if (preference0Pressed == true || preference1Pressed == true || preference2Pressed == true || preference3Pressed == true || preference4Pressed == true || preference5Pressed == true) {
     
     clearInterval(intervalToggle);
-
     setTimeout(() => {
       containerPreferencesMenu_index.style.display = "none";
     }, "100");
@@ -174,20 +143,15 @@ preferencesToggle.addEventListener("click", () => {
     }
 
     backBtn_index.style.display="block";
-
     searchFavouritesBtn_index.style.display="block";
-
     principal_card.style.display="flex"
-
     preferencesMenuIsOnScreen = false;
-
   }
 });
 
-
-
 // PREFERENCE BTNS ONCLICK EVENTS
 // Agregamos los listener a los botones de las preferencias
+
 preferenceRadioBtn0.addEventListener("click", () => {
 
   preference0Pressed = true;
@@ -233,7 +197,6 @@ preferenceRadioBtn1.addEventListener("click", () => {
     preferenceBtnDescriptionTxt.appendChild(span);
     span.style.transform = `rotate(${11 * i}deg)`;
   }
-
 });
 
 // ***
@@ -271,7 +234,6 @@ preferenceRadioBtn3.addEventListener("click", () => {
   preference4Pressed = false;
   preference5Pressed = false;
 
-
   containerPreferenceBtnDescription_index.style.display = "flex";
   preferencesToggleIonIconSearch.style.display = "block";
   preferencesToggleIonIcon.style.display = "none";
@@ -282,7 +244,6 @@ preferenceRadioBtn3.addEventListener("click", () => {
     span.innerHTML = strCine[i];
     span.setAttribute("class", "spanLetter");
     preferenceBtnDescriptionTxt.appendChild(span);
-
     span.style.transform = `rotate(${11 * i}deg)`;
   }
 });
@@ -296,7 +257,6 @@ preferenceRadioBtn4.addEventListener("click", () => {
   preference3Pressed = false;
   preference4Pressed = true;
   preference5Pressed = false;
-
 
   containerPreferenceBtnDescription_index.style.display = "flex";
   preferencesToggleIonIconSearch.style.display = "block";
@@ -335,23 +295,6 @@ preferenceRadioBtn5.addEventListener("click", () => {
   }
 });
 
-// Creamos la funcion de consulta de la API de cultura y guardamos en JSON, llamamos a las funcion addEvents
-async function getData() {
-  const url = new URL("https://api.euskadi.eus/culture/events/v1.0/events")
-  url.searchParams.append("_elements", 500);
-  const response = await fetch(url.toString());
-  const data = await response.json();
-
-  addEvents(data.items);
-}
-//Filtro de los tipos de evconstentos existentes en la API
-async function evenTypes() {
-  const url = new URL("https://api.euskadi.eus/culture/events//v1.0/eventType")
-  // url.searchParams.append("_elements",500);
-  const response = await fetch(url.toString());
-  const eventTypes = await response.json();
-}
-
 //Filtro por eventos
 async function evenType(type, month = 4) {
   const url = new URL("https://api.euskadi.eus/culture/events/v1.0/events/byType/" + type + "/byMonth/2024/" + month + "?_elements=20&_page=1")
@@ -362,16 +305,8 @@ async function evenType(type, month = 4) {
   return event.items
 }
 
-//Filtro por mes
-async function month(month) {
-  const url = new URL("https://api.euskadi.eus/culture/events/v1.0/events/byMonth/2024/0" + month + "?_elements=20&_page=1")
-  const response = await fetch(url.toString());
-  const eventmonth = await response.json();
-}
-
 function addEvents(events) {
   const principal_card = document.getElementById("principal_card");
-  console.log(events);
   principal_card.innerHTML="";
   principal_card.style.paddingLeft = "1rem";
   principal_card.style.width = "100%";
@@ -453,7 +388,6 @@ function addEvents(events) {
     fecha_card.setAttribute("id", "fecha_card ");
     fecha_card.innerText = (event.startDate[8] + event.startDate[9] + event.startDate[7] + event.startDate[5] + event.startDate[6] + event.startDate[4] + event.startDate[0] + event.startDate[1] + event.startDate[2] + event.startDate[3])
 
-
     const button_card = document.createElement("button");
     button_card.setAttribute("class", "button_card ");
     button_card.setAttribute("id", "button_card ");
@@ -508,7 +442,8 @@ function addEvents(events) {
       }
     });
   });
-   // Obtener el elemento del botón
+
+// Obtener el elemento del botón
 searchFavouritesBtn_index = document.getElementById("searchFavouritesBtn_index");
 
 // Agregar un evento click al botón
@@ -527,9 +462,6 @@ searchFavouritesBtn_index = document.getElementById("searchFavouritesBtn_index")
   favorites.forEach((favorito, index) => {
     console.log(`${index + 1}. ${favorito}`);
   });
-
-  // Otra opción: Mostrar los favoritos en una ventana de alerta
-  // alert("Favoritos:\n" + favoritos.join("\n"));
 });
 }
 
@@ -548,7 +480,6 @@ async function ordenarEventos(nombreTipo){
   })
   //Llamamos a addEvents con el resultado ordenado
   addEvents(resultado);
-
 }
 
 //FUNCION NUMERO RANDOM
