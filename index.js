@@ -313,9 +313,6 @@ async function evenType(type, month = 4) {
 function addEvents(events) {
   const principal_card = document.getElementById("principal_card");
   principal_card.innerHTML="";
-  // principal_card.style.paddingLeft = "1rem";
-  // principal_card.style.width = "100%";
-  // principal_card.style.paddingRight = "1rem";
 
   //por qué no se usa el parámetro index?
   events.forEach((event, index) => {
@@ -348,7 +345,6 @@ function addEvents(events) {
     title_card.innerText = event.nameEs;
 
     //detalle de tipo de actividad para la tarjeta
-    // activityTypeDetail = event.typeEs;
     activityDetail_card.innerText = "\n" + event.typeEs;
     
     if (preference0Pressed == true) {
@@ -406,10 +402,7 @@ function addEvents(events) {
     const container_fecha_button_card = document.createElement("div");
     container_fecha_button_card.setAttribute("class", "container_fecha_button_card ");
     container_fecha_button_card.setAttribute("id", "container_fecha_button_card ");
-    // container_fecha_button_card.style.display = "inline-flex";
-    // container_fecha_button_card.style.gap = "1rem";
-    // container_fecha_button_card.style.justifyContent = "space-between";
-
+    
     const fecha_card = document.createElement("p");
     fecha_card.setAttribute("class", "fecha_card ");
     fecha_card.setAttribute("id", "fecha_card ");
