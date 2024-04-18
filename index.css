@@ -67,8 +67,22 @@ body{
 }
 
 .backBtn_index{
+  appearance: none;
+  border: none;
+  background-color: var(--backgroundSaturated);
   cursor: pointer;
   display: none;
+  border-radius: 50%;
+  padding: .2rem .3rem;
+}
+
+.backBtn_index:hover{
+ background-color: var(--orange);
+ box-shadow: 0px 0px 7px 3px #fb86008d;
+}
+
+.backBtn_index ion-icon{
+  font-size: 2rem;
 }
 
 .pageTitle_txt{

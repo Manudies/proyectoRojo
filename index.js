@@ -49,7 +49,6 @@ const preferencesToggleIonIconSearch = document.getElementById("preferencesToggl
 
 let togglePressed = false;
 
-
 let preferencesMenuIsOnScreen = true;
 
 const principal_card = document.getElementById("principal_card");
@@ -80,11 +79,22 @@ backBtn_index.addEventListener("click", ()=>{
 
   if(preferencesMenuIsOnScreen == false){
     containerPreferencesMenu_index.style.display="flex";
-    principal_card.style.display="none";
-    
+    principal_card.style.display="none";    
   }
 
   backBtn_index.style.display="none";
+
+  togglePressed = false;
+  preference0Pressed = false;
+  preference1Pressed = false;
+  preference2Pressed = false;
+  preference3Pressed = false;
+  preference4Pressed = false;
+  preference5Pressed = false;
+  preferencesMenuIsOnScreen = true;
+  preferencesToggleIonIconSearch.style.display = "none";
+  preferencesToggleIonIcon.style.display = "block";
+  principal_card.style.innerHTML="";
 
 });
 
@@ -93,7 +103,6 @@ backBtn_index.addEventListener("click", ()=>{
 
 preferencesToggle.addEventListener("mouseover", () => {
   preferencesToggle.style.transform = "rotate(1turn)";
-
 });
 
 // ***
@@ -102,9 +111,8 @@ preferencesToggle.addEventListener("mouseleave", () => {
   preferencesToggle.style.transform = "rotate(-1turn)";
 });
 
-// ***
 
-// ****
+// ***
 
 
 preferencesToggle.addEventListener("click", () => {
@@ -127,10 +135,13 @@ preferencesToggle.addEventListener("click", () => {
       containerPreferencesMenu_index.style.backgroundColor = "#00000023";
       togglePressed = false;
     }
+    preferencesMenuIsOnScreen = true;
+
   }
 
   //VERIFICAMOS SI EL BOTON TOGGLE HA SIDO PRESIONADO
   if (preference0Pressed == true || preference1Pressed == true || preference2Pressed == true || preference3Pressed == true || preference4Pressed == true || preference5Pressed == true) {
+    
     clearInterval(intervalToggle);
 
     setTimeout(() => {
@@ -161,6 +172,8 @@ preferencesToggle.addEventListener("click", () => {
     }
 
     backBtn_index.style.display="block";
+
+    principal_card.style.display="flex"
 
     preferencesMenuIsOnScreen = false;
 
