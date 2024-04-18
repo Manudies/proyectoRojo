@@ -45,6 +45,8 @@ let preference3Pressed = false;
 let preference4Pressed = false;
 let preference5Pressed = false;
 
+const radioTile1 = document.getElementById("radioTile1");
+
 const preferencesToggleIonIconSearch = document.getElementById("preferencesToggleIonIconSearch");
 
 let togglePressed = false;
@@ -65,8 +67,6 @@ const intervalToggle = setInterval(() => {
   }, "600");
 
 }, 700);
-// ***
-
 
 // ***
 
@@ -74,7 +74,6 @@ backBtn_index.addEventListener("click", ()=>{
   if(preferencesMenuIsOnScreen == true){
     containerPreferencesMenu_index.style.display="none";
     principal_card.style.display="flex";
-
   }
 
   if(preferencesMenuIsOnScreen == false){
@@ -94,9 +93,10 @@ backBtn_index.addEventListener("click", ()=>{
   preferencesMenuIsOnScreen = true;
   preferencesToggleIonIconSearch.style.display = "none";
   preferencesToggleIonIcon.style.display = "block";
-  principal_card.style.innerHTML="";
+  // radioTile1.style.border="none";
+  // radioTile1.style.backgroundColor="none";
 
-});
+})
 
 
 // *** PREFERENCES TOGGLE BTN
@@ -367,6 +367,8 @@ async function month(month) {
 
 function addEvents(events) {
   const principal_card = document.getElementById("principal_card");
+  console.log(events);
+  principal_card.innerHTML="";
   principal_card.style.paddingLeft = "1rem";
   principal_card.style.width = "100%";
   principal_card.style.paddingRight = "1rem";
@@ -518,7 +520,7 @@ async function ordenarEventos(nombreTipo){
     return fecha1-fecha2
   })
   //Llamamos a addEvents con el resultado ordenado
-  addEvents(resultado)
+  addEvents(resultado);
 
 }
 
