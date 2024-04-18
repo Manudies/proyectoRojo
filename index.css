@@ -9,6 +9,7 @@
   --darkRed: #170301;
   --yellowOrange: #ffd875;
   --background: #8ecae6;
+  --backgroundSaturated: #72badb; 
   --darkBlue: #023047;
   --radialBackground:#8ecae67b;
   --containerTitleCard: #749BAB;  
@@ -41,7 +42,7 @@
 }
 
 body{
-  background-color: #d6a360;
+  background-color: #252b2e;
   font-family: raleway;
   overflow-x: hidden;
   width: 100vw;
@@ -58,25 +59,66 @@ body{
 }
 
 .pageTitleContainer_index{
+  padding-top: 2rem;
   display: flex;
   align-items: center;
   justify-content: center;
-  background-color: #749BAB;
   margin-bottom: 2rem;
+}
+
+.backBtn_index{
+  appearance: none;
+  border: none;
+  background-color: var(--backgroundSaturated);
+  cursor: pointer;
+  display: none;
+  transform: translateX(-1rem);
+  border-radius: 50%;
+  padding: .2rem .3rem;
+}
+
+.backBtn_index:hover{
+ background-color: var(--orange);
+ box-shadow: 0px 0px 7px 3px #fb86008d;
+}
+
+.backBtn_index ion-icon{
+  font-size: 2rem;
+}
+
+.searchFavouritesBtn_index {
+  appearance: none;
+  border: none;
+  background-color: var(--backgroundSaturated);
+  cursor: pointer;
+  display: none; 
+  border-radius: 50%;
+  padding: .2rem .3rem;
+  margin-right: 1rem;
+  }
+
+.searchFavouritesBtn_index:hover{
+  background-color: var(--orange);
+  box-shadow: 0px 0px 7px 3px #fb86008d;
+  }
+
+.searchFavouritesBtn_index ion-icon{
+    font-size: 2rem;
+    padding: .2rem;
 }
 
 .pageTitle_txt{
   font-weight: 900;
-  color: var(--darkRed);
-  text-shadow: 1px 1px 0px white;
+  color: var(--backgroundSaturated);
+  text-shadow: 1px 1px 0px black;
   letter-spacing: .1rem;
-  font-size: 3.5rem;
+  font-size: 3.7rem;
 }
 
 .pageTitleG_txt{
   font-weight: 800;
   padding-right: .3rem;
-  font-size: 3rem;
+  font-size: 3.4rem;
   color: var(--orange);
   text-shadow: 2px 2px 0px var(--darkRed);
 }
@@ -84,8 +126,8 @@ body{
 .titleIonIcon{
   margin-left: .3rem;
   margin-right: .2rem;
-  font-size: 2.1rem;
-  padding: .08rem;
+  font-size: 1.4rem;
+  padding: .6rem;
   color: black;
   outline: 3px solid black;
   border-radius: 50%;
@@ -94,7 +136,6 @@ body{
 
 .containerPreferenceBtnDescription_index{
   position: absolute;
-  /* transform: translateY(-1rem); */
   display: flex;
   align-items: center;
   justify-content: center;
@@ -103,19 +144,20 @@ body{
 }
 
 .preferenceBtnDescriptionTxt{
+  font-size: 1.1rem;
   position: relative;
-  color: white;
+  color: var(--orange);
   text-shadow:2px 2px 0px #000;
   font-weight: 800;
-  width: 300px;
-  height: 300px;
+  width: 310px;
+  height: 310px;
 
   animation: txtRotation 30s linear infinite;
 }
 
 .spanLetter{
   position: absolute;
-  transform-origin: 0 150px;
+  transform-origin: 0 155px;
   left: 50%;
 }
 
@@ -132,8 +174,10 @@ body{
   padding: 1rem;
   border-radius: 50%;
   transition: all 500ms ease;
-  background-color: #957142;
+  background-color: #00000023;
 }
+
+/* *** */
 
 .preferencesMenu_index{
   position: relative;
@@ -184,7 +228,7 @@ body{
   height: 3.3rem;
   transform-origin: 110px;
   transition-delay: calc(0.1s * var(--i));
-  transform: rotate(0deg) translateX(75px);
+  transform: rotate(0deg) translateX(85px);
   transition: all 300ms ease;
 }
 
@@ -216,32 +260,32 @@ body{
 }
 
 #preferenceRadioBtn0:checked + .radioTile {
-  outline: 2px solid white;
+  outline: 2px solid var(--orange);
   background-color: #65C3EB;
 }
 
 #preferenceRadioBtn1:checked + .radioTile {
-  outline: 2px solid white;
+  outline: 2px solid var(--orange);
   background-color: #65C3EB;
 }
 
 #preferenceRadioBtn2:checked + .radioTile {
-  outline: 2px solid white;
+  outline: 2px solid var(--orange);
   background-color: #65C3EB;
 }
 
 #preferenceRadioBtn3:checked + .radioTile {
-  outline: 2px solid white;
+  outline: 2px solid var(--orange);
   background-color: #65C3EB;
 }
 
 #preferenceRadioBtn4:checked + .radioTile {
-  outline: 2px solid white;
+  outline: 2px solid var(--orange);
   background-color: #65C3EB;
 }
 
 #preferenceRadioBtn5:checked + .radioTile {
-  outline: 2px solid white;
+  outline: 2px solid var(--orange);
   background-color: #65C3EB;
 }
 
@@ -319,11 +363,10 @@ input:checked + .radioTile ion-icon{
   padding: .2rem;
   font-size: 1.5rem;
   color: #666f75;
-  transform: translate(7.4rem, -.4rem); 
+  transform: translate(7.4rem, -.3rem); 
 }
 
 .container_title_card{
-
   font-size: 1rem;
   width: 100%;
   border-radius: 10px;
@@ -371,16 +414,90 @@ input:checked + .radioTile ion-icon{
   padding: .3rem;
   }
 
-
-
   /* ********MEDIA QUERIES****** */
-
   
-  @media all and (min-width:320px){
+  @media all and (min-width:400px){
 
-
-    .principal_card{
-      flex-direction: row;
+    .backBtn_index{   
+      transform: translateX(-2rem); 
     }
 
+    .pageTitleContainer_index{
+      padding-top: 2.5rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 1rem;
+    }
+
+    .mainContainer_index{
+      padding-top: 1rem;
+    }
+
+    .pageTitle_txt{
+      text-shadow: 2px 2px 0px black;
+      letter-spacing: .2rem;
+      font-size: 5rem;
+    }
+    
+    .pageTitleG_txt{
+      font-size: 5rem;
+      text-shadow: 2px 2px 0px black;
+    }
+    
+    .titleIonIcon{
+      margin-left: .3rem;
+      margin-right: .2rem;
+      font-size: 2.15rem;
+      padding: .8rem;
+    }
+
+    .pageTitleContainer_index{
+      margin-bottom: 4rem;
+    }
+
+    .preferenceBtnDescriptionTxt{
+      font-size: 2rem;
+      width: 450px;
+      height:450px;
+    }
+    
+    .spanLetter{
+      position: absolute;
+      transform-origin: 0 225px;
+    }
+
+    .preferencesMenu_index{
+      width: 300px;
+      height: 300px;
+    }
+
+    .preferencesToggle{
+      width: 130px;
+      height: 130px;
+    }
+
+    .preferencesToggle ion-icon{
+      font-size: 3rem;
+    }
+
+    .preferencesMenu_index li{
+      width: 4rem;
+      height: 4rem;
+      transform-origin: 150px;
+      transition-delay: calc(0.1s * var(--i));
+    }
+
+    .radioTile_ionIcon{
+      padding: .4rem;
+      font-size: 3rem;
+    }
   }
+
+  @media all and (min-width:500px){
+
+    .backBtn_index{
+      transform: translateX(-2rem);
+    }
+  }
+

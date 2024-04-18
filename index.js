@@ -1,149 +1,14 @@
 // ****
+import {tipos, random} from "./tipos.js"
+
+let searchFavouritesBtn_index = document.getElementById("searchFavouritesBtn_index");
 
 const containerPreferencesMenu_index = document.getElementById("containerPreferencesMenu_index");
-
 const preferencesMenu_index = document.getElementById("preferencesMenu_index");
-
 const preferencesToggle = document.getElementById("preferencesToggle");
-
 const containerPreferenceBtnDescription_index = document.getElementById("containerPreferenceBtnDescription_index");
-
 const preferenceBtnDescriptionTxt = document.getElementById("preferenceBtnDescriptionTxt");
-
-const vamosBtn_index = document.getElementById("vamosBtn_index");
-
-
-// ***
-// CARGAR TARJETAS DE MUESTRA ALEATORIAS EN LA PÁGINA INICIAL
-// const systemDate = new Date();
-
-
-// *** PREFERENCES TOGGLE BTN
-
-let preference0Pressed = false;
-let preference1Pressed = false;
-let preference2Pressed = false;
-let preference3Pressed = false;
-let preference4Pressed = false;
-let preference5Pressed = false;
-
-
-preferencesToggle.addEventListener("mouseover", () => {
-  preferencesToggle.style.transform = "rotate(1turn)";
-
-});
-
-// ***
-
-preferencesToggle.addEventListener("mouseleave", () => {
-  preferencesToggle.style.transform = "rotate(-1turn)";
-});
-
-// ***
-
-const ionIconSchool = document.getElementById("ionIconSchool");
-const ionIconSad = document.getElementById("ionIconSad");
-const ionIconMusicalNotes = document.getElementById("ionIconMusicalNotes");
-const ionIconVideo = document.getElementById("ionIconVideo");
-const ionIconOthers = document.getElementById("ionIconOthers");
-
-// ****
-const preferencesToggleIonIconSearch = document.getElementById("preferencesToggleIonIconSearch");
-
-let togglePressed = false;
-
-preferencesToggle.addEventListener("click", () => {
-
-  preferencesMenu_index.classList.toggle("active");
-  ionIconSad.style.transform = "rotate(-80deg)";
-  ionIconMusicalNotes.style.transform = "rotate(-100deg)";
-  ionIconVideo.style.transform = "rotate(90deg)";
-  ionIconOthers.style.transform = "rotate(80deg)";
-
-  // PRIMERO VERIFICAMOS SI HAY ALGÚN TIPO DE ACTIVIDAD SELECCIONADO
-  if (preference0Pressed == false || preference1Pressed == false || preference2Pressed == false || preference3Pressed == false || preference4Pressed == false) {
-
-    //VERIFICAMOS SI EL BOTON TOGGLE NO HA SIDO PRESIONADO
-    if (togglePressed == false) {
-      preferenceBtnDescriptionTxt.style.display = "flex";
-      containerPreferencesMenu_index.style.backgroundColor = "#8ecae67b";
-      togglePressed = true;
-    } else {
-      preferenceBtnDescriptionTxt.style.display = "none";
-      containerPreferencesMenu_index.style.backgroundColor = "#D48013";
-      togglePressed = false;
-    }
-  }
-
-  //VERIFICAMOS SI EL BOTON TOGGLE HA SIDO PRESIONADO
-  if (preference0Pressed == true || preference1Pressed == true || preference2Pressed == true || preference3Pressed == true || preference4Pressed == true || preference5Pressed == true) {
-
-    clearInterval(intervalToggle);
-
-    const preferencesMenu_index = document.getElementById("preferencesMenu_index");
-
-    setTimeout(() => {
-      mainContainer_index.style.display = "none";
-    }, "100");
-
-    // SOLICITUDES A LA API
-    if (preference0Pressed === true) {
-      evenType(1)
-      evenType(7)
-      evenType(13)
-    }
-    if (preference1Pressed === true) {
-      evenType(2)
-      evenType(4)
-      evenType(3)
-
-    }
-    if (preference2Pressed === true) {
-      evenType(9)
-    }
-    if (preference3Pressed === true) {
-      evenType(6)
-      evenType(10)
-      evenType(11)
-    }
-    if (preference4Pressed === true) {
-      evenType(8)
-      evenType(12)
-      evenType(14)
-      evenType(15)
-    }
-    if (preference5Pressed === true) {
-      evenType(getRandomIntInclusive(1,15))
-    }
-
-  }
-
-});
-
-function getRandomIntInclusive(min, max) {
-  const minCeiled = Math.ceil(min);
-  const maxFloored = Math.floor(max);
-  return Math.floor(Math.random() * (maxFloored - minCeiled + 1) + minCeiled);
-}
-
-
-// ***
-
-// ANIMATION TOGGLE BTN
-const preferencesToggleIonIcon = document.getElementById("preferencesToggleIonIcon");
-
-const intervalToggle = setInterval(() => {
-
-  preferencesToggleIonIcon.style.fontSize = "2.7rem";
-
-  setTimeout(() => {
-    preferencesToggleIonIcon.style.fontSize = "3.5rem";
-  }, "600");
-
-}, 700);
-
-
-// ***
+const backBtn_index = document.getElementById("backBtn_index");
 
 const preferenceRadioBtn0 = document.getElementById("preferenceRadioBtn0");
 const preferenceRadioBtn1 = document.getElementById("preferenceRadioBtn1");
@@ -159,10 +24,133 @@ const strCine = " - Cine - Cine - Cine -";
 const strOtros = " - Otros - Otros - Otros -";
 const strRandom = " - Random - Random - Random - "
 
+const ionIconSad = document.getElementById("ionIconSad");
+const ionIconMusicalNotes = document.getElementById("ionIconMusicalNotes");
+const ionIconVideo = document.getElementById("ionIconVideo");
+const ionIconOthers = document.getElementById("ionIconOthers");
+
+let preference0Pressed = false;
+let preference1Pressed = false;
+let preference2Pressed = false;
+let preference3Pressed = false;
+let preference4Pressed = false;
+let preference5Pressed = false;
+
+const preferencesToggleIonIconSearch = document.getElementById("preferencesToggleIonIconSearch");
+
+let togglePressed = false;
+let preferencesMenuIsOnScreen = true;
+
+const principal_card = document.getElementById("principal_card");
+
+// ANIMATION TOGGLE BTN
+const preferencesToggleIonIcon = document.getElementById("preferencesToggleIonIcon");
+const intervalToggle = setInterval(() => {
+  preferencesToggleIonIcon.style.fontSize = "2.7rem";
+  setTimeout(() => {
+    preferencesToggleIonIcon.style.fontSize = "3.5rem";
+  }, "600");
+}, 700);
+
+// ***
+
+backBtn_index.addEventListener("click", ()=>{
+  if(preferencesMenuIsOnScreen == true){
+    containerPreferencesMenu_index.style.display="none";
+    principal_card.style.display="flex";
+  }
+  if(preferencesMenuIsOnScreen == false){
+    containerPreferencesMenu_index.style.display="flex";
+    principal_card.style.display="none";    
+  }
+  backBtn_index.style.display="none";
+  searchFavouritesBtn_index.style.display="none";
+
+  togglePressed = false;
+  preference0Pressed = false;
+  preference1Pressed = false;
+  preference2Pressed = false;
+  preference3Pressed = false;
+  preference4Pressed = false;
+  preference5Pressed = false;
+  preferencesMenuIsOnScreen = true;
+  preferencesToggleIonIconSearch.style.display = "none";
+  preferencesToggleIonIcon.style.display = "block";
+})
+
+// *** PREFERENCES TOGGLE BTN
+
+preferencesToggle.addEventListener("mouseover", () => {
+  preferencesToggle.style.transform = "rotate(1turn)";
+});
+// ***
+preferencesToggle.addEventListener("mouseleave", () => {
+  preferencesToggle.style.transform = "rotate(-1turn)";
+});
+// ***
+preferencesToggle.addEventListener("click", () => {
+  preferencesMenu_index.classList.toggle("active");
+  ionIconSad.style.transform = "rotate(-80deg)";
+  ionIconMusicalNotes.style.transform = "rotate(-100deg)";
+  ionIconVideo.style.transform = "rotate(90deg)";
+  ionIconOthers.style.transform = "rotate(80deg)";
+
+// PRIMERO VERIFICAMOS SI HAY ALGÚN TIPO DE ACTIVIDAD SELECCIONADO
+  if (preference0Pressed == false || preference1Pressed == false || preference2Pressed == false || preference3Pressed == false || preference4Pressed == false) {
+
+//VERIFICAMOS SI EL BOTON TOGGLE NO HA SIDO PRESIONADO
+    if (togglePressed == false) {
+      preferenceBtnDescriptionTxt.style.display = "flex";
+      containerPreferencesMenu_index.style.backgroundColor = "#8ecae67b";
+      togglePressed = true;
+    } else {
+      preferenceBtnDescriptionTxt.style.display = "none";
+      containerPreferencesMenu_index.style.backgroundColor = "#00000023";
+      togglePressed = false;
+    }
+    preferencesMenuIsOnScreen = true;
+  }
+
+//VERIFICAMOS SI EL BOTON TOGGLE HA SIDO PRESIONADO
+  if (preference0Pressed == true || preference1Pressed == true || preference2Pressed == true || preference3Pressed == true || preference4Pressed == true || preference5Pressed == true) {
+    
+    clearInterval(intervalToggle);
+    setTimeout(() => {
+      containerPreferencesMenu_index.style.display = "none";
+    }, "100");
+
+    // SOLICITUDES A LA API
+    
+    if (preference0Pressed === true) {
+      ordenarEventos("formacion")
+    }
+    if (preference1Pressed === true) {
+      ordenarEventos("teatro")
+    }
+    if (preference2Pressed === true) {
+      ordenarEventos("musica")
+    }
+    if (preference3Pressed === true) {
+      ordenarEventos("cine")
+    }
+    if (preference4Pressed === true) {
+      ordenarEventos("otros")
+    }
+    if (preference5Pressed === true) {
+      const randomNumber = getRandomIntInclusive(0,4);
+      console.log(random[randomNumber])
+      ordenarEventos(random[randomNumber])
+    }
+
+    backBtn_index.style.display="block";
+    searchFavouritesBtn_index.style.display="block";
+    principal_card.style.display="flex"
+    preferencesMenuIsOnScreen = false;
+  }
+});
+
 // PREFERENCE BTNS ONCLICK EVENTS
 // Agregamos los listener a los botones de las preferencias
-
-let p0 = false;
 
 preferenceRadioBtn0.addEventListener("click", () => {
 
@@ -185,15 +173,9 @@ preferenceRadioBtn0.addEventListener("click", () => {
     preferenceBtnDescriptionTxt.appendChild(span);
     span.style.transform = `rotate(${11 * i}deg)`;
   }
-  // vamosBtn_index.style.display="block";
-
-  p0 = true;
 });
 
 // ***
-
-let p1 = false;
-
 preferenceRadioBtn1.addEventListener("click", () => {
 
   preference0Pressed = false;
@@ -215,15 +197,9 @@ preferenceRadioBtn1.addEventListener("click", () => {
     preferenceBtnDescriptionTxt.appendChild(span);
     span.style.transform = `rotate(${11 * i}deg)`;
   }
-
-  // vamosBtn_index.style.display="block";
-  p1 = true;
 });
 
 // ***
-
-let p2 = false;
-
 preferenceRadioBtn2.addEventListener("click", () => {
 
   preference0Pressed = false;
@@ -246,14 +222,9 @@ preferenceRadioBtn2.addEventListener("click", () => {
 
     span.style.transform = `rotate(${11 * i}deg)`;
   }
-
-  // vamosBtn_index.style.display="block";
-  p2 = true;
 });
 
 // ***
-
-let p3 = false;
 preferenceRadioBtn3.addEventListener("click", () => {
 
   preference0Pressed = false;
@@ -262,7 +233,6 @@ preferenceRadioBtn3.addEventListener("click", () => {
   preference3Pressed = true;
   preference4Pressed = false;
   preference5Pressed = false;
-
 
   containerPreferenceBtnDescription_index.style.display = "flex";
   preferencesToggleIonIconSearch.style.display = "block";
@@ -274,17 +244,11 @@ preferenceRadioBtn3.addEventListener("click", () => {
     span.innerHTML = strCine[i];
     span.setAttribute("class", "spanLetter");
     preferenceBtnDescriptionTxt.appendChild(span);
-
     span.style.transform = `rotate(${11 * i}deg)`;
   }
-
-  // vamosBtn_index.style.display="block";
-  p3 = true;
 });
 
 // ***
-let p4 = false;
-
 preferenceRadioBtn4.addEventListener("click", () => {
 
   preference0Pressed = false;
@@ -293,7 +257,6 @@ preferenceRadioBtn4.addEventListener("click", () => {
   preference3Pressed = false;
   preference4Pressed = true;
   preference5Pressed = false;
-
 
   containerPreferenceBtnDescription_index.style.display = "flex";
   preferencesToggleIonIconSearch.style.display = "block";
@@ -307,13 +270,9 @@ preferenceRadioBtn4.addEventListener("click", () => {
     preferenceBtnDescriptionTxt.appendChild(span);
     span.style.transform = `rotate(${11 * i}deg)`;
   }
-
-  // vamosBtn_index.style.display="block";
-  p4 = true;
 });
 
-let p5 = false;
-
+// ***
 preferenceRadioBtn5.addEventListener("click", () => {
   preference0Pressed = false;
   preference1Pressed = false;
@@ -334,72 +293,29 @@ preferenceRadioBtn5.addEventListener("click", () => {
     preferenceBtnDescriptionTxt.appendChild(span);
     span.style.transform = `rotate(${11 * i}deg)`;
   }
-
-  // vamosBtn_index.style.display="block";
-  p5 = true;
 });
 
-
-// *** BOTON BUSCAR (vamosbTN)
-let vamosBtnWasPressed = false;
-
-// Creamos la funcion de consulta de la API de cultura y guardamos en JSON, llamamos a las funcion addEvents
-async function getData() {
-  const url = new URL("https://api.euskadi.eus/culture/events/v1.0/events")
-  url.searchParams.append("_elements", 500);
-  const response = await fetch(url.toString());
-  const data = await response.json();
-  // console.log(data)
-
-  addEvents(data.items);
-}
-//Filtro de los tipos de evconstentos existentes en la API
-async function evenTypes() {
-  const url = new URL("https://api.euskadi.eus/culture/events//v1.0/eventType")
-  // url.searchParams.append("_elements",500);
-  const response = await fetch(url.toString());
-  const eventTypes = await response.json();
-
-  // console.log(eventTypes)
-
-  // addEvents(data.items);
-}
-
 //Filtro por eventos
-
 async function evenType(type, month = 4) {
-  // const url = new URL("https://api.euskadi.eus/culture/events/v1.0/events/byType/"+type+"?_elements=20&_page=1")
   const url = new URL("https://api.euskadi.eus/culture/events/v1.0/events/byType/" + type + "/byMonth/2024/" + month + "?_elements=20&_page=1")
   const response = await fetch(url.toString());
   const event = await response.json();
 
-  addEvents(event.items);
-  // return event.items
-}
-
-//Filtro por mes
-async function month(month) {
-  const url = new URL("https://api.euskadi.eus/culture/events/v1.0/events/byMonth/2024/0" + month + "?_elements=20&_page=1")
-  const response = await fetch(url.toString());
-  const eventmonth = await response.json();
-  // console.log(eventmonth)
-
-  // addEvents(data.items);
+  // addEvents(event.items);
+  return event.items
 }
 
 function addEvents(events) {
   const principal_card = document.getElementById("principal_card");
+  principal_card.innerHTML="";
   principal_card.style.paddingLeft = "1rem";
   principal_card.style.width = "100%";
   principal_card.style.paddingRight = "1rem";
-  // principal_card.style.border="5px solid #FB8500";
-
 
   events.forEach((event, index) => {
     const mainContainer_card = document.createElement("div");
     mainContainer_card.setAttribute("class", "mainContainer_card");
     mainContainer_card.setAttribute("id", "mainContainer_card");
-    // mainContainer_card.style.border="2px solid #BC5DDE"
     mainContainer_card.style.display = "flex";
     mainContainer_card.style.marginBottom = "1rem";
     mainContainer_card.style.alignContent = "center";
@@ -411,8 +327,7 @@ function addEvents(events) {
     activityIcon_card.setAttribute("class", "activityIcon_card");
     activityIcon_card.setAttribute("id", "activityIcon_card");
 
-    // ***
-
+    //SE INTRODUCE UN ICONO EN LA TARJETA SEGÚN EL TIPO DE EVENTO
     const container_title_card = document.createElement("div");
     container_title_card.setAttribute("class", "container_title_card");
     container_title_card.setAttribute("id", "container_title_card");
@@ -421,11 +336,30 @@ function addEvents(events) {
     title_card.setAttribute("id", "title_card");
     title_card.innerText = event.nameEs;
 
-    if(preference0Pressed == true){
-      activityIcon_card.innerHTML='<ion-icon name="school-outline"></ion-icon>';
+    if (preference0Pressed == true) {
+      activityIcon_card.innerHTML = '<ion-icon name="school-outline"></ion-icon>';
       title_card.appendChild(activityIcon_card);
     }
-
+    if (preference1Pressed == true) {
+      activityIcon_card.innerHTML = '<ion-icon name="sad-outline"></ion-icon>';
+      title_card.appendChild(activityIcon_card);
+    }
+    if (preference2Pressed == true) {
+      activityIcon_card.innerHTML = '<ion-icon name="musical-notes"></ion-icon>';
+      title_card.appendChild(activityIcon_card);
+    }
+    if (preference3Pressed == true) {
+      activityIcon_card.innerHTML = '<ion-icon name="ticket-outline"></ion-icon>';
+      title_card.appendChild(activityIcon_card);
+    }
+    if (preference4Pressed == true) {
+      activityIcon_card.innerHTML = '<ion-icon name="accessibility-outline"></ion-icon>';
+      title_card.appendChild(activityIcon_card);
+    }
+    if (preference5Pressed == true) {
+      activityIcon_card.innerHTML = '<ion-icon  name="flash-outline"></ion-icon>';
+      title_card.appendChild(activityIcon_card);
+    }
     const place_card = document.createElement("div");
     place_card.setAttribute("class", "place_card");
     place_card.setAttribute("id", "place_card");
@@ -442,20 +376,17 @@ function addEvents(events) {
     else {
       p_place_card.innerText = event.placeEs;
     }
-
     const container_fecha_button_card = document.createElement("div");
     container_fecha_button_card.setAttribute("class", "container_fecha_button_card ");
     container_fecha_button_card.setAttribute("id", "container_fecha_button_card ");
     container_fecha_button_card.style.display = "inline-flex";
     container_fecha_button_card.style.gap = "1rem";
-    // container_fecha_button_card.style.border="2px solid #28E08C";
     container_fecha_button_card.style.justifyContent = "space-between";
 
     const fecha_card = document.createElement("p");
     fecha_card.setAttribute("class", "fecha_card ");
     fecha_card.setAttribute("id", "fecha_card ");
     fecha_card.innerText = (event.startDate[8] + event.startDate[9] + event.startDate[7] + event.startDate[5] + event.startDate[6] + event.startDate[4] + event.startDate[0] + event.startDate[1] + event.startDate[2] + event.startDate[3])
-
 
     const button_card = document.createElement("button");
     button_card.setAttribute("class", "button_card ");
@@ -478,19 +409,82 @@ function addEvents(events) {
     container_fecha_button_card.appendChild(fav_card);
 
     let fav_card_click = false;
+
+    // Función para manejar el clic en el ícono de corazón
+    function handleFavoriteClick(eventId) {
+      // Verificar si el evento ya está en favoritos
+      let favorites = JSON.parse(localStorage.getItem('favorites')) || [];
+      const index = favorites.indexOf(eventId);
+      // Si no está en favoritos, agregarlo; de lo contrario, quitarlo
+      if (index === -1) {
+        favorites.push(eventId);
+      } else {
+        favorites.splice(index, 1);
+      }
+      // Guardar los favoritos actualizados en el localStorage
+      localStorage.setItem('favorites', JSON.stringify(favorites));
+    }
+
+    // En el bloque donde creas el elemento fav_card y agregas el evento click:
     fav_card.addEventListener("click", () => {
+      // Obtener el ID del evento asociado a este elemento fav_card
+      const eventId = event; // Reemplaza event.id con la propiedad adecuada que identifica el evento
+
+      // Cambiar el ícono del corazón y manejar el estado de favoritos
       if (fav_card_click === false) {
         fav_card.innerHTML = '<ion-icon name="heart"></ion-icon>';
-        fav_card.style.cursor = "pointer";
-        fav_card_click = true;}else{
-          fav_card.innerHTML = '<ion-icon name="heart-outline"></ion-icon>';
-          fav_card.style.cursor = "pointer";
-          fav_card_click = false;
-        }
-    })
+        handleFavoriteClick(eventId);
+        fav_card_click = true;
+      } else {
+        fav_card.innerHTML = '<ion-icon name="heart-outline"></ion-icon>';
+        handleFavoriteClick(eventId);
+        fav_card_click = false;
+      }
+    });
   });
+
+// Obtener el elemento del botón
+searchFavouritesBtn_index = document.getElementById("searchFavouritesBtn_index");
+
+// Agregar un evento click al botón
+  searchFavouritesBtn_index.addEventListener("click", () => {
+  // Obtener los favoritos del localStorage
+  const favorites = JSON.parse(localStorage.getItem("favorites")) || [];
+
+  // Verificar si hay favoritos
+  if (favorites.length === 0) {
+    alert("No tienes favoritos guardados.");
+    return;
+  }
+
+  // Mostrar los favoritos en la consola
+  console.log("Favoritos:");
+  favorites.forEach((favorito, index) => {
+    console.log(`${index + 1}. ${favorito}`);
+  });
+});
 }
 
+//FUNCIÓN PARA ORDENAR LOS EVENTO POR FECHA
+async function ordenarEventos(nombreTipo){
+  const numerosTipos = tipos[nombreTipo] || [];
+  //Llama a la API, esperamos la respuesta, y la guardamos en un array
+  const response = await Promise.all(numerosTipos.map(numero=> evenType(numero)))
+  let resultado = [];
+  response.forEach(typeArray=>{resultado=resultado.concat(typeArray)})
+  //Usamos .sort para comparar las fechas y ordenarlas
+  resultado.sort((evento1,evento2)=>{
+    const fecha1 = new Date (evento1.startDate)
+    const fecha2 = new Date (evento2.startDate)
+    return fecha1-fecha2
+  })
+  //Llamamos a addEvents con el resultado ordenado
+  addEvents(resultado);
+}
 
-
-
+//FUNCION NUMERO RANDOM
+function getRandomIntInclusive(min, max) {
+  const minCeiled = Math.ceil(min);
+  const maxFloored = Math.floor(max);
+  return Math.floor(Math.random() * (maxFloored - minCeiled + 1) + minCeiled);
+}
