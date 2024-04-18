@@ -1,5 +1,6 @@
 // ****
-import tipos from "./tipos.js"
+import {tipos, random} from "./tipos.js"
+
 
 const containerPreferencesMenu_index = document.getElementById("containerPreferencesMenu_index");
 
@@ -105,16 +106,12 @@ preferencesToggle.addEventListener("click", () => {
       ordenarEventos("otros")
     }
     if (preference5Pressed === true) {
-      evenType(getRandomIntInclusive(1, 15))
+      const randomNumber = getRandomIntInclusive(0,4);
+      console.log(random[randomNumber])
+      ordenarEventos(random[randomNumber])
     }
   }
 });
-
-function getRandomIntInclusive(min, max) {
-  const minCeiled = Math.ceil(min);
-  const maxFloored = Math.floor(max);
-  return Math.floor(Math.random() * (maxFloored - minCeiled + 1) + minCeiled);
-}
 
 // ANIMATION TOGGLE BTN
 const preferencesToggleIonIcon = document.getElementById("preferencesToggleIonIcon");
@@ -450,7 +447,7 @@ function addEvents(events) {
     // En el bloque donde creas el elemento fav_card y agregas el evento click:
     fav_card.addEventListener("click", () => {
       // Obtener el ID del evento asociado a este elemento fav_card
-      const eventId = event.id; // Reemplaza event.id con la propiedad adecuada que identifica el evento
+      const eventId = event; // Reemplaza event.id con la propiedad adecuada que identifica el evento
 
       // Cambiar el ícono del corazón y manejar el estado de favoritos
       if (fav_card_click === false) {
@@ -484,6 +481,9 @@ async function ordenarEventos(nombreTipo){
 
 }
 
-
-
-
+//FUNCION NUMERO RANDOM
+function getRandomIntInclusive(min, max) {
+  const minCeiled = Math.ceil(min);
+  const maxFloored = Math.floor(max);
+  return Math.floor(Math.random() * (maxFloored - minCeiled + 1) + minCeiled);
+}
