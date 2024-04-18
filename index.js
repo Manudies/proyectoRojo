@@ -309,13 +309,20 @@ async function evenType(type, month = 4) {
   return event.items;
 }
 
+let cardCounter = 0;
 
 function addEvents(events) {
+
+  
+
   const principal_card = document.getElementById("principal_card");
   principal_card.innerHTML="";
 
   //por qué no se usa el parámetro index?
   events.forEach((event, index) => {
+  
+    cardCounter += 1;
+
     const mainContainer_card = document.createElement("div");
     mainContainer_card.setAttribute("class", "mainContainer_card");
     mainContainer_card.setAttribute("id", "mainContainer_card");
@@ -324,6 +331,19 @@ function addEvents(events) {
     mainContainer_card.style.alignContent = "center";
     mainContainer_card.style.justifyContent = "center";
     mainContainer_card.style.flexDirection = "column";
+
+    //NUMERO DE TARJETA
+    const cardNumber = document.createElement("p");
+    cardNumber.setAttribute("class", "cardNumber");
+    cardNumber.setAttribute("id", "cardNumber");
+    cardNumber.innerText = cardCounter.toString();
+
+    //TITULO DE ACTIVIDAD
+    const activityTitle_card = document.createElement("p");
+    activityTitle_card.setAttribute("class", "activityTitle_card");
+    activityTitle_card.setAttribute("id", "activityTitle_card");
+    activityTitle_card.innerText = event.nameEs;
+
 
     //DETALLE DE ACTIVIDAD E ICONO DE TARJETA 
     const activityDetail_card = document.createElement("p");
@@ -342,44 +362,48 @@ function addEvents(events) {
     const title_card = document.createElement("p");
     title_card.setAttribute("class", "title_card");
     title_card.setAttribute("id", "title_card");
-    title_card.innerText = event.nameEs;
+    title_card.appendChild(cardNumber);
+    title_card.appendChild(activityTitle_card);
+    title_card.appendChild(activityDetail_card);
+
+    // title_card.innerText = event.nameEs;
 
     //detalle de tipo de actividad para la tarjeta
     activityDetail_card.innerText = "\n" + event.typeEs;
     
     if (preference0Pressed == true) {
       activityIcon_card.innerHTML = '<ion-icon name="school-outline"></ion-icon>';
-      title_card.appendChild(activityDetail_card);
+      
       title_card.appendChild(activityIcon_card);
     }
 
     if (preference1Pressed == true) {
       activityIcon_card.innerHTML = '<ion-icon name="sad-outline"></ion-icon>';
-      title_card.appendChild(activityDetail_card);
+      // title_card.appendChild(activityDetail_card);
       title_card.appendChild(activityIcon_card);
     }
 
     if (preference2Pressed == true) {
       activityIcon_card.innerHTML = '<ion-icon name="musical-notes"></ion-icon>';
-      title_card.appendChild(activityDetail_card);
+      // title_card.appendChild(activityDetail_card);
       title_card.appendChild(activityIcon_card);
     }
 
     if (preference3Pressed == true) {
       activityIcon_card.innerHTML = '<ion-icon name="ticket-outline"></ion-icon>';
-      title_card.appendChild(activityDetail_card);
+      // title_card.appendChild(activityDetail_card);
       title_card.appendChild(activityIcon_card);
     }
 
     if (preference4Pressed == true) {
       activityIcon_card.innerHTML = '<ion-icon name="accessibility-outline"></ion-icon>';
-      title_card.appendChild(activityDetail_card);
+      // title_card.appendChild(activityDetail_card);
       title_card.appendChild(activityIcon_card);
     }
 
     if (preference5Pressed == true) {
       activityIcon_card.innerHTML = '<ion-icon  name="flash-outline"></ion-icon>';
-      title_card.appendChild(activityDetail_card);
+      // title_card.appendChild(activityDetail_card);
       title_card.appendChild(activityIcon_card);
     }
 

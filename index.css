@@ -73,7 +73,6 @@ body{
   background-color: var(--backgroundSaturated);
   cursor: pointer;
   display: none;
-  /* transform: translateX(-1rem); */
   border-radius: 50%;
   padding: .2rem .3rem;
 }
@@ -366,6 +365,13 @@ input:checked + .radioTile ion-icon{
   /* box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.55); */
 }
 
+.cardNumber{
+  position: absolute;
+  transform: translate(-.8rem, -.1rem);
+  font-size: .8rem;
+  color: #748c96;
+}
+
 .activityDetail_card{
   font-size: .9rem;
   color: #738490;
@@ -388,13 +394,13 @@ input:checked + .radioTile ion-icon{
 
 .container_title_card{
   display: inline-block;
-
   width: 100%;
   border-radius: 10px;
   background-color: rgb(240, 240, 240);
 }
 
 .title_card{
+  position: relative;
   font-size: 1.1rem;
   padding: .2rem 1.2rem;
   text-align: center;
