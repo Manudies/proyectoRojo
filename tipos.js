@@ -6,4 +6,6 @@ const tipos = {
     "otros":[8,12,14,15]
 }
 
-export default tipos
+const random = ["musica","teatro","cine","formacion","otros"]
+
+export {tipos, random}
