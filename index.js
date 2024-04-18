@@ -121,7 +121,7 @@ preferencesToggle.addEventListener("click", () => {
       evenType(15)
     }
     if (preference5Pressed === true) {
-      evenType(getRandomIntInclusive(1,15))
+      evenType(getRandomIntInclusive(1, 15))
     }
 
   }
@@ -420,7 +420,6 @@ function addEvents(events) {
     activityIcon_card.setAttribute("id", "activityIcon_card");
 
     // ***
-
     const container_title_card = document.createElement("div");
     container_title_card.setAttribute("class", "container_title_card");
     container_title_card.setAttribute("id", "container_title_card");
@@ -429,33 +428,33 @@ function addEvents(events) {
     title_card.setAttribute("id", "title_card");
     title_card.innerText = event.nameEs;
 
-    if(preference0Pressed == true){
-      activityIcon_card.innerHTML='<ion-icon name="school-outline"></ion-icon>';
+    if (preference0Pressed == true) {
+      activityIcon_card.innerHTML = '<ion-icon name="school-outline"></ion-icon>';
       title_card.appendChild(activityIcon_card);
     }
 
-    if(preference1Pressed == true){
-      activityIcon_card.innerHTML='<ion-icon name="sad-outline"></ion-icon>';
-      title_card.appendChild(activityIcon_card);
-    }
-    
-    if(preference2Pressed == true){
-      activityIcon_card.innerHTML='<ion-icon name="musical-notes"></ion-icon>';
+    if (preference1Pressed == true) {
+      activityIcon_card.innerHTML = '<ion-icon name="sad-outline"></ion-icon>';
       title_card.appendChild(activityIcon_card);
     }
 
-    if(preference3Pressed == true){
-      activityIcon_card.innerHTML='<ion-icon name="ticket-outline"></ion-icon>';
+    if (preference2Pressed == true) {
+      activityIcon_card.innerHTML = '<ion-icon name="musical-notes"></ion-icon>';
       title_card.appendChild(activityIcon_card);
     }
 
-    if(preference4Pressed == true){
-      activityIcon_card.innerHTML='<ion-icon name="accessibility-outline"></ion-icon>';
+    if (preference3Pressed == true) {
+      activityIcon_card.innerHTML = '<ion-icon name="ticket-outline"></ion-icon>';
       title_card.appendChild(activityIcon_card);
     }
 
-    if(preference5Pressed == true){
-      activityIcon_card.innerHTML='<ion-icon  name="flash-outline"></ion-icon>';
+    if (preference4Pressed == true) {
+      activityIcon_card.innerHTML = '<ion-icon name="accessibility-outline"></ion-icon>';
+      title_card.appendChild(activityIcon_card);
+    }
+
+    if (preference5Pressed == true) {
+      activityIcon_card.innerHTML = '<ion-icon  name="flash-outline"></ion-icon>';
       title_card.appendChild(activityIcon_card);
     }
     const place_card = document.createElement("div");
@@ -510,16 +509,42 @@ function addEvents(events) {
     container_fecha_button_card.appendChild(fav_card);
 
     let fav_card_click = false;
+
+    // Función para manejar el clic en el ícono de corazón
+    function handleFavoriteClick(eventId) {
+      // Verificar si el evento ya está en favoritos
+      let favorites = JSON.parse(localStorage.getItem('favorites')) || [];
+      const index = favorites.indexOf(eventId);
+
+      // Si no está en favoritos, agregarlo; de lo contrario, quitarlo
+      if (index === -1) {
+        favorites.push(eventId);
+      } else {
+        favorites.splice(index, 1);
+      }
+
+      // Guardar los favoritos actualizados en el localStorage
+      localStorage.setItem('favorites', JSON.stringify(favorites));
+    }
+
+    // En el bloque donde creas el elemento fav_card y agregas el evento click:
+
     fav_card.addEventListener("click", () => {
+      // Obtener el ID del evento asociado a este elemento fav_card
+      const eventId = event.id; // Reemplaza event.id con la propiedad adecuada que identifica el evento
+
+      // Cambiar el ícono del corazón y manejar el estado de favoritos
       if (fav_card_click === false) {
         fav_card.innerHTML = '<ion-icon name="heart"></ion-icon>';
-        fav_card.style.cursor = "pointer";
-        fav_card_click = true;}else{
-          fav_card.innerHTML = '<ion-icon name="heart-outline"></ion-icon>';
-          fav_card.style.cursor = "pointer";
-          fav_card_click = false;
-        }
-    })
+        handleFavoriteClick(eventId);
+        fav_card_click = true;
+      } else {
+        fav_card.innerHTML = '<ion-icon name="heart-outline"></ion-icon>';
+        handleFavoriteClick(eventId);
+        fav_card_click = false;
+      }
+    });
+
   });
 }
 
