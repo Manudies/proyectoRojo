@@ -39,7 +39,10 @@ let preference5Pressed = false;
 const preferencesToggleIonIconSearch = document.getElementById("preferencesToggleIonIconSearch");
 
 let togglePressed = false;
+
 let preferencesMenuIsOnScreen = true;
+
+// let activityTypeDetail = "";
 
 const principal_card = document.getElementById("principal_card");
 
@@ -295,23 +298,26 @@ preferenceRadioBtn5.addEventListener("click", () => {
   }
 });
 
+// ***
+
 //Filtro por eventos
 async function evenType(type, month = 4) {
-  const url = new URL("https://api.euskadi.eus/culture/events/v1.0/events/byType/" + type + "/byMonth/2024/" + month + "?_elements=20&_page=1")
+  const url = new URL("https://api.euskadi.eus/culture/events/v1.0/events/byType/" + type + "/byMonth/2024/" + month + "?_elements=20&_page=1");
   const response = await fetch(url.toString());
   const event = await response.json();
-
   // addEvents(event.items);
-  return event.items
+  return event.items;
 }
+
 
 function addEvents(events) {
   const principal_card = document.getElementById("principal_card");
   principal_card.innerHTML="";
-  principal_card.style.paddingLeft = "1rem";
-  principal_card.style.width = "100%";
-  principal_card.style.paddingRight = "1rem";
+  // principal_card.style.paddingLeft = "1rem";
+  // principal_card.style.width = "100%";
+  // principal_card.style.paddingRight = "1rem";
 
+  //por qué no se usa el parámetro index?
   events.forEach((event, index) => {
     const mainContainer_card = document.createElement("div");
     mainContainer_card.setAttribute("class", "mainContainer_card");
@@ -322,8 +328,12 @@ function addEvents(events) {
     mainContainer_card.style.justifyContent = "center";
     mainContainer_card.style.flexDirection = "column";
 
-    //ICONO DE TARJETA
-    const activityIcon_card = document.createElement("span");
+    //DETALLE DE ACTIVIDAD E ICONO DE TARJETA 
+    const activityDetail_card = document.createElement("p");
+    activityDetail_card.setAttribute("class", "activityDetail_card");
+    activityDetail_card.setAttribute("id", "activityDetail_card");
+
+    const activityIcon_card = document.createElement("p");
     activityIcon_card.setAttribute("class", "activityIcon_card");
     activityIcon_card.setAttribute("id", "activityIcon_card");
 
@@ -331,35 +341,52 @@ function addEvents(events) {
     const container_title_card = document.createElement("div");
     container_title_card.setAttribute("class", "container_title_card");
     container_title_card.setAttribute("id", "container_title_card");
+
     const title_card = document.createElement("p");
     title_card.setAttribute("class", "title_card");
     title_card.setAttribute("id", "title_card");
     title_card.innerText = event.nameEs;
 
+    //detalle de tipo de actividad para la tarjeta
+    // activityTypeDetail = event.typeEs;
+    activityDetail_card.innerText = "\n" + event.typeEs;
+    
     if (preference0Pressed == true) {
       activityIcon_card.innerHTML = '<ion-icon name="school-outline"></ion-icon>';
+      title_card.appendChild(activityDetail_card);
       title_card.appendChild(activityIcon_card);
     }
+
     if (preference1Pressed == true) {
       activityIcon_card.innerHTML = '<ion-icon name="sad-outline"></ion-icon>';
+      title_card.appendChild(activityDetail_card);
       title_card.appendChild(activityIcon_card);
     }
+
     if (preference2Pressed == true) {
       activityIcon_card.innerHTML = '<ion-icon name="musical-notes"></ion-icon>';
+      title_card.appendChild(activityDetail_card);
       title_card.appendChild(activityIcon_card);
     }
+
     if (preference3Pressed == true) {
       activityIcon_card.innerHTML = '<ion-icon name="ticket-outline"></ion-icon>';
+      title_card.appendChild(activityDetail_card);
       title_card.appendChild(activityIcon_card);
     }
+
     if (preference4Pressed == true) {
       activityIcon_card.innerHTML = '<ion-icon name="accessibility-outline"></ion-icon>';
+      title_card.appendChild(activityDetail_card);
       title_card.appendChild(activityIcon_card);
     }
+
     if (preference5Pressed == true) {
       activityIcon_card.innerHTML = '<ion-icon  name="flash-outline"></ion-icon>';
+      title_card.appendChild(activityDetail_card);
       title_card.appendChild(activityIcon_card);
     }
+
     const place_card = document.createElement("div");
     place_card.setAttribute("class", "place_card");
     place_card.setAttribute("id", "place_card");
@@ -379,9 +406,9 @@ function addEvents(events) {
     const container_fecha_button_card = document.createElement("div");
     container_fecha_button_card.setAttribute("class", "container_fecha_button_card ");
     container_fecha_button_card.setAttribute("id", "container_fecha_button_card ");
-    container_fecha_button_card.style.display = "inline-flex";
-    container_fecha_button_card.style.gap = "1rem";
-    container_fecha_button_card.style.justifyContent = "space-between";
+    // container_fecha_button_card.style.display = "inline-flex";
+    // container_fecha_button_card.style.gap = "1rem";
+    // container_fecha_button_card.style.justifyContent = "space-between";
 
     const fecha_card = document.createElement("p");
     fecha_card.setAttribute("class", "fecha_card ");

@@ -6,6 +6,7 @@
   --desaturatedRed: #96413B;
   --orange: #fb8500;
   --lightOrange: #ff8800;
+  --lighterOrange: #ffae51;
   --darkRed: #170301;
   --yellowOrange: #ffd875;
   --background: #8ecae6;
@@ -343,6 +344,9 @@ input:checked + .radioTile ion-icon{
   display: flex;
   align-items:start;
   justify-content:center;
+  width: 100%;
+  padding-left: 1rem;
+  padding-right: 1rem;
   gap: 2rem;
   width:100%;
   flex-wrap: wrap;
@@ -350,10 +354,18 @@ input:checked + .radioTile ion-icon{
 
 .mainContainer_card{
   width: 18.75rem;
-  padding: .2rem;
-  background-color: var(--containerTitleCard);
+  /* padding: .1rem; */
+  background-color: var(--lighterOrange);
   border-radius: 10px;
-  box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.55);
+  border: 3px solid var(--backgroundSaturated);
+  /* box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.55); */
+}
+
+.activityDetail_card{
+  font-size: .9rem;
+  color: #738490;
+  padding-top: .1rem;
+  padding-left: 1rem;
 }
 
 .activityIcon_card{
@@ -362,19 +374,23 @@ input:checked + .radioTile ion-icon{
   justify-content: center;
   padding: .2rem;
   font-size: 1.5rem;
-  color: #666f75;
-  transform: translate(7.4rem, -.3rem); 
+  width: 10%;
+  background-color: var(--backgroundSaturated);
+  border-radius: 50%;
+  color: #152c3c;
+  transform: translate(-.9rem, -.3rem);  
 }
 
 .container_title_card{
+  display: inline-block;
   font-size: 1rem;
   width: 100%;
   border-radius: 10px;
-  background-color: rgba(255, 255, 255, 0.517);
+  background-color: rgb(240, 240, 240);
 }
 
 .title_card{
-  padding: .2rem 1.5rem;
+  padding: .2rem 1.2rem;
   text-align: center;
   font-weight: 700;
 }
@@ -383,6 +399,13 @@ input:checked + .radioTile ion-icon{
   font-size: .8rem;
   padding: .5rem;
   font-family: merriweather, sans;
+}
+
+.container_fecha_button_card{
+  display: inline-flex;
+  gap: 1rem;
+  justify-content: space-between;
+  padding: .3rem .3rem;
 }
 
 .fecha_card{
@@ -396,9 +419,18 @@ input:checked + .radioTile ion-icon{
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 1.5rem;
   font-weight: 900;
-  border-radius: 10px;
+  padding: .02rem .1rem;
+  border-radius: 50%;
+}
+
+.button_card:hover{
+  color: white;
+  background-color: black;
+}
+
+.button_card ion-icon{
+  font-size: 1.5rem;
 }
 
 .fav_card{
@@ -407,11 +439,19 @@ input:checked + .radioTile ion-icon{
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 1.2rem;
+  
   font-weight: 900;
-  border-radius: 10px;
-  color: red;
+  border-radius: 50%;
+  color: rgb(255, 0, 0);
   padding: .3rem;
+  }
+
+  .fav_card:hover{
+    background-color: black;
+  }
+
+  .fav_card ion-icon{
+    font-size: 1.2rem;
   }
 
   /* ********MEDIA QUERIES****** */
