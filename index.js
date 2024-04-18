@@ -1,4 +1,5 @@
 // ****
+import tipos from "./tipos.js"
 
 const containerPreferencesMenu_index = document.getElementById("containerPreferencesMenu_index");
 
@@ -87,6 +88,12 @@ preferencesToggle.addEventListener("click", () => {
     }, "100");
 
     // SOLICITUDES A LA API
+    
+    if (preference0Pressed === true) {
+    }
+      formacion()
+      
+      // addEvents(Type1)
     if (preference0Pressed === true) {
       evenType(1)
       evenType(7)
@@ -96,6 +103,7 @@ preferencesToggle.addEventListener("click", () => {
       evenType(2)
       evenType(4)
       evenType(3)
+
 
     }
     if (preference2Pressed === true) {
@@ -373,8 +381,8 @@ async function evenType(type, month = 4) {
   const response = await fetch(url.toString());
   const event = await response.json();
 
-  addEvents(event.items);
-  // return event.items
+  // addEvents(event.items);
+  return event.items
 }
 
 //Filtro por mes
@@ -514,6 +522,25 @@ function addEvents(events) {
     })
   });
 }
+
+async function llamarApiOrdenarMostrar(nombreTipo){
+  const numerosTipos = tipos[nombreTipo] || [];
+  //Llama a la API, esperamos la respuesta, y la guardamos en un array
+  const response = await Promise.all(numerosTipos.map(numero=> evenType(numero)))
+  let resultado = [];
+  response.forEach(typeArray=>{resultado=resultado.concat(typeArray)})
+  //Usamos .sort para comparar las fechas y ordenarlas
+  resultado.sort((evento1,evento2)=>{
+    const fecha1 = new Date (evento1.startDate)
+    const fecha2 = new Date (evento2.startDate)
+    return fecha1-fecha2
+  })
+  //Llamamos a addEvents con el resultado ordenado
+  addEvents(resultado)
+
+}
+
+formacion("musica")
 
 
 
