@@ -437,7 +437,9 @@ function addEvents(events) {
 
     const button_card = document.createElement("button");
     button_card.setAttribute("class", "button_card ");
-    button_card.setAttribute("id", "button_card ");
+    button_card.setAttribute("id", "button_card" + cardCounter);
+    button_card.setAttribute("cardNumber",  cardCounter.toString);
+
     button_card.innerHTML = '<ion-icon name="add"></ion-icon>';
 
     const fav_card = document.createElement("button");
