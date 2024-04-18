@@ -311,18 +311,21 @@ async function evenType(type, month = 4) {
 
 let cardCounter = 0;
 
+//aquí se almacenan las tarjetas que se mostrarán en página completa
+let cardCompleteInfo = [];
+
 function addEvents(events) {
-
-  
-
   const principal_card = document.getElementById("principal_card");
   principal_card.innerHTML="";
 
   //por qué no se usa el parámetro index?
   events.forEach((event, index) => {
+    cardCompleteInfo[cardCounter] = event;
   
+    console.log("cardCompleteInfo[cardCounter]" + cardCompleteInfo[cardCounter]);
+    
     cardCounter += 1;
-
+  
     const mainContainer_card = document.createElement("div");
     mainContainer_card.setAttribute("class", "mainContainer_card");
     mainContainer_card.setAttribute("id", "mainContainer_card");

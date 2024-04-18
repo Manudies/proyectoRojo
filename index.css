@@ -366,8 +366,11 @@ input:checked + .radioTile ion-icon{
 }
 
 .cardNumber{
+  display: flex;
+  align-items: center;
+  justify-content: center;
   position: absolute;
-  transform: translate(-.8rem, -.1rem);
+  transform: translate(-1rem, 0rem);
   font-size: .8rem;
   color: #748c96;
 }
@@ -402,7 +405,7 @@ input:checked + .radioTile ion-icon{
 .title_card{
   position: relative;
   font-size: 1.1rem;
-  padding: .2rem 1.2rem;
+  padding: .2rem 1.4rem;
   text-align: center;
   font-weight: 700;
 }
@@ -427,8 +430,8 @@ input:checked + .radioTile ion-icon{
 }
 
 .button_card{
-
-  border: 3px solid var(--orange);
+  background-color: rgb(234, 234, 234);
+  border: 3px solid white;
   cursor: pointer;
   display: flex;
   align-items: center;
@@ -440,8 +443,9 @@ input:checked + .radioTile ion-icon{
 }
 
 .button_card:hover{
-  color: white;
-  background-color: black;
+  border: 3px solid var(--orange);
+  background-color: var(--backgroundSaturated);
+  transition: all 300ms ease;
 }
 
 .button_card ion-icon{
@@ -449,23 +453,27 @@ input:checked + .radioTile ion-icon{
 }
 
 .fav_card{
-  border: 3px solid var(--orange);
+  background-color: rgb(234, 234, 234);
+  border: 3px solid white;
   cursor: pointer;
   display: flex;
   align-items: center;
   justify-content: center;
   
-  font-weight: 900;
+
   border-radius: 50%;
   color: rgb(255, 0, 0);
   padding: .3rem;
   }
 
   .fav_card:hover{
-    background-color: black;
+    border: 3px solid var(--orange);
+    background-color: var(--backgroundSaturated);
+    transition: all 300ms ease;
   }
 
   .fav_card ion-icon{
+    font-weight: 900;
     font-size: 1.2rem;
   }
 
