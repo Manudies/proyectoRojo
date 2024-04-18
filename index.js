@@ -412,7 +412,6 @@ function addEvents(events) {
     activityIcon_card.setAttribute("id", "activityIcon_card");
 
     // ***
-
     const container_title_card = document.createElement("div");
     container_title_card.setAttribute("class", "container_title_card");
     container_title_card.setAttribute("id", "container_title_card");
