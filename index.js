@@ -1,4 +1,5 @@
 // ****
+import tipos from "./tipos.js"
 
 const containerPreferencesMenu_index = document.getElementById("containerPreferencesMenu_index");
 
@@ -87,37 +88,26 @@ preferencesToggle.addEventListener("click", () => {
     }, "100");
 
     // SOLICITUDES A LA API
+    
     if (preference0Pressed === true) {
-      evenType(1)
-      evenType(7)
-      evenType(13)
+      ordenarEventos("formacion")
     }
     if (preference1Pressed === true) {
-      evenType(2)
-      evenType(4)
-      evenType(3)
-
+      ordenarEventos("teatro")
     }
     if (preference2Pressed === true) {
-      evenType(9)
+      ordenarEventos("musica")
     }
     if (preference3Pressed === true) {
-      evenType(6)
-      evenType(10)
-      evenType(11)
+      ordenarEventos("cine")
     }
     if (preference4Pressed === true) {
-      evenType(8)
-      evenType(12)
-      evenType(14)
-      evenType(15)
+      ordenarEventos("otros")
     }
     if (preference5Pressed === true) {
       evenType(getRandomIntInclusive(1, 15))
     }
-
   }
-
 });
 
 function getRandomIntInclusive(min, max) {
@@ -125,9 +115,6 @@ function getRandomIntInclusive(min, max) {
   const maxFloored = Math.floor(max);
   return Math.floor(Math.random() * (maxFloored - minCeiled + 1) + minCeiled);
 }
-
-
-// ***
 
 // ANIMATION TOGGLE BTN
 const preferencesToggleIonIcon = document.getElementById("preferencesToggleIonIcon");
@@ -141,8 +128,6 @@ const intervalToggle = setInterval(() => {
   }, "600");
 
 }, 700);
-
-
 // ***
 
 const preferenceRadioBtn0 = document.getElementById("preferenceRadioBtn0");
@@ -161,9 +146,6 @@ const strRandom = " - Random - Random - Random - "
 
 // PREFERENCE BTNS ONCLICK EVENTS
 // Agregamos los listener a los botones de las preferencias
-
-let p0 = false;
-
 preferenceRadioBtn0.addEventListener("click", () => {
 
   preference0Pressed = true;
@@ -185,15 +167,9 @@ preferenceRadioBtn0.addEventListener("click", () => {
     preferenceBtnDescriptionTxt.appendChild(span);
     span.style.transform = `rotate(${11 * i}deg)`;
   }
-  // vamosBtn_index.style.display="block";
-
-  p0 = true;
 });
 
 // ***
-
-let p1 = false;
-
 preferenceRadioBtn1.addEventListener("click", () => {
 
   preference0Pressed = false;
@@ -216,14 +192,9 @@ preferenceRadioBtn1.addEventListener("click", () => {
     span.style.transform = `rotate(${11 * i}deg)`;
   }
 
-  // vamosBtn_index.style.display="block";
-  p1 = true;
 });
 
 // ***
-
-let p2 = false;
-
 preferenceRadioBtn2.addEventListener("click", () => {
 
   preference0Pressed = false;
@@ -246,14 +217,9 @@ preferenceRadioBtn2.addEventListener("click", () => {
 
     span.style.transform = `rotate(${11 * i}deg)`;
   }
-
-  // vamosBtn_index.style.display="block";
-  p2 = true;
 });
 
 // ***
-
-let p3 = false;
 preferenceRadioBtn3.addEventListener("click", () => {
 
   preference0Pressed = false;
@@ -277,14 +243,9 @@ preferenceRadioBtn3.addEventListener("click", () => {
 
     span.style.transform = `rotate(${11 * i}deg)`;
   }
-
-  // vamosBtn_index.style.display="block";
-  p3 = true;
 });
 
 // ***
-let p4 = false;
-
 preferenceRadioBtn4.addEventListener("click", () => {
 
   preference0Pressed = false;
@@ -307,13 +268,9 @@ preferenceRadioBtn4.addEventListener("click", () => {
     preferenceBtnDescriptionTxt.appendChild(span);
     span.style.transform = `rotate(${11 * i}deg)`;
   }
-
-  // vamosBtn_index.style.display="block";
-  p4 = true;
 });
 
-let p5 = false;
-
+// ***
 preferenceRadioBtn5.addEventListener("click", () => {
   preference0Pressed = false;
   preference1Pressed = false;
@@ -334,14 +291,7 @@ preferenceRadioBtn5.addEventListener("click", () => {
     preferenceBtnDescriptionTxt.appendChild(span);
     span.style.transform = `rotate(${11 * i}deg)`;
   }
-
-  // vamosBtn_index.style.display="block";
-  p5 = true;
 });
-
-
-// *** BOTON BUSCAR (vamosbTN)
-let vamosBtnWasPressed = false;
 
 // Creamos la funcion de consulta de la API de cultura y guardamos en JSON, llamamos a las funcion addEvents
 async function getData() {
@@ -349,7 +299,6 @@ async function getData() {
   url.searchParams.append("_elements", 500);
   const response = await fetch(url.toString());
   const data = await response.json();
-  // console.log(data)
 
   addEvents(data.items);
 }
@@ -359,22 +308,16 @@ async function evenTypes() {
   // url.searchParams.append("_elements",500);
   const response = await fetch(url.toString());
   const eventTypes = await response.json();
-
-  // console.log(eventTypes)
-
-  // addEvents(data.items);
 }
 
 //Filtro por eventos
-
 async function evenType(type, month = 4) {
-  // const url = new URL("https://api.euskadi.eus/culture/events/v1.0/events/byType/"+type+"?_elements=20&_page=1")
   const url = new URL("https://api.euskadi.eus/culture/events/v1.0/events/byType/" + type + "/byMonth/2024/" + month + "?_elements=20&_page=1")
   const response = await fetch(url.toString());
   const event = await response.json();
 
-  addEvents(event.items);
-  // return event.items
+  // addEvents(event.items);
+  return event.items
 }
 
 //Filtro por mes
@@ -382,9 +325,6 @@ async function month(month) {
   const url = new URL("https://api.euskadi.eus/culture/events/v1.0/events/byMonth/2024/0" + month + "?_elements=20&_page=1")
   const response = await fetch(url.toString());
   const eventmonth = await response.json();
-  // console.log(eventmonth)
-
-  // addEvents(data.items);
 }
 
 function addEvents(events) {
@@ -392,14 +332,11 @@ function addEvents(events) {
   principal_card.style.paddingLeft = "1rem";
   principal_card.style.width = "100%";
   principal_card.style.paddingRight = "1rem";
-  // principal_card.style.border="5px solid #FB8500";
-
 
   events.forEach((event, index) => {
     const mainContainer_card = document.createElement("div");
     mainContainer_card.setAttribute("class", "mainContainer_card");
     mainContainer_card.setAttribute("id", "mainContainer_card");
-    // mainContainer_card.style.border="2px solid #BC5DDE"
     mainContainer_card.style.display = "flex";
     mainContainer_card.style.marginBottom = "1rem";
     mainContainer_card.style.alignContent = "center";
@@ -411,7 +348,7 @@ function addEvents(events) {
     activityIcon_card.setAttribute("class", "activityIcon_card");
     activityIcon_card.setAttribute("id", "activityIcon_card");
 
-    // ***
+    //SE INTRODUCE UN ICONO EN LA TARJETA SEGÚN EL TIPO DE EVENTO
     const container_title_card = document.createElement("div");
     container_title_card.setAttribute("class", "container_title_card");
     container_title_card.setAttribute("id", "container_title_card");
@@ -424,27 +361,22 @@ function addEvents(events) {
       activityIcon_card.innerHTML = '<ion-icon name="school-outline"></ion-icon>';
       title_card.appendChild(activityIcon_card);
     }
-
     if (preference1Pressed == true) {
       activityIcon_card.innerHTML = '<ion-icon name="sad-outline"></ion-icon>';
       title_card.appendChild(activityIcon_card);
     }
-
     if (preference2Pressed == true) {
       activityIcon_card.innerHTML = '<ion-icon name="musical-notes"></ion-icon>';
       title_card.appendChild(activityIcon_card);
     }
-
     if (preference3Pressed == true) {
       activityIcon_card.innerHTML = '<ion-icon name="ticket-outline"></ion-icon>';
       title_card.appendChild(activityIcon_card);
     }
-
     if (preference4Pressed == true) {
       activityIcon_card.innerHTML = '<ion-icon name="accessibility-outline"></ion-icon>';
       title_card.appendChild(activityIcon_card);
     }
-
     if (preference5Pressed == true) {
       activityIcon_card.innerHTML = '<ion-icon  name="flash-outline"></ion-icon>';
       title_card.appendChild(activityIcon_card);
@@ -465,13 +397,11 @@ function addEvents(events) {
     else {
       p_place_card.innerText = event.placeEs;
     }
-
     const container_fecha_button_card = document.createElement("div");
     container_fecha_button_card.setAttribute("class", "container_fecha_button_card ");
     container_fecha_button_card.setAttribute("id", "container_fecha_button_card ");
     container_fecha_button_card.style.display = "inline-flex";
     container_fecha_button_card.style.gap = "1rem";
-    // container_fecha_button_card.style.border="2px solid #28E08C";
     container_fecha_button_card.style.justifyContent = "space-between";
 
     const fecha_card = document.createElement("p");
@@ -507,20 +437,17 @@ function addEvents(events) {
       // Verificar si el evento ya está en favoritos
       let favorites = JSON.parse(localStorage.getItem('favorites')) || [];
       const index = favorites.indexOf(eventId);
-
       // Si no está en favoritos, agregarlo; de lo contrario, quitarlo
       if (index === -1) {
         favorites.push(eventId);
       } else {
         favorites.splice(index, 1);
       }
-
       // Guardar los favoritos actualizados en el localStorage
       localStorage.setItem('favorites', JSON.stringify(favorites));
     }
 
     // En el bloque donde creas el elemento fav_card y agregas el evento click:
-
     fav_card.addEventListener("click", () => {
       // Obtener el ID del evento asociado a este elemento fav_card
       const eventId = event.id; // Reemplaza event.id con la propiedad adecuada que identifica el evento
@@ -536,8 +463,25 @@ function addEvents(events) {
         fav_card_click = false;
       }
     });
-
   });
+}
+
+//FUNCIÓN PARA ORDENAR LOS EVENTO POR FECHA
+async function ordenarEventos(nombreTipo){
+  const numerosTipos = tipos[nombreTipo] || [];
+  //Llama a la API, esperamos la respuesta, y la guardamos en un array
+  const response = await Promise.all(numerosTipos.map(numero=> evenType(numero)))
+  let resultado = [];
+  response.forEach(typeArray=>{resultado=resultado.concat(typeArray)})
+  //Usamos .sort para comparar las fechas y ordenarlas
+  resultado.sort((evento1,evento2)=>{
+    const fecha1 = new Date (evento1.startDate)
+    const fecha2 = new Date (evento2.startDate)
+    return fecha1-fecha2
+  })
+  //Llamamos a addEvents con el resultado ordenado
+  addEvents(resultado)
+
 }
 
 
