@@ -63,9 +63,12 @@ body{
   display: flex;
   align-items: center;
   justify-content: center;
-  /* background: linear-gradient( #6c9aad, #00000000 ); */
-  /* background-color: #6c9aad; */
   margin-bottom: 2rem;
+}
+
+.backBtn_index{
+  cursor: pointer;
+  display: none;
 }
 
 .pageTitle_txt{

@@ -14,13 +14,29 @@ const preferenceBtnDescriptionTxt = document.getElementById("preferenceBtnDescri
 
 const vamosBtn_index = document.getElementById("vamosBtn_index");
 
+const backBtn_index = document.getElementById("backBtn_index");
 
-// ***
-// CARGAR TARJETAS DE MUESTRA ALEATORIAS EN LA PÁGINA INICIAL
-// const systemDate = new Date();
+const preferencesMenu_li = document.getElementById("preferencesMenu_li");
 
+const preferenceRadioBtn0 = document.getElementById("preferenceRadioBtn0");
+const preferenceRadioBtn1 = document.getElementById("preferenceRadioBtn1");
+const preferenceRadioBtn2 = document.getElementById("preferenceRadioBtn2");
+const preferenceRadioBtn3 = document.getElementById("preferenceRadioBtn3");
+const preferenceRadioBtn4 = document.getElementById("preferenceRadioBtn4");
+const preferenceRadioBtn5 = document.getElementById("preferenceRadioBtn5");
 
-// *** PREFERENCES TOGGLE BTN
+const strFormacion = " - Formaciones - Formaciones - ";
+const strTeatro = " - Teatro - Teatro - Teatro ";
+const strMusica = " - Música - Música - Música ";
+const strCine = " - Cine - Cine - Cine -";
+const strOtros = " - Otros - Otros - Otros -";
+const strRandom = " - Random - Random - Random - "
+
+const ionIconSchool = document.getElementById("ionIconSchool");
+const ionIconSad = document.getElementById("ionIconSad");
+const ionIconMusicalNotes = document.getElementById("ionIconMusicalNotes");
+const ionIconVideo = document.getElementById("ionIconVideo");
+const ionIconOthers = document.getElementById("ionIconOthers");
 
 let preference0Pressed = false;
 let preference1Pressed = false;
@@ -29,6 +45,51 @@ let preference3Pressed = false;
 let preference4Pressed = false;
 let preference5Pressed = false;
 
+const preferencesToggleIonIconSearch = document.getElementById("preferencesToggleIonIconSearch");
+
+let togglePressed = false;
+
+
+let preferencesMenuIsOnScreen = true;
+
+const principal_card = document.getElementById("principal_card");
+
+// ANIMATION TOGGLE BTN
+const preferencesToggleIonIcon = document.getElementById("preferencesToggleIonIcon");
+
+const intervalToggle = setInterval(() => {
+
+  preferencesToggleIonIcon.style.fontSize = "2.7rem";
+
+  setTimeout(() => {
+    preferencesToggleIonIcon.style.fontSize = "3.5rem";
+  }, "600");
+
+}, 700);
+// ***
+
+
+// ***
+
+backBtn_index.addEventListener("click", ()=>{
+  if(preferencesMenuIsOnScreen == true){
+    containerPreferencesMenu_index.style.display="none";
+    principal_card.style.display="flex";
+
+  }
+
+  if(preferencesMenuIsOnScreen == false){
+    containerPreferencesMenu_index.style.display="flex";
+    principal_card.style.display="none";
+    
+  }
+
+  backBtn_index.style.display="none";
+
+});
+
+
+// *** PREFERENCES TOGGLE BTN
 
 preferencesToggle.addEventListener("mouseover", () => {
   preferencesToggle.style.transform = "rotate(1turn)";
@@ -43,19 +104,10 @@ preferencesToggle.addEventListener("mouseleave", () => {
 
 // ***
 
-const ionIconSchool = document.getElementById("ionIconSchool");
-const ionIconSad = document.getElementById("ionIconSad");
-const ionIconMusicalNotes = document.getElementById("ionIconMusicalNotes");
-const ionIconVideo = document.getElementById("ionIconVideo");
-const ionIconOthers = document.getElementById("ionIconOthers");
-
 // ****
-const preferencesToggleIonIconSearch = document.getElementById("preferencesToggleIonIconSearch");
 
-let togglePressed = false;
 
 preferencesToggle.addEventListener("click", () => {
-
   preferencesMenu_index.classList.toggle("active");
   ionIconSad.style.transform = "rotate(-80deg)";
   ionIconMusicalNotes.style.transform = "rotate(-100deg)";
@@ -79,13 +131,10 @@ preferencesToggle.addEventListener("click", () => {
 
   //VERIFICAMOS SI EL BOTON TOGGLE HA SIDO PRESIONADO
   if (preference0Pressed == true || preference1Pressed == true || preference2Pressed == true || preference3Pressed == true || preference4Pressed == true || preference5Pressed == true) {
-
     clearInterval(intervalToggle);
 
-    const preferencesMenu_index = document.getElementById("preferencesMenu_index");
-
     setTimeout(() => {
-      mainContainer_index.style.display = "none";
+      containerPreferencesMenu_index.style.display = "none";
     }, "100");
 
     // SOLICITUDES A LA API
@@ -110,36 +159,15 @@ preferencesToggle.addEventListener("click", () => {
       console.log(random[randomNumber])
       ordenarEventos(random[randomNumber])
     }
+
+    backBtn_index.style.display="block";
+
+    preferencesMenuIsOnScreen = false;
+
   }
 });
 
-// ANIMATION TOGGLE BTN
-const preferencesToggleIonIcon = document.getElementById("preferencesToggleIonIcon");
 
-const intervalToggle = setInterval(() => {
-
-  preferencesToggleIonIcon.style.fontSize = "2.7rem";
-
-  setTimeout(() => {
-    preferencesToggleIonIcon.style.fontSize = "3.5rem";
-  }, "600");
-
-}, 700);
-// ***
-
-const preferenceRadioBtn0 = document.getElementById("preferenceRadioBtn0");
-const preferenceRadioBtn1 = document.getElementById("preferenceRadioBtn1");
-const preferenceRadioBtn2 = document.getElementById("preferenceRadioBtn2");
-const preferenceRadioBtn3 = document.getElementById("preferenceRadioBtn3");
-const preferenceRadioBtn4 = document.getElementById("preferenceRadioBtn4");
-const preferenceRadioBtn5 = document.getElementById("preferenceRadioBtn5");
-
-const strFormacion = " - Formaciones - Formaciones - ";
-const strTeatro = " - Teatro - Teatro - Teatro ";
-const strMusica = " - Música - Música - Música ";
-const strCine = " - Cine - Cine - Cine -";
-const strOtros = " - Otros - Otros - Otros -";
-const strRandom = " - Random - Random - Random - "
 
 // PREFERENCE BTNS ONCLICK EVENTS
 // Agregamos los listener a los botones de las preferencias
