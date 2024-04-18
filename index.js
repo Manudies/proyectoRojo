@@ -386,11 +386,14 @@ function addEvents(events) {
     const fecha_card = document.createElement("p");
     fecha_card.setAttribute("class", "fecha_card ");
     fecha_card.setAttribute("id", "fecha_card ");
+
+
     fecha_card.innerText = (event.startDate[8] + event.startDate[9] + event.startDate[7] + event.startDate[5] + event.startDate[6] + event.startDate[4] + event.startDate[0] + event.startDate[1] + event.startDate[2] + event.startDate[3])
 
     const button_card = document.createElement("button");
     button_card.setAttribute("class", "button_card ");
     button_card.setAttribute("id", "button_card ");
+    // button_card.setAttribute("onclick", "window.open('description.html')");
     button_card.innerHTML = '<ion-icon name="add"></ion-icon>';
 
     const fav_card = document.createElement("button");
@@ -408,9 +411,55 @@ function addEvents(events) {
     container_fecha_button_card.appendChild(button_card);
     container_fecha_button_card.appendChild(fav_card);
 
-    let fav_card_click = false;
+
+
+    ///mi botoll*******************************************************************
+    button_card.addEventListener("click", () => {
+      const principal_card = document.getElementById("principal_card");
+      principal_card.innerHTML="";
+      principal_card.style.paddingLeft = "1rem";
+      principal_card.style.width = "100%";
+      principal_card.style.paddingRight = "1rem";
+      principal_card.style.backgroundColor = "grey";
+
+      const mainContainer_card2 = document.createElement("div");
+      mainContainer_card2.setAttribute("class", "mainContainer_card2");
+      mainContainer_card2.setAttribute("id", "mainContainer_card2");
+      mainContainer_card2.style.display = "flex";
+      mainContainer_card2.style.marginBottom = "1rem";
+      mainContainer_card2.style.alignContent = "center";
+      mainContainer_card2.style.justifyContent = "center";
+      mainContainer_card2.style.flexDirection = "column";
+
+
+      const title_card2 = document.createElement("p");
+      title_card2.setAttribute("class", "title_card2");
+      title_card2.setAttribute("id", "title_card2");
+      title_card2.innerHTML = event.descriptionEs;
+      
+      principal_card.appendChild(mainContainer_card2);
+      mainContainer_card2.appendChild(title_card2);
+
+
+    //ICONO DE TARJETA
+    const activityIcon_card = document.createElement("span");
+    activityIcon_card.setAttribute("class", "activityIcon_card");
+    activityIcon_card.setAttribute("id", "activityIcon_card");
+
+    //SE INTRODUCE UN ICONO EN LA TARJETA SEGÚN EL TIPO DE EVENTO
+    const container_title_card = document.createElement("div");
+    container_title_card.setAttribute("class", "container_title_card");
+    container_title_card.setAttribute("id", "container_title_card");
+    const title_card = document.createElement("p");
+    title_card.setAttribute("class", "title_card");
+    title_card.setAttribute("id", "title_card");
+    title_card.innerText = event.nameEs;
+    });
+
+
 
     // Función para manejar el clic en el ícono de corazón
+    let fav_card_click = false;
     function handleFavoriteClick(eventId) {
       // Verificar si el evento ya está en favoritos
       let favorites = JSON.parse(localStorage.getItem('favorites')) || [];
