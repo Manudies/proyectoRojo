@@ -1,6 +1,7 @@
 // ****
 import {tipos, random} from "./tipos.js"
 
+let searchFavouritesBtn_index = document.getElementById("searchFavouritesBtn_index");
 
 const containerPreferencesMenu_index = document.getElementById("containerPreferencesMenu_index");
 
@@ -82,6 +83,7 @@ backBtn_index.addEventListener("click", ()=>{
   }
 
   backBtn_index.style.display="none";
+  searchFavouritesBtn_index.style.display="none";
 
   togglePressed = false;
   preference0Pressed = false;
@@ -172,6 +174,8 @@ preferencesToggle.addEventListener("click", () => {
     }
 
     backBtn_index.style.display="block";
+
+    searchFavouritesBtn_index.style.display="block";
 
     principal_card.style.display="flex"
 
@@ -504,6 +508,29 @@ function addEvents(events) {
       }
     });
   });
+   // Obtener el elemento del botón
+searchFavouritesBtn_index = document.getElementById("searchFavouritesBtn_index");
+
+// Agregar un evento click al botón
+  searchFavouritesBtn_index.addEventListener("click", () => {
+  // Obtener los favoritos del localStorage
+  const favorites = JSON.parse(localStorage.getItem("favorites")) || [];
+
+  // Verificar si hay favoritos
+  if (favorites.length === 0) {
+    alert("No tienes favoritos guardados.");
+    return;
+  }
+
+  // Mostrar los favoritos en la consola
+  console.log("Favoritos:");
+  favorites.forEach((favorito, index) => {
+    console.log(`${index + 1}. ${favorito}`);
+  });
+
+  // Otra opción: Mostrar los favoritos en una ventana de alerta
+  // alert("Favoritos:\n" + favoritos.join("\n"));
+});
 }
 
 //FUNCIÓN PARA ORDENAR LOS EVENTO POR FECHA
