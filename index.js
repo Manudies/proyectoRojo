@@ -72,24 +72,19 @@ const intervalToggle = setInterval(() => {
 // ***
 
 backBtn_index.addEventListener("click", ()=>{
-
   if(preferencesMenuIsOnScreen == true){
-
-    backBtn_index.style.display="none";
-  
     containerPreferencesMenu_index.style.display="none";
-
     principal_card.style.display="flex";
 
   }
 
   if(preferencesMenuIsOnScreen == false){
-    
     containerPreferencesMenu_index.style.display="flex";
-
     principal_card.style.display="none";
     
   }
+
+  backBtn_index.style.display="none";
 
 });
 
@@ -113,7 +108,6 @@ preferencesToggle.addEventListener("mouseleave", () => {
 
 
 preferencesToggle.addEventListener("click", () => {
-
   preferencesMenu_index.classList.toggle("active");
   ionIconSad.style.transform = "rotate(-80deg)";
   ionIconMusicalNotes.style.transform = "rotate(-100deg)";
@@ -137,8 +131,6 @@ preferencesToggle.addEventListener("click", () => {
 
   //VERIFICAMOS SI EL BOTON TOGGLE HA SIDO PRESIONADO
   if (preference0Pressed == true || preference1Pressed == true || preference2Pressed == true || preference3Pressed == true || preference4Pressed == true || preference5Pressed == true) {
-
-
     clearInterval(intervalToggle);
 
     setTimeout(() => {
