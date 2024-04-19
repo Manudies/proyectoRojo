@@ -367,7 +367,7 @@ function addEvents(events) {
     const cardNumber = document.createElement("p");
     cardNumber.setAttribute("class", "cardNumber");
     cardNumber.setAttribute("id", "cardNumber");
-    cardNumber.innerText = cardCounter.toString();
+    cardNumber.innerText = (cardCounter + 1).toString();
 
     //TITULO DE ACTIVIDAD
     const activityTitle_card = document.createElement("p");
