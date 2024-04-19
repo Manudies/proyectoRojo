@@ -480,9 +480,8 @@ function addEvents(events) {
     //MOSTRAR DESCRIPCIÓN DE CARTAS DE ACTIVIDAD
     button_card.addEventListener("click", ()=>{
       
-      let myWindow=window.open('newCard.html', "_blank");
-      myWindow.document.write(`${event.nameEs}\n
-      ${event.descriptionEs}`);
+      let myWindow=window.open('newCard.html','Información de actividad', "_blank");
+      myWindow.document.write(`${event.nameEs}\n${event.descriptionEs}\n${event.startDate}\n${event.sourceUrlEs}`);
     });
 
     cardCounter += 1;
