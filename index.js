@@ -328,6 +328,10 @@ function addEvents(events) {
 
   //por qué no se usa el parámetro index?
   events.forEach((event, index) => {
+
+    console.log("event.descriptionEs: " + event.nameEs);
+    
+    // console.log("event.descriptionEs: " + event.descriptionEs);
   
     //CREAR HTML DINÁMICAMENTE MÉTODO 1
     // newCardHtmlDoc = document.implementation.createHTMLDocument("tarjetaDeActividad" + cardCounter);
@@ -343,7 +347,8 @@ function addEvents(events) {
     //     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     //         <title>Tarjeta de actividad ${cardCounter}</title>
     //     </head>
-    //     <html>
+    //     <html style:"">
+            //<body>
     //         ${event.nameEs}\n
     //         ${event.descriptionEs}
     //     </body>
@@ -475,10 +480,9 @@ function addEvents(events) {
     //MOSTRAR DESCRIPCIÓN DE CARTAS DE ACTIVIDAD
     button_card.addEventListener("click", ()=>{
       
-      let myWindow=window.open('');
+      let myWindow=window.open('newCard.html', "_blank");
       myWindow.document.write(`${event.nameEs}\n
       ${event.descriptionEs}`);
-
     });
 
     cardCounter += 1;
