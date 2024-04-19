@@ -42,7 +42,8 @@ let togglePressed = false;
 
 let preferencesMenuIsOnScreen = true;
 
-// let activityTypeDetail = "";
+let cardCounter = 0;
+
 
 const principal_card = document.getElementById("principal_card");
 
@@ -79,6 +80,7 @@ backBtn_index.addEventListener("click", ()=>{
   preferencesMenuIsOnScreen = true;
   preferencesToggleIonIconSearch.style.display = "none";
   preferencesToggleIonIcon.style.display = "block";
+  cardCounter = 0;
 })
 
 // *** PREFERENCES TOGGLE BTN
@@ -141,7 +143,6 @@ preferencesToggle.addEventListener("click", () => {
     }
     if (preference5Pressed === true) {
       const randomNumber = getRandomIntInclusive(0,4);
-      console.log(random[randomNumber])
       ordenarEventos(random[randomNumber])
     }
 
@@ -304,11 +305,22 @@ preferenceRadioBtn5.addEventListener("click", () => {
 async function evenType(type, month = 4) {
   const url = new URL("https://api.euskadi.eus/culture/events/v1.0/events/byType/" + type + "/byMonth/2024/" + month + "?_elements=20&_page=1");
   const response = await fetch(url.toString());
+  
   const event = await response.json();
   // addEvents(event.items);
+  
+  // console.log("event.items.descriptionEs. " + event.items.descriptionEs);
+
   return event.items;
 }
 
+// ***
+
+
+
+let cardStringHtmlPages = [];
+
+let newCardHtmlDoc;
 
 function addEvents(events) {
   const principal_card = document.getElementById("principal_card");
@@ -316,6 +328,34 @@ function addEvents(events) {
 
   //por qué no se usa el parámetro index?
   events.forEach((event, index) => {
+  
+    //CREAR HTML DINÁMICAMENTE MÉTODO 1
+    // newCardHtmlDoc = document.implementation.createHTMLDocument("tarjetaDeActividad" + cardCounter);
+    // newCardHtmlDoc.body.innerHTML = event.descriptionEs;
+    // cardHtmlPages[cardCounter] = newCardHtmlDoc;
+
+    //CREAR HTML DINÁMICAMENTE MÉTODO 2
+    // const newCardHtml = `<!DOCTYPE html>
+    // <html lang="es">
+    // <html>
+    //     <head>
+    //     <meta charset="UTF-8">
+    //     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    //         <title>Tarjeta de actividad ${cardCounter}</title>
+    //     </head>
+    //     <html>
+    //         ${event.nameEs}\n
+    //         ${event.descriptionEs}
+    //     </body>
+    // </html>`;
+
+    // cardStringHtmlPages[cardCounter] = newCardHtml;
+
+    // // usar este método para abrir el html
+    // const htmlPage = URL.createObjectURL(new Blob([cardStringHtmlPages[cardCounter]], {type: "text/html" }));
+    // window.open(htmlPage, `_blank`);
+    
+
     const mainContainer_card = document.createElement("div");
     mainContainer_card.setAttribute("class", "mainContainer_card");
     mainContainer_card.setAttribute("id", "mainContainer_card");
@@ -324,6 +364,19 @@ function addEvents(events) {
     mainContainer_card.style.alignContent = "center";
     mainContainer_card.style.justifyContent = "center";
     mainContainer_card.style.flexDirection = "column";
+
+    //NUMERO DE TARJETA
+    const cardNumber = document.createElement("p");
+    cardNumber.setAttribute("class", "cardNumber");
+    cardNumber.setAttribute("id", "cardNumber");
+    cardNumber.innerText = (cardCounter + 1).toString();
+
+    //TITULO DE ACTIVIDAD
+    const activityTitle_card = document.createElement("p");
+    activityTitle_card.setAttribute("class", "activityTitle_card");
+    activityTitle_card.setAttribute("id", "activityTitle_card");
+    activityTitle_card.innerText = event.nameEs;
+
 
     //DETALLE DE ACTIVIDAD E ICONO DE TARJETA 
     const activityDetail_card = document.createElement("p");
@@ -342,44 +395,48 @@ function addEvents(events) {
     const title_card = document.createElement("p");
     title_card.setAttribute("class", "title_card");
     title_card.setAttribute("id", "title_card");
-    title_card.innerText = event.nameEs;
+    title_card.appendChild(cardNumber);
+    title_card.appendChild(activityTitle_card);
+    title_card.appendChild(activityDetail_card);
+
+    // title_card.innerText = event.nameEs;
 
     //detalle de tipo de actividad para la tarjeta
     activityDetail_card.innerText = "\n" + event.typeEs;
     
     if (preference0Pressed == true) {
       activityIcon_card.innerHTML = '<ion-icon name="school-outline"></ion-icon>';
-      title_card.appendChild(activityDetail_card);
+      
       title_card.appendChild(activityIcon_card);
     }
 
     if (preference1Pressed == true) {
       activityIcon_card.innerHTML = '<ion-icon name="sad-outline"></ion-icon>';
-      title_card.appendChild(activityDetail_card);
+      // title_card.appendChild(activityDetail_card);
       title_card.appendChild(activityIcon_card);
     }
 
     if (preference2Pressed == true) {
       activityIcon_card.innerHTML = '<ion-icon name="musical-notes"></ion-icon>';
-      title_card.appendChild(activityDetail_card);
+      // title_card.appendChild(activityDetail_card);
       title_card.appendChild(activityIcon_card);
     }
 
     if (preference3Pressed == true) {
       activityIcon_card.innerHTML = '<ion-icon name="ticket-outline"></ion-icon>';
-      title_card.appendChild(activityDetail_card);
+      // title_card.appendChild(activityDetail_card);
       title_card.appendChild(activityIcon_card);
     }
 
     if (preference4Pressed == true) {
       activityIcon_card.innerHTML = '<ion-icon name="accessibility-outline"></ion-icon>';
-      title_card.appendChild(activityDetail_card);
+      // title_card.appendChild(activityDetail_card);
       title_card.appendChild(activityIcon_card);
     }
 
     if (preference5Pressed == true) {
       activityIcon_card.innerHTML = '<ion-icon  name="flash-outline"></ion-icon>';
-      title_card.appendChild(activityDetail_card);
+      // title_card.appendChild(activityDetail_card);
       title_card.appendChild(activityIcon_card);
     }
 
@@ -410,8 +467,21 @@ function addEvents(events) {
 
     const button_card = document.createElement("button");
     button_card.setAttribute("class", "button_card ");
-    button_card.setAttribute("id", "button_card ");
+    button_card.setAttribute("id", "button_card" + cardCounter);
+    button_card.setAttribute("cardNumber",  cardCounter.toString());
+
     button_card.innerHTML = '<ion-icon name="add"></ion-icon>';
+
+    //MOSTRAR DESCRIPCIÓN DE CARTAS DE ACTIVIDAD
+    button_card.addEventListener("click", ()=>{
+      
+      let myWindow=window.open('');
+      myWindow.document.write(`${event.nameEs}\n
+      ${event.descriptionEs}`);
+
+    });
+
+    cardCounter += 1;
 
     const fav_card = document.createElement("button");
     fav_card.setAttribute("class", "fav_card ");
@@ -478,10 +548,10 @@ searchFavouritesBtn_index = document.getElementById("searchFavouritesBtn_index")
   }
 
   // Mostrar los favoritos en la consola
-  console.log("Favoritos:");
-  favorites.forEach((favorito, index) => {
-    console.log(`${index + 1}. ${favorito}`);
-  });
+  // console.log("Favoritos:");
+  // favorites.forEach((favorito, index) => {
+  //   console.log(`${index + 1}. ${favorito}`);
+  // });
 });
 }
 
