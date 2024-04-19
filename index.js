@@ -42,7 +42,8 @@ let togglePressed = false;
 
 let preferencesMenuIsOnScreen = true;
 
-// let activityTypeDetail = "";
+let cardCounter = 0;
+
 
 const principal_card = document.getElementById("principal_card");
 
@@ -79,6 +80,7 @@ backBtn_index.addEventListener("click", ()=>{
   preferencesMenuIsOnScreen = true;
   preferencesToggleIonIconSearch.style.display = "none";
   preferencesToggleIonIcon.style.display = "block";
+  cardCounter = 0;
 })
 
 // *** PREFERENCES TOGGLE BTN
@@ -314,7 +316,7 @@ async function evenType(type, month = 4) {
 
 // ***
 
-let cardCounter = 0;
+
 
 let cardStringHtmlPages = [];
 
