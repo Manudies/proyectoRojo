@@ -481,7 +481,7 @@ function addEvents(events) {
     button_card.addEventListener("click", ()=>{
       
       let myWindow=window.open('newCard.html','Información de actividad', "_blank");
-      myWindow.document.write(`${event.nameEs}\n${event.descriptionEs}\n${event.startDate}\n${event.sourceUrlEs}`);
+      myWindow.document.write(`${event.nameEs}\n${event.descriptionEs}\n${event.sourceUrlEs}`);
     });
 
     cardCounter += 1;
