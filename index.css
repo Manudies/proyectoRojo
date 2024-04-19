@@ -358,11 +358,15 @@ input:checked + .radioTile ion-icon{
 
 .mainContainer_card{
   width: 18.75rem;
-  /* padding: .1rem; */
   background-color: var(--lighterOrange);
   border-radius: 10px;
   border: 3px solid var(--backgroundSaturated);
-  /* box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.55); */
+}
+
+.mainContainer_card:hover{
+  box-shadow: 0px 0px 5px 3px var(--backgroundSaturated);
+  transform: scale(1.05);
+  transition: all 400ms ease;
 }
 
 .cardNumber{
