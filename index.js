@@ -420,7 +420,7 @@ function addEvents(events) {
       principal_card.style.paddingLeft = "1rem";
       principal_card.style.width = "100%";
       principal_card.style.paddingRight = "1rem";
-      principal_card.style.backgroundColor = "grey";
+      principal_card.style.color = "white";
 
       const mainContainer_card2 = document.createElement("div");
       mainContainer_card2.setAttribute("class", "mainContainer_card2");
